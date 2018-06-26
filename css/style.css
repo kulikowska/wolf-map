@@ -1,7 +1,3 @@
-@font-face {
-  font-family: raleway;
-  src: url("fonts/raleway/webfonts/raleway_thin-webfont.woff");
-}
 body {
   font-family: raleway;
   color: #fff;
@@ -11,6 +7,7 @@ body {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+  font-family: 'Dosis', sans-serif;
 }
 a {
   color: #6a9ad9;
@@ -36,6 +33,13 @@ a:hover {
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.6);
+}
+#header .overLay .title {
+  font-size: 50px;
+  float: right;
+  color: #222;
+  margin-right: 28px;
+  margin-top: 17px;
 }
 #contentWrap {
   background: #030303;
