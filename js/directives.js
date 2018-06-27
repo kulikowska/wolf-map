@@ -34,7 +34,32 @@ APP
                           "fill-opacity" : 0.8
                       }
                   });
-                });
+
+                  var labels = {
+                      "type" : "FeatureCollection",
+                      "features" : []
+                  }
+                  json.features.map((feature, i) => {
+                      var centroid = turf.centroid(feature)
+                      centroid.properties.pack = feature.properties.pack;
+                      labels.features.push(centroid);
+                  });
+
+                  map.addLayer({
+                      "id": "packs-labels",
+                      "type": "symbol",
+                      "source": {
+                          "type": "geojson",
+                          "data": labels
+                      },
+                      "layout": {
+                          "text-field": '{pack}',
+                      },
+                      "paint" : {
+                          "text-color": '#ffffff'
+                      }
+                  });
+              });
           });
         } 
     } 

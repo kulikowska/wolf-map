@@ -68,7 +68,7 @@
         {
             "id": "59ab396e4e36821addeec595dfca248b",
             "type": "Feature",
-            "properties": { "name" : "Cinnabar"},
+            "properties": { "pack" : "Cinnabar"},
             "geometry": {
                 "coordinates": [
                     [
@@ -132,7 +132,7 @@
         {
             "id": "cc0ee921fc1ae51df39e2cd47032e513",
             "type": "Feature",
-            "properties": { "name" : "Cougar Creek"},
+            "properties": { "pack" : "Cougar Creek"},
             "geometry": {
                 "coordinates": [
                     [
@@ -164,7 +164,7 @@
         {
             "id": "e0a80c7df52a1f9e80e2a0a79a4149c0",
             "type": "Feature",
-            "properties": { "name" : "8 Mile" },
+            "properties": { "pack" : "8 Mile" },
             "geometry": {
                 "coordinates": [
                     [
@@ -204,7 +204,7 @@
         {
             "id": "be1db38b66797adfab8806b198c673b7",
             "type": "Feature",
-            "properties": { "name" : "Prospect Peak"},
+            "properties": { "pack" : "Prospect Peak"},
             "geometry": {
                 "coordinates": [
                     [
@@ -248,7 +248,7 @@
         {
             "id": "d530e6fd45a1b2a16744551dbcfe7c95",
             "type": "Feature",
-            "properties": { "name" : "Wapiti Lake"},
+            "properties": { "pack" : "Wapiti Lake"},
             "geometry": {
                 "coordinates": [
                     [
@@ -284,7 +284,7 @@
         {
             "id": "2908db34dc7f1635307435ea22174e68",
             "type": "Feature",
-            "properties": { "name" : "Mollie's" },
+            "properties": { "pack" : "Mollie's" },
             "geometry": {
                 "coordinates": [
                     [
@@ -332,7 +332,7 @@
         {
             "id": "adfffed5572e5ab90a8d1286a01690c7",
             "type": "Feature",
-            "properties": { "name" : "Junction Butte"},
+            "properties": { "pack" : "Junction Butte"},
             "geometry": {
                 "coordinates": [
                     [
@@ -372,7 +372,7 @@
         {
             "id": "5e8dfe81d7846dbc3a1b3e80cabeb538",
             "type": "Feature",
-            "properties": { "name" : "Lamar Canyon" },
+            "properties": { "pack" : "Lamar Canyon" },
             "geometry": {
                 "coordinates": [
                     [
@@ -424,7 +424,7 @@
         {
             "id": "6e2a45256b1a9ea9269b8b319e1aae8b",
             "type": "Feature",
-            "properties": { "name" : "Bechler" },
+            "properties": { "pack" : "Bechler" },
             "geometry": {
                 "coordinates": [
                     -111.04982420155903,
