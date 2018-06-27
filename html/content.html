@@ -1,3 +1,8 @@
 <div header></div>
-<div id="map"></div>
+<div id="map">
+    <ul class="yearToggle">
+        <li ng-click="changeYear('2016')" ng-class="currentYear=='2016'|checkActive">2016</li>
+        <li ng-click="changeYear('2015')" ng-class="currentYear=='2015'|checkActive">2015</li>
+    </ul>
+</div>
 <div footer></div>

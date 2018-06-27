@@ -71,6 +71,32 @@ a {
     width:      100%;
     height:     80%;
     position:   relative;
+    .yearToggle {
+        position:   absolute;
+        top:        100px;
+        right:      10px;
+        background: fade(#fff, 90%);
+        z-index:    5;
+        width:      100px;
+        border:     1px solid #ccc;
+        list-style: none;
+        padding:    0;
+        margin:     0;
+        li {
+            color:      #222;
+            font-size:  14px; 
+            padding:    10px;
+            cursor:     pointer;
+            transition: 200ms;
+            &:hover {
+                font-weight:    bold;
+            }
+            &.active {
+                background: @darkBlue;
+                color:      #fff;
+            }
+        }
+    }
 }
 .mapboxgl-canvas {
     left:   0;
