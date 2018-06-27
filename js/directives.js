@@ -15,12 +15,143 @@ APP
                 center: [-110.5885, 44.4280]
             });
 
+            var labels = {
+               "type" : "FeatureCollection",
+               "features" : []
+            }
+
             map.on('load', function() {
-                fetch('../2016.json').then(function(data) {
+                fetch('../2016-1.json').then(function(data) {
                     return data.json();
                 }).then(function(json) {
                     geodata = json;
                     console.log(json, ' 2016');
+
+                    json.packs.map(pack => {
+                        var geojson = {
+                          "type" : "FeatureCollection",
+                          "features" : [{
+                              "type" : "Feature",
+                              "properties" : {},
+                              "geometry" : pack.years[2016].geometry
+                          }]
+                        }
+
+                        var centroid = turf.centroid(geojson)
+                        centroid.properties.pack = pack.name;
+                        labels.features.push(centroid);
+
+                        //console.log(geojson, ' geojson');
+                        var colorObj = { } 
+
+                        switch(pack.name) {
+                            case 'Lamar Canyon' :
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(88, 43, 115, 1)',
+                                  "fill-opacity" : 0.8 
+                                }  
+                                break;
+                            case 'Canyon':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(61, 49, 119, 1)',
+                                  "fill-opacity" : 0.8 
+                                } 
+                                break;
+                            case 'Snake River':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(42, 80, 111, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Mollies':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(37, 111, 91, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Cinnabar':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(68, 145, 48, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Cougar Creek':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(247, 247, 16, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case '8 Mile':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(191, 150, 0, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Prospect Peak':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(238, 164, 0, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Wapati Lake':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(238, 96, 0, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Junction Butte':
+                                colorObj = {
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(238, 6, 0, 1)',
+                                  "fill-opacity" : 0.8
+                                } 
+                                break;
+                            case 'Blecher':
+                                colorObj = {
+                                  /*
+                                  "fill-outline-color" : '#000',
+                                  "fill-color" : 'rgba(200, 0, 91)',
+                                  "fill-opacity" : 0.8
+                                  */
+                                } 
+                                break;
+                        }
+                        map.addLayer({
+                          "id": pack.name,
+                          "type": "fill",
+                          "source": {
+                              "type": "geojson",
+                              "data" : geojson 
+                          },
+                          "paint": colorObj
+                      });
+                    });
+
+                    map.addLayer({
+                        "id": "packs-labels",
+                        "type": "symbol",
+                        "source": {
+                            "type": "geojson",
+                            "data": labels
+                        },
+                        "layout": {
+                            "text-field": '{pack}',
+                        },
+                        "paint" : {
+                            "text-color": '#ffffff'
+                        }
+                    });
+
+                    /*
                     map.addLayer({
                       "id": "packs-2016",
                       "type": "fill",
@@ -59,6 +190,7 @@ APP
                           "text-color": '#ffffff'
                       }
                   });
+              */
               });
           });
         } 
