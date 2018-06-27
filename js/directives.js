@@ -22,253 +22,138 @@ APP
 
             var geodata;
             var activePacks = [];
+            var allpackdata;
             $scope.currentYear = '2015';
 
+            fetch('../2016-1.json').then(function(data) {
+                return data.json();
+            }).then(function(json) {
+                allpackdata = json;
+            });
+
             map.on('load', function() {
-                fetch('../2016-1.json').then(function(data) {
-                    return data.json();
-                }).then(function(json) {
-                    geodata = json;
-                    console.log(json, ' 2016');
+                getYearData($scope.currentYear); 
+            });
 
-                    json.packs.map(pack => {
-                        if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
-                            var geojson = {
-                              "type" : "FeatureCollection",
-                              "features" : [{
-                                  "type" : "Feature",
-                                  "properties" : {},
-                                  "geometry" : pack.years[$scope.currentYear].geometry
-                              }]
-                            }
+            var colorObj = { } 
+            function getLayerStyleObj(pack) {
+                switch(pack) {
+                    case 'Lamar Canyon' :
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(88, 43, 115, 1)',
+                          "fill-opacity" : 0.8 
+                        }  
+                        break;
+                    case 'Canyon':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(61, 49, 119, 1)',
+                          "fill-opacity" : 0.8 
+                        } 
+                        break;
+                    case 'Snake River':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(42, 80, 111, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Mollies':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(37, 111, 91, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Cinnabar':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(68, 145, 48, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Cougar Creek':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(247, 247, 16, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case '8 Mile':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(191, 150, 0, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Prospect Peak':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(238, 164, 0, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Wapati Lake':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(238, 96, 0, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Junction Butte':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(238, 6, 0, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Blecher':
+                        colorObj = {
+                          /*
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(200, 0, 91)',
+                          "fill-opacity" : 0.8
+                          */
+                        } 
+                        break;
+                    }
+                return colorObj;
+            }
 
-                            activePacks.push(pack.name);
-
-                            var centroid = turf.centroid(geojson)
-                            centroid.properties.pack = pack.name;
-                            labels.features.push(centroid);
-
-                            //console.log(geojson, ' geojson');
-                            var colorObj = { } 
-
-                            switch(pack.name) {
-                                case 'Lamar Canyon' :
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(88, 43, 115, 1)',
-                                      "fill-opacity" : 0.8 
-                                    }  
-                                    break;
-                                case 'Canyon':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(61, 49, 119, 1)',
-                                      "fill-opacity" : 0.8 
-                                    } 
-                                    break;
-                                case 'Snake River':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(42, 80, 111, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Mollies':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(37, 111, 91, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Cinnabar':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(68, 145, 48, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Cougar Creek':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(247, 247, 16, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case '8 Mile':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(191, 150, 0, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Prospect Peak':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(238, 164, 0, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Wapati Lake':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(238, 96, 0, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Junction Butte':
-                                    colorObj = {
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(238, 6, 0, 1)',
-                                      "fill-opacity" : 0.8
-                                    } 
-                                    break;
-                                case 'Blecher':
-                                    colorObj = {
-                                      /*
-                                      "fill-outline-color" : '#000',
-                                      "fill-color" : 'rgba(200, 0, 91)',
-                                      "fill-opacity" : 0.8
-                                      */
-                                    } 
-                                    break;
-                            }
-                            map.addLayer({
-                              "id": pack.name,
-                              "type": "fill",
-                              "source": {
-                                  "type": "geojson",
-                                  "data" : geojson 
-                              },
-                              "paint": colorObj
-                          });
+            function getYearData(year) {
+                console.log(allpackdata, ' allpackdata');
+                allpackdata.packs.map(pack => {
+                    if (pack.years[$scope.currentYear] && 
+                        pack.years[$scope.currentYear].geometry &&
+                        typeof map.getSource(pack.name) === 'undefined') 
+                     {
+                        var geojson = {
+                          "type" : "FeatureCollection",
+                          "features" : [{
+                              "type" : "Feature",
+                              "properties" : {},
+                              "geometry" : pack.years[$scope.currentYear].geometry
+                          }]
                         }
-                        });
+
+                        activePacks.push(pack.name);
 
                         map.addLayer({
-                            "id": "packs-labels",
-                            "type": "symbol",
+                            "id": pack.name,
+                            "type": "fill",
                             "source": {
                                 "type": "geojson",
-                                "data": labels
+                                "data" : geojson 
                             },
-                            "layout": {
-                                "text-field": '{pack}',
-                            },
-                            "paint" : {
-                                "text-color": '#ffffff'
-                            }
+                            "paint": getLayerStyleObj(pack.name) 
                         });
 
-              });
-          });
-
-          $scope.changeYear = function(year) {
-            $scope.currentYear = year;
-            console.log(map.getSource('Canyon'));
-
-            geodata.packs.map(pack => {
-                if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
-                    var geojson = {
-                      "type" : "FeatureCollection",
-                      "features" : [{
-                          "type" : "Feature",
-                          "properties" : {},
-                          "geometry" : pack.years[$scope.currentYear].geometry
-                      }]
+                        var centroid = turf.centroid(geojson)
+                        centroid.properties.pack = pack.name;
+                        labels.features.push(centroid);
                     }
-
-                    var centroid = turf.centroid(geojson)
-                    centroid.properties.pack = pack.name;
-                    labels.features.push(centroid);
-
-                    //console.log(geojson, ' geojson');
-                    var colorObj = { } 
-
-                    switch(pack.name) {
-                        case 'Lamar Canyon' :
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(88, 43, 115, 1)',
-                              "fill-opacity" : 0.8 
-                            }  
-                            break;
-                        case 'Canyon':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(61, 49, 119, 1)',
-                              "fill-opacity" : 0.8 
-                            } 
-                            break;
-                        case 'Snake River':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(42, 80, 111, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Mollies':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(37, 111, 91, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Cinnabar':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(68, 145, 48, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Cougar Creek':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(247, 247, 16, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case '8 Mile':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(191, 150, 0, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Prospect Peak':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(238, 164, 0, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Wapati Lake':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(238, 96, 0, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Junction Butte':
-                            colorObj = {
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(238, 6, 0, 1)',
-                              "fill-opacity" : 0.8
-                            } 
-                            break;
-                        case 'Blecher':
-                            colorObj = {
-                              /*
-                              "fill-outline-color" : '#000',
-                              "fill-color" : 'rgba(200, 0, 91)',
-                              "fill-opacity" : 0.8
-                              */
-                            } 
-                            break;
-                    }
-
-                    console.log(map.getSource(pack.name));
-
-                    if ( typeof map.getSource(pack.name) !== 'undefined') {
+                    else if ( typeof map.getSource(pack.name) !== 'undefined') {
                         map.getSource(pack.name).setData({
                           "type": "FeatureCollection",
                           "features": [{
@@ -278,28 +163,26 @@ APP
                           }]
                         });
                     }
-                    else {
-                        map.addLayer({
-                          "id": pack.name,
-                          "type": "fill",
-                          "source": {
-                              "type": "geojson",
-                              "data" : {
-                                  "type" : "FeatureCollection",
-                                  "features" : [{
-                                      "type" : "Feature",
-                                      "properties" : {},
-                                      "geometry" : pack.years[$scope.currentYear].geometry
-                                  }]
-                              }
-                          },
-                          "paint": colorObj
-                      });
-                    }
-
-
-            }
                 });
+                map.addLayer({
+                    "id": "packs-labels",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": labels
+                    },
+                    "layout": {
+                        "text-field": '{pack}',
+                    },
+                    "paint" : {
+                        "text-color": '#ffffff'
+                    }
+                });
+            }
+
+          $scope.changeYear = function(year) {
+            $scope.currentYear = year;
+            getYearData(year);
           }
         } 
     } 
