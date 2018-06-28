@@ -127,7 +127,7 @@ APP
                 labels.features = [];
                 var geojson;
                 allpackdata.packs.map(pack => {
-                    if (typeof pack.years[$scope.currentYear].geometry !== 'undefined') {
+                    if (pack.years[$scope.currentYear].geometry) {
                         geojson = {
                           "type" : "FeatureCollection",
                           "features" : [{
@@ -141,7 +141,7 @@ APP
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
 
-                        if (typeof map.getSource(pack.name) === 'undefined') {
+                        if (!map.getSource(pack.name)) {
                             map.addLayer({
                                 "id": pack.name,
                                 "type": "fill",
@@ -155,11 +155,15 @@ APP
                         else {
                             map.getSource(pack.name).setData(geojson);
                         }
+                    } else if (map.getSource(pack.name)) {
+                        map.removeLayer(pack.name);
+                        map.removeSource(pack.name);
                     }
+
                 });
 
                 //console.log(labels, ' labels');
-                if (typeof map.getSource('pack-labels') === 'undefined') {
+                if (!map.getSource('pack-labels')) {
                     map.addLayer({
                         "id": "pack-labels",
                         "type": "symbol",
