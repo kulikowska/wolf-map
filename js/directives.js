@@ -23,7 +23,7 @@ APP
             var geodata;
             var activePacks = [];
             var allpackdata;
-            $scope.currentYear = '2015';
+            $scope.currentYear = '2016';
 
             fetch('../2016-1.json').then(function(data) {
                 return data.json();
@@ -141,6 +141,7 @@ APP
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
 
+                        var before = map.getSource('pack-labels') ? 'pack-labels' : '';
                         if (!map.getSource(pack.name)) {
                             map.addLayer({
                                 "id": pack.name,
@@ -150,7 +151,7 @@ APP
                                     "data" : geojson 
                                 },
                                 "paint": getLayerStyleObj(pack.name) 
-                            });
+                            }, before);
                         }
                         else {
                             map.getSource(pack.name).setData(geojson);
@@ -159,7 +160,6 @@ APP
                         map.removeLayer(pack.name);
                         map.removeSource(pack.name);
                     }
-
                 });
 
                 //console.log(labels, ' labels');
@@ -173,13 +173,17 @@ APP
                         },
                         "layout": {
                             "text-field": '{pack}',
+                            "text-size" : 14,
+                            "text-allow-overlap" : true
                         },
                         "paint" : {
                             "text-color": '#ffffff'
-                        }
+                        },
+                        "minzoom" : 0,
+                        "maxzoom" : 18,
                     });
                 } else {
-                    map.getSource('pack-labels').setData( labels);
+                    map.getSource('pack-labels').setData(labels);
                 }
             }
 
