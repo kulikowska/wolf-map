@@ -125,12 +125,10 @@ APP
             function getYearData(year) {
                 console.log(allpackdata, ' allpackdata');
                 labels.features = [];
+                var geojson;
                 allpackdata.packs.map(pack => {
-                    if ( 
-                        pack.years[$scope.currentYear].geometry &&
-                        typeof map.getSource(pack.name) === 'undefined') 
-                     {
-                        var geojson = {
+                    if (typeof pack.years[$scope.currentYear].geometry !== 'undefined') {
+                        geojson = {
                           "type" : "FeatureCollection",
                           "features" : [{
                               "type" : "Feature",
@@ -139,43 +137,31 @@ APP
                           }]
                         }
 
-                        activePacks.push(pack.name);
-
-                        map.addLayer({
-                            "id": pack.name,
-                            "type": "fill",
-                            "source": {
-                                "type": "geojson",
-                                "data" : geojson 
-                            },
-                            "paint": getLayerStyleObj(pack.name) 
-                        });
-
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
-                    }
-                    else if ( typeof map.getSource(pack.name) !== 'undefined') {
-                        var geojson = {
-                          "type": "FeatureCollection",
-                          "features": [{
-                              "type": "Feature",
-                              "properties": { },
-                              "geometry": pack.years[$scope.currentYear].geometry
-                          }]
+
+                        if (typeof map.getSource(pack.name) === 'undefined') {
+                            map.addLayer({
+                                "id": pack.name,
+                                "type": "fill",
+                                "source": {
+                                    "type": "geojson",
+                                    "data" : geojson 
+                                },
+                                "paint": getLayerStyleObj(pack.name) 
+                            });
                         }
-                        map.getSource(pack.name).setData(geojson);
-
-                        var centroid = turf.centroid(geojson)
-                        centroid.properties.pack = pack.name;
-                        labels.features.push(centroid);
+                        else {
+                            map.getSource(pack.name).setData(geojson);
+                        }
                     }
                 });
 
-                console.log(labels, ' labels');
-                if (typeof map.getSource('packs-labels') === 'undefined') {
+                //console.log(labels, ' labels');
+                if (typeof map.getSource('pack-labels') === 'undefined') {
                     map.addLayer({
-                        "id": "packs-labels",
+                        "id": "pack-labels",
                         "type": "symbol",
                         "source": {
                             "type": "geojson",
@@ -189,9 +175,7 @@ APP
                         }
                     });
                 } else {
-                    map.getSource('packs-labels').setData(
-                        labels
-                    );
+                    map.getSource('pack-labels').setData( labels);
                 }
             }
 
