@@ -33,6 +33,7 @@ APP
 
             map.on('load', function() {
                 getYearData($scope.currentYear); 
+                //setLabelLayer($scope.currentYear);
             });
 
             var colorObj = { } 
@@ -123,8 +124,9 @@ APP
 
             function getYearData(year) {
                 console.log(allpackdata, ' allpackdata');
+                labels.features = [];
                 allpackdata.packs.map(pack => {
-                    if (pack.years[$scope.currentYear] && 
+                    if ( 
                         pack.years[$scope.currentYear].geometry &&
                         typeof map.getSource(pack.name) === 'undefined') 
                      {
@@ -154,35 +156,48 @@ APP
                         labels.features.push(centroid);
                     }
                     else if ( typeof map.getSource(pack.name) !== 'undefined') {
-                        map.getSource(pack.name).setData({
+                        var geojson = {
                           "type": "FeatureCollection",
                           "features": [{
                               "type": "Feature",
                               "properties": { },
                               "geometry": pack.years[$scope.currentYear].geometry
                           }]
-                        });
+                        }
+                        map.getSource(pack.name).setData(geojson);
+
+                        var centroid = turf.centroid(geojson)
+                        centroid.properties.pack = pack.name;
+                        labels.features.push(centroid);
                     }
                 });
-                map.addLayer({
-                    "id": "packs-labels",
-                    "type": "symbol",
-                    "source": {
-                        "type": "geojson",
-                        "data": labels
-                    },
-                    "layout": {
-                        "text-field": '{pack}',
-                    },
-                    "paint" : {
-                        "text-color": '#ffffff'
-                    }
-                });
+
+                console.log(labels, ' labels');
+                if (typeof map.getSource('packs-labels') === 'undefined') {
+                    map.addLayer({
+                        "id": "packs-labels",
+                        "type": "symbol",
+                        "source": {
+                            "type": "geojson",
+                            "data": labels
+                        },
+                        "layout": {
+                            "text-field": '{pack}',
+                        },
+                        "paint" : {
+                            "text-color": '#ffffff'
+                        }
+                    });
+                } else {
+                    map.getSource('packs-labels').setData(
+                        labels
+                    );
+                }
             }
 
           $scope.changeYear = function(year) {
-            $scope.currentYear = year;
-            getYearData(year);
+              $scope.currentYear = year;
+              getYearData(year);
           }
         } 
     } 
