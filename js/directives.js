@@ -23,7 +23,7 @@ APP
             var geodata;
             var activePacks = [];
             var allpackdata;
-            $scope.currentYear = '2016';
+            $scope.currentYear = '2013';
 
             fetch('../2016-1.json').then(function(data) {
                 return data.json();
@@ -127,7 +127,7 @@ APP
                 labels.features = [];
                 var geojson;
                 allpackdata.packs.map(pack => {
-                    if (pack.years[$scope.currentYear].geometry) {
+                    if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
                         geojson = {
                           "type" : "FeatureCollection",
                           "features" : [{
