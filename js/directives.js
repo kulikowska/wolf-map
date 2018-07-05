@@ -122,9 +122,11 @@ APP
                 return colorObj;
             }
 
+            $scope.allPackData;
             function getYearData(year) {
                 console.log(allpackdata, ' allpackdata');
                 labels.features = [];
+                legendData = [];
                 var geojson;
                 allpackdata.packs.map(pack => {
                     if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
@@ -141,6 +143,8 @@ APP
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
 
+                        legendData.push(pack);
+
                         var before = map.getSource('pack-labels') ? 'pack-labels' : '';
                         if (!map.getSource(pack.name)) {
                             map.addLayer({
@@ -152,6 +156,7 @@ APP
                                 },
                                 "paint": getLayerStyleObj(pack.name) 
                             }, before);
+                            
                         }
                         else {
                             map.getSource(pack.name).setData(geojson);
@@ -160,7 +165,12 @@ APP
                         map.removeLayer(pack.name);
                         map.removeSource(pack.name);
                     }
+                    //$scope.$apply();
+                    $scope.$evalAsync(function() {
+                        $scope.allPackData = legendData;
+                    });
                 });
+
 
                 //console.log(labels, ' labels');
                 if (!map.getSource('pack-labels')) {

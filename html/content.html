@@ -7,5 +7,12 @@
         <li ng-click="changeYear('2013')" ng-class="currentYear=='2013'|checkActive">2013</li>
         <li ng-click="changeYear('2012')" ng-class="currentYear=='2012'|checkActive">2012</li>
     </ul>
+
+    <ul class="legend">
+        <li ng-repeat="pack in allPackData">
+            {{pack.name}}
+            {{pack.years[currentYear].numbers.adults}}
+        </li>
+    </ul>
 </div>
 <!--<div footer></div>--!>
