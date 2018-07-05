@@ -23,7 +23,7 @@ APP
             var geodata;
             var activePacks = [];
             var allpackdata;
-            $scope.currentYear = '2013';
+            $scope.currentYear = '2012';
 
             fetch('../wolf-report-data.json').then(function(data) {
                 return data.json();
