@@ -25,7 +25,7 @@ APP
             var allpackdata;
             $scope.currentYear = '2013';
 
-            fetch('../2016-1.json').then(function(data) {
+            fetch('../wolf-report-data.json').then(function(data) {
                 return data.json();
             }).then(function(json) {
                 allpackdata = json;
