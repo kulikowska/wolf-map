@@ -119,6 +119,18 @@ a:hover {
   padding-top: 8px;
   padding-bottom: 8px;
 }
+#map .mapOpts {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
+  color: #222;
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+}
 .mapboxgl-canvas {
   left: 0;
   right: 0;
@@ -144,7 +156,8 @@ a:hover {
 .prospect-peak {
   background: #eea400;
 }
-.wapati-lake {
+.wapati-lake,
+.blacktail {
   background: #ee6000;
 }
 .junction-butte {
@@ -152,4 +165,22 @@ a:hover {
 }
 .lamar-canyon {
   background: #582b73;
+}
+.yellowstone-delta {
+  background: #449130;
+}
+.mary-mountain {
+  background: #4a3436;
+}
+.blecher {
+  background: #5b93c6;
+}
+.agate {
+  background: #aa33ae;
+}
+.six-four-two,
+.seven-five-five,
+.seven-five-five-eight-eight-nine,
+.nine-eleven {
+  border: 1px solid #000;
 }

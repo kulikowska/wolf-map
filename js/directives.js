@@ -112,22 +112,46 @@ APP
                     case 'Blecher':
                         colorObj = {
                             "circle-radius": 28,
-                            "circle-color": "#5b94c6",
+                            "circle-color": 'rgba(91, 147, 198, 1)',
                             "circle-opacity": 0.6
                         } 
                         break;
                     case 'Blacktail':
                         colorObj = {
                           "fill-outline-color" : '#000',
-                          "fill-color" : 'rgba(238, 6, 0, 1)',
+                          "fill-color" : 'rgba(238, 96, 0, 1)',
                           "fill-opacity" : 0.8
                         } 
                         break;
                     case 'Yellowstone Delta':
                         colorObj = {
                           "fill-outline-color" : '#000',
-                          "fill-color" : 'rgba(238, 6, 0, 1)',
+                          "fill-color" : 'rgba(68, 145, 48, 1)',
                           "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Agate':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(170, 51, 174, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Mary Mountain':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(74, 52, 54, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case '642F Group' :
+                    case '755M Group' :
+                    case '911M Group' :
+                    case '755M/889F Group' :
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(255,255, 255, 1)',
+                          "fill-opacity" : 0.6
                         } 
                         break;
                     }
@@ -235,6 +259,11 @@ APP
                 totalWolves  += adults + pups;
               })
               $scope.totalForYear = totalWolves;
+           }
+
+           $scope.toggleLabels = function() {
+               var layerVis = (map.getLayoutProperty('pack-labels', 'visibility') === 'visible') ? 'none' : 'visible';
+               map.setLayoutProperty('pack-labels', 'visibility', layerVis);
            }
         } 
     } 
