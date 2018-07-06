@@ -2,6 +2,7 @@
     [ 
         {
             "name" : "Mollies",
+            "id"   : "mollies",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -48,8 +49,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 14,
+                        "pups"   : 4
                     }
                 },
                 "2015" : {
@@ -101,8 +102,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 10,
+                        "pups"   : 6
                     }
                 },
                 "2014" : {
@@ -134,8 +135,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 6
                     }
                 },
                 "2013" : {
@@ -175,8 +176,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 5
                     }
                 },
                 "2012" : {
@@ -225,13 +226,14 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "Canyon",
+            "id"   : "canyon",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -259,7 +261,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 1
                     }
                 },
                 "2015" : {
@@ -299,8 +301,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 4,
+                        "pups"   : 2
                     }
                 },
                 "2014" : {
@@ -332,8 +334,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 3,
+                        "pups"   : 3
                     }
                 },
                 "2013" : {
@@ -374,7 +376,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 3
                     }
                 },
                 "2012" : {
@@ -418,14 +420,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 2
                     }
                 }
             }
         },
         {
             "name" : "Snake River",
+            "id"   : "snake-river",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -460,8 +463,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 9,
+                        "pups"   : 5
                     }
                 },
                 "2015" : {
@@ -509,8 +512,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 0
                     }
                 },
                 "2014" : {
@@ -550,8 +553,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 9,
+                        "pups"   : 5 
                     }
                 },
                 "2013" : {
@@ -564,7 +567,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 4
                     }
                 },
                 "2012" : {
@@ -600,14 +603,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 2
                     }
                 }
             }
         },
         {
             "name" : "Cinnabar",
+            "id"   : "cinnabar",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -670,8 +674,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 3,
+                        "pups"   : 0
                     }
                 },
                 "2015" : {
@@ -684,6 +688,7 @@
         },
         {
             "name" : "Cougar Creek",
+            "id"   : "cougar-creek",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -714,8 +719,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 2
                     }
                 },
                 "2015" : {
@@ -756,7 +761,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 2
                     }
                 },
                 "2014" : {
@@ -796,8 +801,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 3
                     }
                 },
                 "2013" : {
@@ -837,8 +842,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 6
                     }
                 },
                 "2012" : {
@@ -882,14 +887,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 5
                     }
                 }
             }
         },
         {
             "name" : "8 Mile",
+            "id"   : "eight-mile",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -928,8 +934,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 10 
                     }
                 },
                 "2015" : {
@@ -969,8 +975,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 5
                     }
                 },
                 "2014" : {
@@ -998,8 +1004,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 2
                     }
                 },
                 "2013" : {
@@ -1031,8 +1037,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 9,
+                        "pups"   : 9
                     }
                 },
                 "2012" : {
@@ -1072,14 +1078,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 3
                     }
                 }
             }
         },
         {
             "name" : "Prospect Peak",
+            "id"   : "prospect-peak",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -1122,8 +1129,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 9,
+                        "pups"   : 2
                     }
                 },
                 "2015" : {
@@ -1179,8 +1186,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 5
                     }
                 },
                 "2014" : {
@@ -1224,14 +1231,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 6
                     }
                 }
             }
         },
         {
             "name" : "Wapati Lake",
+            "id"   : "wapati-lake",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -1267,7 +1275,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 4
                     }
                 },
                 "2015" : {
@@ -1311,8 +1319,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 4
                     }
                 },
                 "2014" : {
@@ -1322,6 +1330,7 @@
         },
         {
             "name" : "Junction Butte",
+            "id"   : "junction-butte",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -1360,8 +1369,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 3,
+                        "pups"   : 4
                     }
                 },
                 "2015" : {
@@ -1405,8 +1414,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 8
                     }
                 },
                 "2014" : {
@@ -1447,7 +1456,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 3
                     }
                 },
                 "2013" : {
@@ -1492,7 +1501,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 4
                     }
                 },
                 "2012" : {
@@ -1532,14 +1541,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 2
                     }
                 }
             }
         },
         {
             "name" : "Lamar Canyon",
+            "id"   : "lamar-canyon",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -1591,7 +1601,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 0
                     }
                 },
                 "2015" : {
@@ -1623,8 +1633,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 3
                     }
                 },
                 "2014" : {
@@ -1656,8 +1666,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 6
                     }
                 },
                 "2013" : {
@@ -1693,8 +1703,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 0
                     }
                 },
                 "2012" : {
@@ -1738,14 +1748,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 4
                     }
                 }
             }
         },
         {
             "name" : "Blecher",
+            "id"   : "blecher",
             "years": {
                 "2016" : {
                     "geometry" : {
@@ -1757,7 +1768,7 @@
                     },
                     "numbers" : {
                         "adults" : 5,
-                        "pups"   : 7
+                        "pups"   : 4
                     }
                 },
                 "2015" : {
@@ -1769,8 +1780,21 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 6,
+                        "pups"   : 0
+                    }
+                },
+                "2014" : {
+                    "geometry" : {
+                        "type" : "Point",
+                        "coordinates": [
+                            -111.04982420155903,
+                            44.16840143511092
+                        ]
+                    },
+                    "numbers" : {
+                        "adults" : 6,
+                        "pups"   : 4
                     }
                 },
                 "2013" : {
@@ -1782,8 +1806,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 4
                     }
                 },
                 "2012" : {
@@ -1795,14 +1819,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 8,
+                        "pups"   : 2
                     }
                 }
             }
         },
         {
             "name" : "755M Group",
+            "id"   : "seven-five-five",
             "years": {
                 "2014" : {
                     "geometry" : {
@@ -1837,14 +1862,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 3,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "755M/889F Group",
+            "id"   : "seven-five-five-eight-eight-nine",
             "years": {
                 "2013" : {
                     "geometry" : {
@@ -1879,14 +1905,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "911M Group",
+            "id"   : "nine-eleven",
             "years": {
                 "2014" : {
                     "geometry" : {
@@ -1917,14 +1944,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 2,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "Yellowstone Delta",
+            "id"   : "yellowstone-delta",
             "years": {
                 "2013" : {
                     "geometry" : {
@@ -1959,8 +1987,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 7,
+                        "pups"   : 6
                     }
                 },
                 "2012" : {
@@ -1996,14 +2024,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 11,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "Blacktail",
+            "id"   : "blacktail",
             "years": {
                 "2013" : {
                     "geometry" : {
@@ -2050,8 +2079,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 3,
+                        "pups"   : 0
                     }
                 },
                 "2012" : {
@@ -2095,14 +2124,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 4,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "Agate",
+            "id"   : "agate",
             "years": {
                 "2012" : {
                     "geometry" : {
@@ -2133,14 +2163,15 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 0,
+                        "pups"   : 0
                     }
                 }
             }
         },
         {
             "name" : "Mary Mountain",
+            "id"   : "mary-mountain",
             "years": {
                 "2012" : {
                     "geometry" : {
@@ -2179,8 +2210,8 @@
                         ]
                     },
                     "numbers" : {
-                        "adults" : 5,
-                        "pups"   : 7
+                        "adults" : 0,
+                        "pups"   : 0
                     }
                 }
             }

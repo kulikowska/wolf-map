@@ -111,11 +111,9 @@ APP
                         break;
                     case 'Blecher':
                         colorObj = {
-                          /*
-                          "fill-outline-color" : '#000',
-                          "fill-color" : 'rgba(200, 0, 91)',
-                          "fill-opacity" : 0.8
-                          */
+                            "circle-radius": 28,
+                            "circle-color": "#5b94c6",
+                            "circle-opacity": 0.6
                         } 
                         break;
                     }
@@ -124,7 +122,7 @@ APP
 
             $scope.allPackData;
             function getYearData(year) {
-                console.log(allpackdata, ' allpackdata');
+                //console.log(allpackdata, ' allpackdata');
                 labels.features = [];
                 legendData = [];
                 var geojson;
@@ -147,15 +145,28 @@ APP
 
                         var before = map.getSource('pack-labels') ? 'pack-labels' : '';
                         if (!map.getSource(pack.name)) {
-                            map.addLayer({
-                                "id": pack.name,
-                                "type": "fill",
-                                "source": {
-                                    "type": "geojson",
-                                    "data" : geojson 
-                                },
-                                "paint": getLayerStyleObj(pack.name) 
-                            }, before);
+                            if (pack.years[$scope.currentYear].geometry.type === "Polygon") {
+                                map.addLayer({
+                                    "id": pack.name,
+                                    "type": "fill",
+                                    "source": {
+                                        "type": "geojson",
+                                        "data" : geojson 
+                                    },
+                                    "paint": getLayerStyleObj(pack.name) 
+                                }, before);
+                            }
+                            if (pack.years[$scope.currentYear].geometry.type === "Point") {
+                                map.addLayer({
+                                    "id": pack.name,
+                                    "type": "circle",
+                                    "source": {
+                                        "type": "geojson",
+                                        "data" : geojson 
+                                    },
+                                    "paint": getLayerStyleObj(pack.name) 
+                                }, before);
+                            }
                             
                         }
                         else {
@@ -165,12 +176,11 @@ APP
                         map.removeLayer(pack.name);
                         map.removeSource(pack.name);
                     }
-                    //$scope.$apply();
-                    $scope.$evalAsync(function() {
-                        $scope.allPackData = legendData;
-                    });
                 });
-
+                $scope.$evalAsync(function() {
+                    $scope.allPackData = legendData;
+                });
+                getYearTotal(legendData);
 
                 //console.log(labels, ' labels');
                 if (!map.getSource('pack-labels')) {
@@ -201,6 +211,17 @@ APP
               $scope.currentYear = year;
               getYearData(year);
           }
+
+
+          function getYearTotal(data) {
+              var totalWolves = 0;
+              data.forEach(pack => {
+                var adults = pack.years[$scope.currentYear].numbers.adults;
+                var pups = pack.years[$scope.currentYear].numbers.pups;
+                totalWolves  += adults + pups;
+              })
+              $scope.totalForYear = totalWolves;
+           }
         } 
     } 
 }])

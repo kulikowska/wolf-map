@@ -1,9 +1,10 @@
 @niceBlue:#2d66b0;
 @darkBlue: #162547;
+@panelFromTop: 20px;
 
 
 body {
-    font-family: raleway;
+    //font-family: raleway;
     color:       #fff;
     margin:      0;
     padding:     0;
@@ -74,7 +75,7 @@ a {
     position:   relative;
     .yearToggle {
         position:   absolute;
-        top:        100px;
+        top:        @panelFromTop;
         right:      10px;
         background: fade(#fff, 90%);
         z-index:    5;
@@ -101,7 +102,7 @@ a {
     .legend {
         position:   absolute;
         left:       10px;
-        top:        100px;
+        top:        @panelFromTop;
         background: #fff;
         border:     1px solid #ccc;
         min-height: 200px;
@@ -110,7 +111,29 @@ a {
         color:      #222;
         list-style: none;
         margin:     0px;
-        padding:    10px;
+        padding:    0px;
+        li {
+            text-align:     left;
+            font-size:      16px;
+            color:          #444;
+            font-family:    'Dosis', sans-serif;
+            margin:         4px 10px 4px 4px;
+            span {
+                height:         20px;
+                width:          20px;
+                display:        inline-block;
+                border-radius:  4px;
+            }
+            &.total {
+                border-top:     1px solid #999;
+                font-weight:    bold;
+                font-size:      16px;
+                text-align:     center;
+                margin-top:     8px;
+                padding-top:    8px;
+                padding-bottom: 8px;
+            }
+        }
     }
 }
 .mapboxgl-canvas {
@@ -118,4 +141,34 @@ a {
     right:  0;
 }
 
+.mollies {
+    background: rgba(37, 111, 91, 1);
+}
+.canyon {
+      background : rgba(61, 49, 119, 1);
+}
+.snake-river {
+     background : rgba(42, 80, 111, 1);
+}
+.cougar-creek {
+      background : rgba(247, 247, 16, 1);
+}
+.cinnabar {
+      background: rgba(68, 145, 48, 1);
+}
+.eight-mile {
+      background: rgba(191, 150, 0, 1);
+}
+.prospect-peak {
+      background: rgba(238, 164, 0, 1);
+}
+.wapati-lake {
+      background: rgba(238, 96, 0, 1);
+}
+.junction-butte {
+      background: rgba(238, 6, 0, 1);
+}
+.lamar-canyon {
+      background: rgba(88, 43, 115, 1);
+}
 

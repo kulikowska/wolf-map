@@ -10,9 +10,11 @@
 
     <ul class="legend">
         <li ng-repeat="pack in allPackData">
-            {{pack.name}}
-            {{pack.years[currentYear].numbers.adults}}
+            <span class={{pack.id}}></span>
+            {{pack.name}}:
+            {{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}
         </li>
+        <li class="total"> Total: {{totalForYear}} </li>
     </ul>
 </div>
 <!--<div footer></div>--!>
