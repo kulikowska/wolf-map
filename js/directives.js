@@ -23,7 +23,7 @@ APP
             var geodata;
             var activePacks = [];
             var allpackdata;
-            $scope.currentYear = '2012';
+            $scope.currentYear = '2011';
 
             fetch('../wolf-report-data.json').then(function(data) {
                 return data.json();
@@ -114,6 +114,20 @@ APP
                             "circle-radius": 28,
                             "circle-color": "#5b94c6",
                             "circle-opacity": 0.6
+                        } 
+                        break;
+                    case 'Blacktail':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(238, 6, 0, 1)',
+                          "fill-opacity" : 0.8
+                        } 
+                        break;
+                    case 'Yellowstone Delta':
+                        colorObj = {
+                          "fill-outline-color" : '#000',
+                          "fill-color" : 'rgba(238, 6, 0, 1)',
+                          "fill-opacity" : 0.8
                         } 
                         break;
                     }
