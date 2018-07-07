@@ -96,6 +96,7 @@ APP
                         } 
                         break;
                     case 'Wapati Lake':
+                    case 'Blacktail':
                         colorObj = {
                           "fill-outline-color" : '#000',
                           "fill-color" : 'rgba(238, 96, 0, 1)',
@@ -114,13 +115,6 @@ APP
                             "circle-radius": 28,
                             "circle-color": 'rgba(91, 147, 198, 1)',
                             "circle-opacity": 0.6
-                        } 
-                        break;
-                    case 'Blacktail':
-                        colorObj = {
-                          "fill-outline-color" : '#000',
-                          "fill-color" : 'rgba(238, 96, 0, 1)',
-                          "fill-opacity" : 0.8
                         } 
                         break;
                     case 'Yellowstone Delta':
@@ -158,7 +152,6 @@ APP
                 return colorObj;
             }
 
-            $scope.allPackData;
             function getYearData(year) {
                 //console.log(allpackdata, ' allpackdata');
                 labels.features = [];

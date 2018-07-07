@@ -9,8 +9,9 @@
         <li ng-click="changeYear('2011')" ng-class="currentYear=='2011'|checkActive">2011</li>
     </ul>
 
-    <ul class="legend">
-        <li ng-repeat="pack in allPackData">
+    <ul class="legend" ng-init="orderby='name'">
+        <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
+        <li ng-repeat="pack in allPackData | orderBy: orderby">
             <span class={{pack.id}}></span>
             {{pack.name}}:
             {{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}
