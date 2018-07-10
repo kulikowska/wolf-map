@@ -7,6 +7,7 @@
         <li ng-click="changeYear('2013')" ng-class="currentYear=='2013'|checkActive">2013</li>
         <li ng-click="changeYear('2012')" ng-class="currentYear=='2012'|checkActive">2012</li>
         <li ng-click="changeYear('2011')" ng-class="currentYear=='2011'|checkActive">2011</li>
+        <li ng-click="changeYear('2010')" ng-class="currentYear=='2010'|checkActive">2010</li>
     </ul>
 
         <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
@@ -14,9 +15,11 @@
         <tr ng-repeat="pack in allPackData | orderBy: orderby">
             <td ng-class="pack.id" class="colourCode"></td>
             <td>{{pack.name}}:</td>
-            <td>{{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}</td>
+            <td ng-if="pack.years[currentYear].numbers.adults!=='N/A'">{{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}</td>
+            <td ng-if="pack.years[currentYear].numbers.adults=='N/A'">{{pack.years[currentYear].numbers.adults}}</td>
         </tr>
-        <tr class="total"><td></td> <td>Total</td><td> {{totalForYear}}</td> </tr>
+        <tr class="total" ng-if="loners"><td></td> <td>Loners</td><td> {{loners}}</td> </tr>
+        <tr class="total"><td></td> <td>Total</td><td> {{totalForYear + loners}}</td> </tr>
     </table>
 
     <ul class="mapOpts">

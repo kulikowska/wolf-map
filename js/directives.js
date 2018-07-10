@@ -23,12 +23,22 @@ APP
             var geodata;
             var activePacks = [];
             var allpackdata;
-            $scope.currentYear = '2011';
+            var noTerritoryData;
+            $scope.currentYear = '2010';
+            $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
                 return data.json();
             }).then(function(json) {
                 allpackdata = json;
+                console.log(allpackdata);
+            });
+
+            fetch('../no-territory.json').then(function(data) {
+                return data.json();
+            }).then(function(json) {
+                console.log(json);
+                noTerritoryData = json;
             });
 
             map.on('load', function() {
@@ -37,11 +47,33 @@ APP
             });
             var popup = new mapboxgl.Popup();
 
+            function getNoTerritory() {
+                noTerritoryData.packs.forEach(pack => {
+                    if (pack.years[$scope.currentYear]) {
+                        legendData.push(pack);
+                    }
+                });
+
+                
+                if (noTerritoryData.loners.years[$scope.currentYear]) {
+                    $scope.loners = noTerritoryData.loners.years[$scope.currentYear].numbers.adults;noTerritoryData.loners.years[$scope.currentYear].numbers.adults;noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
+                }
+                else {
+                    $scope.loners = undefined;
+                }
+                
+                console.log(legendData, ' legendData');
+                console.log($scope.loners);
+
+                getYearTotal(legendData);
+            }
+
+            var legendData;
             function getYearData(year) {
                 //console.log(allpackdata, ' allpackdata');
                 labels.features = [];
-                legendData = [];
                 var geojson;
+                legendData = [];
                 allpackdata.packs.map(pack => {
                     if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
                         geojson = {
@@ -111,10 +143,11 @@ APP
                         map.removeSource(pack.id);
                     }
                 });
+                getNoTerritory();
                 $scope.$evalAsync(function() {
                     $scope.allPackData = legendData;
                 });
-                getYearTotal(legendData);
+
 
                 //console.log(labels, ' labels');
                 if (!map.getSource('pack-labels')) {
@@ -153,7 +186,9 @@ APP
               data.forEach(pack => {
                 var adults = pack.years[$scope.currentYear].numbers.adults;
                 var pups = pack.years[$scope.currentYear].numbers.pups;
-                totalWolves  += adults + pups;
+
+                if (!isNaN(adults)) { totalWolves  += adults; }
+                if (!isNaN(pups)) { totalWolves  +=  pups; }
               })
               $scope.totalForYear = totalWolves;
            }

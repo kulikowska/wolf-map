@@ -193,6 +193,18 @@ a:hover {
 .nine-eleven {
   border: 1px solid #000;
 }
+.grayling {
+  background: #ee0600;
+}
+.silver {
+  background: #e5e5e5;
+}
+.quadrant {
+  background: #56d2b3;
+}
+.loners {
+  background: #ccc;
+}
 .popUp {
   color: #000;
   font-family: 'Dosis', sans-serif;

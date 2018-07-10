@@ -95,6 +95,21 @@ APP
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(255,255, 255, 1)',
               "fill-opacity" : 0.6
+        },
+        'Grayling' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(238, 6, 0, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Silver' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(229, 229, 229, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Quadrant Mountain' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(86, 210, 179, 1)',
+              "fill-opacity" : 0.8
         }
     }
 }]);

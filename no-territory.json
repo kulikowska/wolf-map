@@ -1,0 +1,14 @@
+{ "packs" : 
+    [
+    ],
+    "loners" : {
+        "years" : {
+            "2010" : {
+                "numbers" : {
+                    "adults" : 6,
+                    "pups"   : 0
+                }
+            }
+        }
+    }
+}    
