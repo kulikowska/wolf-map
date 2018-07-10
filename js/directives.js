@@ -36,6 +36,8 @@ APP
                 //setLabelLayer($scope.currentYear);
             });
 
+            var popup = new mapboxgl.Popup();
+
             var colorObj = { } 
             function getLayerStyleObj(pack) {
                 switch(pack) {
@@ -163,22 +165,41 @@ APP
                           "type" : "FeatureCollection",
                           "features" : [{
                               "type" : "Feature",
-                              "properties" : {},
+                              "properties" : { 
+                                   "name" : pack.name,
+                                   "adults" : pack.years[$scope.currentYear].numbers.adults,
+                                   "pups" : pack.years[$scope.currentYear].numbers.pups
+                               },
                               "geometry" : pack.years[$scope.currentYear].geometry
                           }]
                         }
+
 
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
 
+                        map.on('mouseenter', pack.id, function(e) {
+                           var props = e.features[0].properties;
+                           popup.setLngLat([centroid.geometry.coordinates[0], centroid.geometry.coordinates[1]])
+                           .setHTML(
+                                   '<div class="popUp">' + 
+                                       '<div>Name: ' + props.name + '</div>' +
+                                       '<div>Adults: ' + props.adults + '</div>' +
+                                       '<div>Pups: ' + props.pups + '</div>' +
+                                       '<div>Total: ' + (props.pups + props.adults) + '</div>' +
+                                   '</div>'
+                            )
+                           .addTo(map);
+                        });
+
                         legendData.push(pack);
 
                         var before = map.getSource('pack-labels') ? 'pack-labels' : '';
-                        if (!map.getSource(pack.name)) {
+                        if (!map.getSource(pack.id)) {
                             if (pack.years[$scope.currentYear].geometry.type === "Polygon") {
                                 map.addLayer({
-                                    "id": pack.name,
+                                    "id": pack.id,
                                     "type": "fill",
                                     "source": {
                                         "type": "geojson",
@@ -189,7 +210,7 @@ APP
                             }
                             if (pack.years[$scope.currentYear].geometry.type === "Point") {
                                 map.addLayer({
-                                    "id": pack.name,
+                                    "id": pack.id,
                                     "type": "circle",
                                     "source": {
                                         "type": "geojson",
@@ -201,11 +222,11 @@ APP
                             
                         }
                         else {
-                            map.getSource(pack.name).setData(geojson);
+                            map.getSource(pack.id).setData(geojson);
                         }
-                    } else if (map.getSource(pack.name)) {
-                        map.removeLayer(pack.name);
-                        map.removeSource(pack.name);
+                    } else if (map.getSource(pack.id)) {
+                        map.removeLayer(pack.id);
+                        map.removeSource(pack.id);
                     }
                 });
                 $scope.$evalAsync(function() {
