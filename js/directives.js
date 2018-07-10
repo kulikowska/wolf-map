@@ -57,7 +57,6 @@ APP
                           }]
                         }
 
-
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
@@ -67,7 +66,7 @@ APP
                            popup.setLngLat([centroid.geometry.coordinates[0], centroid.geometry.coordinates[1]])
                            .setHTML(
                                    '<div class="popUp">' + 
-                                       '<div>Name: ' + props.name + '</div>' +
+                                       '<div class="popHeader ' + e.features[0].layer.id + '"> ' + props.name + '</div>' +
                                        '<div>Adults: ' + props.adults + '</div>' +
                                        '<div>Pups: ' + props.pups + '</div>' +
                                        '<div>Total: ' + (props.pups + props.adults) + '</div>' +
@@ -145,6 +144,7 @@ APP
           $scope.changeYear = function(year) {
               $scope.currentYear = year;
               getYearData(year);
+              popup.remove();
           }
 
 

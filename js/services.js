@@ -86,7 +86,7 @@ APP
               "fill-color" : 'rgba(255,255, 255, 1)',
               "fill-opacity" : 0.6
         },
-        '775M Group' : {
+        '755M Group' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(255,255, 255, 1)',
               "fill-opacity" : 0.6
