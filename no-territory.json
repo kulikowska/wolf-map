@@ -3,6 +3,18 @@
     ],
     "loners" : {
         "years" : {
+            "2015" : {
+                "numbers" : {
+                    "adults" : 1,
+                    "pups"   : 0
+                }
+            },
+            "2011" : {
+                "numbers" : {
+                    "adults" : 1,
+                    "pups"   : 0
+                }
+            },
             "2010" : {
                 "numbers" : {
                     "adults" : 6,
