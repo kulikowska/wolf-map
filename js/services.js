@@ -56,10 +56,17 @@ APP
               "fill-color" : 'rgba(238, 6, 0, 1)',
               "fill-opacity" : 0.8
         },
-        'Blecher': {
+        /*
+        'Blecher-point': {
             "circle-radius": 28,
             "circle-color": 'rgba(91, 147, 198, 1)',
             "circle-opacity": 0.6
+        },
+        */
+        'Blecher': {
+            "fill-color": 'rgba(91, 147, 198, 1)',
+            "fill-outline-color" : '#000',
+            "fill-opacity" : 0.8
         },
         'Yellowstone Delta': {
               "fill-outline-color" : '#000',
@@ -109,6 +116,36 @@ APP
         'Quadrant Mountain' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(86, 210, 179, 1)',
+              "fill-opacity" : 0.8
+        },
+        '682M Group' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255,255, 255, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Cottonwood' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(84, 0, 4, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Druid' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(49, 60, 116, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Everts' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(217, 145, 175, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Lava Creek' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(193, 228, 63, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Gibbon Meadows' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255, 179, 88, 1)',
               "fill-opacity" : 0.8
         }
     }

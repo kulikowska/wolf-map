@@ -1,5 +1,41 @@
 { "packs" : 
     [
+        {
+            "name" : "527F Group",
+            "id"   : "five-two-seven",
+            "years": {
+                "2008" : {
+                    "numbers" : {
+                        "adults" : 3,
+                        "pups"   : 0
+                    }
+                }
+            }
+        },
+        {
+            "name" : "471F Group",
+            "id"   : "four-seven-one",
+            "years": {
+                "2008" : {
+                    "numbers" : {
+                        "adults" : 3,
+                        "pups"   : 0
+                    }
+                }
+            }
+        },
+        {
+            "name" : "Yellowstone Delta Subgroup",
+            "id"   : "yellowstone-delta-sub",
+            "years": {
+                "2008" : {
+                    "numbers" : {
+                        "adults" : 4,
+                        "pups"   : 0
+                    }
+                }
+            }
+        }
     ],
     "loners" : {
         "years" : {
@@ -16,6 +52,18 @@
                 }
             },
             "2010" : {
+                "numbers" : {
+                    "adults" : 6,
+                    "pups"   : 0
+                }
+            },
+            "2009" : {
+                "numbers" : {
+                    "adults" : 2,
+                    "pups"   : 0
+                }
+            },
+            "2008" : {
                 "numbers" : {
                     "adults" : 6,
                     "pups"   : 0

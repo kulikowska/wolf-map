@@ -11,8 +11,8 @@ APP
             var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/kulikowska/cjiv4b6b08cjh2qpbvbo1xo2o',
-                zoom: 7.5,
-                center: [-110.5885, 44.4280]
+                zoom: 7.75,
+                center: [-110.5885, 44.5580]
             });
 
             var labels = {
@@ -24,7 +24,8 @@ APP
             var activePacks = [];
             var allpackdata;
             var noTerritoryData;
-            $scope.currentYear = '2010';
+
+            $scope.currentYear = '2008';
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
@@ -44,6 +45,7 @@ APP
             map.on('load', function() {
                 getYearData($scope.currentYear); 
                 //setLabelLayer($scope.currentYear);
+                console.log(map.queryRenderedFeatures('yellowstone-boundary'));
             });
             var popup = new mapboxgl.Popup();
 
@@ -56,15 +58,17 @@ APP
 
                 
                 if (noTerritoryData.loners.years[$scope.currentYear]) {
-                    $scope.loners = noTerritoryData.loners.years[$scope.currentYear].numbers.adults;noTerritoryData.loners.years[$scope.currentYear].numbers.adults;noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
+                    $scope.loners = noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
+                    /*
+                    noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
+                    noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
+                    */
                 }
                 else {
                     $scope.loners = undefined;
                 }
                 
                 console.log(legendData, ' legendData');
-                console.log($scope.loners);
-
                 getYearTotal(legendData);
             }
 
@@ -83,7 +87,8 @@ APP
                               "properties" : { 
                                    "name" : pack.name,
                                    "adults" : pack.years[$scope.currentYear].numbers.adults,
-                                   "pups" : pack.years[$scope.currentYear].numbers.pups
+                                   "pups" : pack.years[$scope.currentYear].numbers.pups,
+                                   "total" : pack.years[$scope.currentYear].numbers.total
                                },
                               "geometry" : pack.years[$scope.currentYear].geometry
                           }]
@@ -99,9 +104,9 @@ APP
                            .setHTML(
                                    '<div class="popUp">' + 
                                        '<div class="popHeader ' + e.features[0].layer.id + '"> ' + props.name + '</div>' +
-                                       '<div>Adults: ' + props.adults + '</div>' +
-                                       '<div>Pups: ' + props.pups + '</div>' +
-                                       '<div>Total: ' + (props.pups + props.adults) + '</div>' +
+                                       '<div>Adults: ' + (typeof props.adults !== 'undefined' ? props.adults : 'N/A') + '</div>' +
+                                       '<div>Pups: ' + (typeof props.pups !== 'undefined' ? props.pups : 'N/A') + '</div>' +
+                                       '<div>Total: ' + (typeof props.total !== 'undefined' ? props.total : (props.pups + props.adults)) + '</div>' +
                                    '</div>'
                             )
                            .addTo(map);
@@ -110,6 +115,8 @@ APP
                         legendData.push(pack);
 
                         var before = map.getSource('pack-labels') ? 'pack-labels' : '';
+                        //console.log(map.getSource(pack.id));
+
                         if (!map.getSource(pack.id)) {
                             if (pack.years[$scope.currentYear].geometry.type === "Polygon") {
                                 map.addLayer({
@@ -130,10 +137,9 @@ APP
                                         "type": "geojson",
                                         "data" : geojson 
                                     },
-                                    "paint": styleSvc[pack.name] 
+                                    "paint": styleSvc[pack.name + '-point'] 
                                 }, before);
                             }
-                            
                         }
                         else {
                             map.getSource(pack.id).setData(geojson);
@@ -186,9 +192,11 @@ APP
               data.forEach(pack => {
                 var adults = pack.years[$scope.currentYear].numbers.adults;
                 var pups = pack.years[$scope.currentYear].numbers.pups;
+                var total = pack.years[$scope.currentYear].numbers.total;
 
                 if (!isNaN(adults)) { totalWolves  += adults; }
                 if (!isNaN(pups)) { totalWolves  +=  pups; }
+                if (!isNaN(total)) { totalWolves  +=  total; }
               })
               $scope.totalForYear = totalWolves;
            }
