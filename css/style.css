@@ -217,8 +217,44 @@ a:hover {
 .gibbon {
   background: #ffb358;
 }
+.slough {
+  background: #a01814;
+}
+.cougar-two {
+  background: #aa5937;
+}
+.hellroaring {
+  background: #b0d904;
+}
+.leopold {
+  background: #c67d1f;
+}
+.swan-lake {
+  background: #7d4ebd;
+}
+.hayden-valley {
+  background: #56d2b3;
+}
+.nez-perce {
+  background: #ee6000;
+}
+.biscuit-basin {
+  background: #d991af;
+}
+.chief-joseph {
+  background: #423333;
+}
+.geode-creek {
+  background: #479797;
+}
+.specimen-ridge {
+  background: #abd4bd;
+}
 .loners {
   background: #ccc;
+}
+.unknown {
+  border: 1px dashed #222;
 }
 .popUp {
   color: #000;

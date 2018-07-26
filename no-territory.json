@@ -35,6 +35,18 @@
                     }
                 }
             }
+        },
+        {
+            "name" : "Unknown Group",
+            "id"   : "unknown",
+            "years": {
+                "2005" : {
+                    "numbers" : {
+                        "adults" : 3,
+                        "pups"   : "N/A" 
+                    }
+                }
+            }
         }
     ],
     "loners" : {

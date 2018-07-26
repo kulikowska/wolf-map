@@ -147,6 +147,61 @@ APP
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(255, 179, 88, 1)',
               "fill-opacity" : 0.8
+        },
+        'Slough' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(160, 24, 20, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Cougar Creek II' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(170, 89, 55, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Swan Lake' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(125, 78, 189, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Leopold' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(198, 125, 31, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Hellroaring' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(176, 217, 4, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Hayden Valley' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(86, 210, 179, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Nez Perce' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(238, 96, 0, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Biscuit Basin' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(217, 145, 175, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Chief Joseph' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(66, 51, 51, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Geode Creek' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(71, 151, 151, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Specimen Ridge' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(171, 212, 189, 1)',
+              "fill-opacity" : 0.8
         }
     }
 }]);
