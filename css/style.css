@@ -190,7 +190,8 @@ a:hover {
 .six-four-two,
 .seven-five-five,
 .seven-five-five-eight-eight-nine,
-.nine-eleven {
+.nine-eleven,
+.three-oh-two {
   border: 1px solid #000;
 }
 .grayling {
@@ -249,6 +250,12 @@ a:hover {
 }
 .specimen-ridge {
   background: #abd4bd;
+}
+.buffalo-fork {
+  background: #8dca4b;
+}
+.rose-creek-two {
+  background: #f4b5ce;
 }
 .loners {
   background: #ccc;

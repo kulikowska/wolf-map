@@ -202,6 +202,21 @@ APP
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(171, 212, 189, 1)',
               "fill-opacity" : 0.8
-        }
+        },
+        'Rose Creek II' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(244, 181, 206, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Buffalo Fork' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(141, 202, 75, 1)',
+              "fill-opacity" : 0.8
+        },
+        '302M/251F Group' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255,255, 255, 1)',
+              "fill-opacity" : 0.6
+        },
     }
 }]);
