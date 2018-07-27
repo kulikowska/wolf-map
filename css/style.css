@@ -63,7 +63,7 @@ a:hover {
   right: 10px;
   background: rgba(255, 255, 255, 0.9);
   z-index: 5;
-  width: 100px;
+  width: 70px;
   border: 1px solid #ccc;
   list-style: none;
   padding: 0;
@@ -71,8 +71,9 @@ a:hover {
 }
 #map .yearToggle li {
   color: #222;
-  font-size: 14px;
-  padding: 10px;
+  font-size: 13px;
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
   cursor: pointer;
   transition: 200ms;
 }
@@ -256,6 +257,12 @@ a:hover {
 }
 .rose-creek-two {
   background: #f4b5ce;
+}
+.oxbow {
+  background: #e9f668;
+}
+.tower {
+  background: #ffb56c;
 }
 .loners {
   background: #ccc;

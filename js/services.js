@@ -218,5 +218,15 @@ APP
               "fill-color" : 'rgba(255,255, 255, 1)',
               "fill-opacity" : 0.6
         },
-    }
+        'Tower' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255, 181, 108, 1)',
+              "fill-opacity" : 0.6
+        },
+        'Oxbow' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(223, 246, 104, 1)',
+              "fill-opacity" : 0.6
+        }
+     }
 }]);
