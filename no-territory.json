@@ -37,6 +37,42 @@
             }
         },
         {
+            "name" : "527F/B271M Idaho Wolf",
+            "id"   : "five-two-seven",
+            "years": {
+                "2007" : {
+                    "numbers" : {
+                        "adults" : 2,
+                        "pups"   : 0 
+                    }
+                }
+            }
+        },
+        {
+            "name" : "469F Group",
+            "id"   : "four-six-nine",
+            "years": {
+                "2007" : {
+                    "numbers" : {
+                        "adults" : 4,
+                        "pups"   : 0 
+                    }
+                }
+            }
+        },
+        {
+            "name" : "Gardner's Hole Group",
+            "id"   : "gardners-hole",
+            "years": {
+                "2007" : {
+                    "numbers" : {
+                        "adults" : 1,
+                        "pups"   : 1 
+                    }
+                }
+            }
+        },
+        {
             "name" : "Unknown Group",
             "id"   : "unknown",
             "years": {
@@ -78,6 +114,12 @@
             "2008" : {
                 "numbers" : {
                     "adults" : 6,
+                    "pups"   : 0
+                }
+            },
+            "2007" : {
+                "numbers" : {
+                    "adults" : 7,
                     "pups"   : 0
                 }
             },

@@ -63,7 +63,7 @@ APP
             "circle-opacity": 0.6
         },
         */
-        'Blecher': {
+        'Bechler': {
             "fill-color": 'rgba(91, 147, 198, 1)',
             "fill-outline-color" : '#000',
             "fill-opacity" : 0.8

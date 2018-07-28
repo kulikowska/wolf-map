@@ -2862,8 +2862,8 @@
             }
         },
         {
-            "name" : "Blecher",
-            "id"   : "blecher",
+            "name" : "Bechler",
+            "id"   : "bechler",
             "years": {
                 "2016" : {
                     "geometry" : {

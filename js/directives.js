@@ -25,7 +25,7 @@ APP
             var allpackdata;
             var noTerritoryData;
 
-            $scope.currentYear = '2002';
+            $scope.currentYear = '2016';
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
@@ -170,7 +170,8 @@ APP
                             "text-allow-overlap" : true
                         },
                         "paint" : {
-                            "text-color": '#ffffff'
+                            //"text-color": '#ffffff'
+                            "text-color": '#000000'
                         },
                         "minzoom" : 0,
                         "maxzoom" : 18,
