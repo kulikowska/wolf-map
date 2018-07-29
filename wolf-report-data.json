@@ -501,7 +501,8 @@
                     },
                     "numbers" : {
                         "adults" : 7,
-                        "pups"   : "N/A" 
+                        "pups"   : "N/A",
+                        "total"  : 7
                     }
                 },
                 "2004" : {
@@ -3740,7 +3741,8 @@
                     },
                     "numbers" : {
                         "adults" : 7,
-                        "pups"   : "N/A" 
+                        "pups"   : "N/A",
+                        "total"  : 7
                     }
                 }
             }
@@ -6685,7 +6687,8 @@
                     },
                     "numbers" : {
                         "adults" : 8,
-                        "pups"   : "N/A" 
+                        "pups"   : "N/A",
+                        "total"  : 8
                     }
                 }
             }

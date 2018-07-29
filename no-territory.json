@@ -79,7 +79,8 @@
                 "2005" : {
                     "numbers" : {
                         "adults" : 3,
-                        "pups"   : "N/A" 
+                        "pups"   : "N/A",
+                        "total"  : 3
                     }
                 }
             }
