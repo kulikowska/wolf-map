@@ -165,7 +165,7 @@ APP
         },
         'Leopold' : {
               "fill-outline-color" : '#000',
-              "fill-color" : 'rgba(198, 125, 31, 1)',
+              "fill-color" : 'rgba(180, 177, 118, 1)',
               "fill-opacity" : 0.8
         },
         'Hellroaring' : {

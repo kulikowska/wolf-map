@@ -195,9 +195,11 @@ APP
                 var pups = pack.years[$scope.currentYear].numbers.pups;
                 var total = pack.years[$scope.currentYear].numbers.total;
 
-                if (!isNaN(adults)) { totalWolves  += adults; }
-                if (!isNaN(pups)) { totalWolves  +=  pups; }
                 if (!isNaN(total)) { totalWolves  +=  total; }
+                else {
+                    if (!isNaN(adults)) { totalWolves  += adults; }
+                    if (!isNaN(pups)) { totalWolves  +=  pups; }
+                }
               })
               $scope.totalForYear = totalWolves;
            }
