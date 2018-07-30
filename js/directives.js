@@ -25,7 +25,7 @@ APP
             var allpackdata;
             var noTerritoryData;
 
-            $scope.currentYear = '2001';
+            $scope.currentYear = '2016';
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
