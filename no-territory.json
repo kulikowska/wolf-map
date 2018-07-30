@@ -129,6 +129,12 @@
                     "adults" : 2,
                     "pups"   : 0
                 }
+            },
+            "2001" : {
+                "numbers" : {
+                    "adults" : 1,
+                    "pups"   : 0
+                }
             }
         }
     }
