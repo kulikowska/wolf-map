@@ -203,6 +203,11 @@ APP
               "fill-color" : 'rgba(171, 212, 189, 1)',
               "fill-opacity" : 0.8
         },
+        'Rose Creek' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(244, 181, 206, 1)',
+              "fill-opacity" : 0.8
+        },
         'Rose Creek II' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(244, 181, 206, 1)',

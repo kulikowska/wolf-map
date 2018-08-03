@@ -135,6 +135,12 @@
                     "adults" : 1,
                     "pups"   : 0
                 }
+            },
+            "2000" : {
+                "numbers" : {
+                    "adults" : 2,
+                    "pups"   : 0
+                }
             }
         }
     }
