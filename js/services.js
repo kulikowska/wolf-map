@@ -232,6 +232,36 @@ APP
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(223, 246, 104, 1)',
               "fill-opacity" : 0.6
+        },
+        'Soda Butte': {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(247, 247, 16, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Crystal Creek': {
+            "fill-color": 'rgba(91, 147, 198, 1)',
+            "fill-outline-color" : '#000',
+            "fill-opacity" : 0.8
+        },
+        'Sheep Mountain': {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(176, 217, 4, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Sunlight Basin': {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(170, 51, 174, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Gros Ventre' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(71, 151, 151, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Teton' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(160, 24, 20, 1)',
+              "fill-opacity" : 0.8
         }
      }
 }]);

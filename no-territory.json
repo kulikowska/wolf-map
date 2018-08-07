@@ -141,6 +141,12 @@
                     "adults" : 2,
                     "pups"   : 0
                 }
+            },
+            "1999" : {
+                "numbers" : {
+                    "adults" : 14,
+                    "pups"   : 3
+                }
             }
         }
     }

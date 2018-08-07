@@ -156,7 +156,8 @@ a:hover {
 .snake-river {
   background: #2a506f;
 }
-.cougar-creek {
+.cougar-creek,
+.soda-butte {
   background: #f7f710;
 }
 .cinnabar {
@@ -184,10 +185,12 @@ a:hover {
 .mary-mountain {
   background: #4a3436;
 }
-.bechler {
+.bechler,
+.crystal-creek {
   background: #5b93c6;
 }
-.agate {
+.agate,
+.sunlight-basin {
   background: #aa33ae;
 }
 .six-four-two,
@@ -222,13 +225,15 @@ a:hover {
 .gibbon {
   background: #ffb358;
 }
-.slough {
+.slough,
+.teton {
   background: #a01814;
 }
 .cougar-two {
   background: #aa5937;
 }
-.hellroaring {
+.hellroaring,
+.sheep-mountain {
   background: #b0d904;
 }
 .leopold {
@@ -249,7 +254,8 @@ a:hover {
 .chief-joseph {
   background: #423333;
 }
-.geode-creek {
+.geode-creek,
+.gros-ventre {
   background: #479797;
 }
 .specimen-ridge {

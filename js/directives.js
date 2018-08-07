@@ -25,7 +25,7 @@ APP
             var allpackdata;
             var noTerritoryData;
 
-            $scope.currentYear = '2000';
+            $scope.currentYear = '1999';
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
@@ -56,13 +56,9 @@ APP
                     }
                 });
 
-                
                 if (noTerritoryData.loners.years[$scope.currentYear]) {
-                    $scope.loners = noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
-                    /*
-                    noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
-                    noTerritoryData.loners.years[$scope.currentYear].numbers.adults;
-                    */
+                    const lonerData = noTerritoryData.loners.years[$scope.currentYear].numbers;
+                    $scope.loners = (lonerData.adults + lonerData.pups);
                 }
                 else {
                     $scope.loners = undefined;
