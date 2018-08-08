@@ -118,6 +118,11 @@ APP
               "fill-color" : 'rgba(86, 210, 179, 1)',
               "fill-opacity" : 0.8
         },
+        'Jackson Trio' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(86, 210, 179, 1)',
+              "fill-opacity" : 0.8
+        },
         '682M Group' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(255,255, 255, 1)',
@@ -244,6 +249,11 @@ APP
             "fill-opacity" : 0.8
         },
         'Sheep Mountain': {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(176, 217, 4, 1)',
+              "fill-opacity" : 0.8
+        },
+        'Chief Joseph II': {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(176, 217, 4, 1)',
               "fill-opacity" : 0.8
