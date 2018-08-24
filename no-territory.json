@@ -171,6 +171,12 @@
                     "adults" : 2,
                     "pups"   : 0
                 }
+            },
+             "95/96" : {
+                "numbers" : {
+                    "adults" : 2,
+                    "pups"   : 0
+                }
             }
         }
     },
@@ -181,6 +187,12 @@
                     "adults" : 6,
                     "pups"   : 3
                 }
+            },
+             "95/96" : {
+                "numbers" : {
+                    "adults" : 1,
+                    "pups"   : 2
+                }
             }
         }
     },
@@ -190,6 +202,12 @@
                 "numbers" : {
                     "adults" : 4,
                     "pups"   : 1
+                }
+            },
+             "95/96" : {
+                "numbers" : {
+                    "adults" : 2,
+                    "pups"   : 10 
                 }
             }
         }

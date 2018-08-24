@@ -93,6 +93,16 @@ APP
               "fill-color" : 'rgba(255,255, 255, 1)',
               "fill-opacity" : 0.6
         },
+        '35M/30F Group' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255,255, 255, 1)',
+              "fill-opacity" : 0.6
+        },
+        '15M/26F Group' : {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(255,255, 255, 1)',
+              "fill-opacity" : 0.6
+        },
         '642F Group' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(255,255, 255, 1)',
