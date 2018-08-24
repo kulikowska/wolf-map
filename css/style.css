@@ -147,7 +147,8 @@ a:hover {
   left: 0;
   right: 0;
 }
-.mollies {
+.mollies,
+.thorofare {
   background: #256f5b;
 }
 .canyon {
@@ -207,7 +208,8 @@ a:hover {
 .silver {
   background: #e5e5e5;
 }
-.quadrant {
+.quadrant,
+.jackson-trio {
   background: #56d2b3;
 }
 .cottonwood {
@@ -233,7 +235,8 @@ a:hover {
   background: #aa5937;
 }
 .hellroaring,
-.sheep-mountain {
+.sheep-mountain,
+.chief-joseph-two {
   background: #b0d904;
 }
 .leopold {
@@ -273,6 +276,9 @@ a:hover {
 }
 .tower {
   background: #ffb56c;
+}
+.washakie {
+  background: #74276d;
 }
 .loners {
   background: #ccc;

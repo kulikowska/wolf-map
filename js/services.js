@@ -21,6 +21,11 @@ APP
               "fill-color" : 'rgba(37, 111, 91, 1)',
               "fill-opacity" : 0.8
          },
+        'Thorofare': {
+              "fill-outline-color" : '#000',
+              "fill-color" : 'rgba(37, 111, 91, 1)',
+              "fill-opacity" : 0.8
+         },
         'Cinnabar' : {
               "fill-outline-color" : '#000',
               "fill-color" : 'rgba(68, 145, 48, 1)',

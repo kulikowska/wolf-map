@@ -20,6 +20,7 @@
         <li ng-click="changeYear('2000')" ng-class="currentYear=='2000'|checkActive">2000</li>
         <li ng-click="changeYear('1999')" ng-class="currentYear=='1999'|checkActive">1999</li>
         <li ng-click="changeYear('1998')" ng-class="currentYear=='1998'|checkActive">1998</li>
+        <li ng-click="changeYear('1997')" ng-class="currentYear=='1997'|checkActive">1997</li>
     </ul>
 
         <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
@@ -32,7 +33,9 @@
             <td ng-if="pack.years[currentYear].numbers.total">{{pack.years[currentYear].numbers.total}}</td>
         </tr>
         <tr class="total" ng-if="loners"><td></td> <td>Loners</td><td> {{loners}}</td> </tr>
-        <tr class="total"><td></td> <td>Total</td><td> {{totalForYear + loners}}</td> </tr>
+        <tr class="total" ng-if="unknowns"><td></td> <td>Unknown</td><td> {{unknowns}}</td> </tr>
+        <tr class="total" ng-if="captives"><td></td> <td>Captives</td><td> {{captives}}</td> </tr>
+        <tr class="total"><td></td> <td>Total</td><td> {{totalForYear + loners + unknowns + captives}}</td> </tr>
     </table>
 
     <ul class="mapOpts">

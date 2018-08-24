@@ -25,7 +25,7 @@ APP
             var allpackdata;
             var noTerritoryData;
 
-            $scope.currentYear = '1998';
+            $scope.currentYear = '1997';
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
@@ -62,6 +62,22 @@ APP
                 }
                 else {
                     $scope.loners = undefined;
+                }
+
+                if (noTerritoryData.unknown.years[$scope.currentYear]) {
+                    const unknownData = noTerritoryData.unknown.years[$scope.currentYear].numbers;
+                    $scope.unknowns = (unknownData.adults + unknownData.pups);
+                }
+                else {
+                    $scope.unknowns = undefined;
+                }
+
+                if (noTerritoryData.captive.years[$scope.currentYear]) {
+                    const captiveData = noTerritoryData.captive.years[$scope.currentYear].numbers;
+                    $scope.captives = (captiveData.adults + captiveData.pups);
+                }
+                else {
+                    $scope.captives = undefined;
                 }
                 
                 console.log(legendData, ' legendData');
@@ -185,6 +201,7 @@ APP
 
 
           function getYearTotal(data) {
+              console.log(data, ' getYearTotal data');
               var totalWolves = 0;
               data.forEach(pack => {
                 var adults = pack.years[$scope.currentYear].numbers.adults;
