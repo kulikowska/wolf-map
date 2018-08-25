@@ -1,0 +1,16 @@
+<table class="legend" ng-init="orderby='name'">
+    <caption class="legendHead">Packs</caption>
+    <tr ng-repeat="pack in allPackData | orderBy: orderby">
+        <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
+        <td ng-class="pack.id" class="colourCode"></td>
+        <td>{{pack.name}}:</td>
+        <td ng-if="pack.years[currentYear].numbers.adults!=='N/A' && !pack.years[currentYear].numbers.total">{{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}</td>
+        <td ng-if="pack.years[currentYear].numbers.adults=='N/A'">{{pack.years[currentYear].numbers.adults}}</td>
+        <td ng-if="pack.years[currentYear].numbers.total">{{pack.years[currentYear].numbers.total}}</td>
+    </tr>
+    <tr class="total" ng-if="loners"><td></td> <td>Loners</td><td> {{loners}}</td> </tr>
+    <tr class="total" ng-if="unknowns"><td></td> <td>Unknown</td><td> {{unknowns}}</td> </tr>
+    <tr class="total" ng-if="captives"><td></td> <td>Captives</td><td> {{captives}}</td> </tr>
+    <tr class="total"><td></td> <td>Total</td><td> {{totalForYear + loners + unknowns + captives}}</td> </tr>
+</table>
+

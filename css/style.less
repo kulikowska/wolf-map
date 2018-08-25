@@ -1,7 +1,9 @@
-@niceBlue:#2d66b0;
-@darkBlue: #162547;
-@panelFromTop: 20px;
-
+@niceBlue:      #2d66b0;
+@darkBlue:      #162547;
+@panelFromTop:  20px;
+@crazyBS:       0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+@funFont:       'Dosis', sans-serif;
+@headerHeight:  70px;
 
 body {
     //font-family: raleway;
@@ -32,7 +34,7 @@ a {
 #header {
     width:              100%;
     //min-height:         15%;
-    height:             100px;
+    height:             @headerHeight;
     float:              left;
     background-size:    cover;
     //background-image:   url('../images/northern_lights_cropped.jpg');
@@ -48,11 +50,30 @@ a {
         //background: linear-gradient(fade(#000, 1%), fade(#000, 100%));
         background: fade(#fff, 60%);
         .title {
-            font-size:      50px;
-            float:          right;
+            font-size:      24px;
+            float:          left;
+            width:          100px;
             color:          #222;
-            margin-right:   28px;
-            margin-top:     17px;
+            margin-left:    24px;
+            margin-top:     4px;
+        }
+        ul {
+            float:          right;
+            list-style:     none;
+            color:          #000;
+            display:        flex;
+            margin-right:   20px;
+            margin-top:     24px;
+            li {
+                margin:         0px 10px;
+                text-transform: uppercase;
+                font-size:      18px;
+                transition:     300ms;
+                cursor:         pointer;
+                &:hover {
+                    color:  lighten(@niceBlue, 20%);
+                }
+            }
         }
     }
 }
@@ -71,20 +92,21 @@ a {
 }
 #map {
     width:      100%;
-    height:     calc(~"100% - 100px");
+    height:     calc(~"100%" - @headerHeight);
     position:   relative;
     .yearToggle {
         position:   absolute;
-        top:        @panelFromTop;
-        right:      10px;
+        top:        0px;
+        right:      0px;
         background: fade(#fff, 90%);
         z-index:    5;
         width:      70px;
         border:     1px solid #ccc;
+        border-top: 0px;
         list-style: none;
         padding:    0;
         margin:     0;
-        max-height: 70vh;
+        max-height: 100%;
         overflow:   auto;
         li {
             color:          #222;
@@ -93,11 +115,13 @@ a {
             border-bottom:  1px solid #ddd;
             cursor:         pointer;
             transition:     200ms;
+            font-family:    @funFont;
+            letter-spacing: 1px;
             &:hover {
                 font-weight:    bold;
             }
             &.active {
-                background: @darkBlue;
+                background: @niceBlue;
                 color:      #fff;
             }
         }
@@ -107,7 +131,7 @@ a {
         left:       10px;
         top:        @panelFromTop;
         background: #fff;
-        border:     1px solid #ccc;
+        box-shadow:  @crazyBS;
         min-height: 200px;
         min-width:  50px;
         z-index:    2;
@@ -116,6 +140,16 @@ a {
         margin:     0px;
         padding:    0px;
         font-family:    'Dosis', sans-serif;
+        padding-top: 5px;
+        .legendHead {
+            width:          100%;
+            background:     lighten(@niceBlue, 40%);
+            padding:        10px 0px;
+            text-align:     center;
+            text-transform: uppercase;
+            box-shadow:     @crazyBS;
+            border-bottom:  none;
+        }
         .colourCode {
             height:         20px;
             width:          20px;

@@ -1,44 +1,12 @@
 <div header></div>
 <div id="map">
     <ul class="yearToggle">
-        <li ng-click="changeYear('2016')" ng-class="currentYear=='2016'|checkActive">2016</li>
-        <li ng-click="changeYear('2015')" ng-class="currentYear=='2015'|checkActive">2015</li>
-        <li ng-click="changeYear('2014')" ng-class="currentYear=='2014'|checkActive">2014</li>
-        <li ng-click="changeYear('2013')" ng-class="currentYear=='2013'|checkActive">2013</li>
-        <li ng-click="changeYear('2012')" ng-class="currentYear=='2012'|checkActive">2012</li>
-        <li ng-click="changeYear('2011')" ng-class="currentYear=='2011'|checkActive">2011</li>
-        <li ng-click="changeYear('2010')" ng-class="currentYear=='2010'|checkActive">2010</li>
-        <li ng-click="changeYear('2009')" ng-class="currentYear=='2009'|checkActive">2009</li>
-        <li ng-click="changeYear('2008')" ng-class="currentYear=='2008'|checkActive">2008</li>
-        <li ng-click="changeYear('2007')" ng-class="currentYear=='2007'|checkActive">2007</li>
-        <li ng-click="changeYear('2006')" ng-class="currentYear=='2006'|checkActive">2006</li>
-        <li ng-click="changeYear('2005')" ng-class="currentYear=='2005'|checkActive">2005</li>
-        <li ng-click="changeYear('2004')" ng-class="currentYear=='2004'|checkActive">2004</li>
-        <li ng-click="changeYear('2003')" ng-class="currentYear=='2003'|checkActive">2003</li>
-        <li ng-click="changeYear('2002')" ng-class="currentYear=='2002'|checkActive">2002</li>
-        <li ng-click="changeYear('2001')" ng-class="currentYear=='2001'|checkActive">2001</li>
-        <li ng-click="changeYear('2000')" ng-class="currentYear=='2000'|checkActive">2000</li>
-        <li ng-click="changeYear('1999')" ng-class="currentYear=='1999'|checkActive">1999</li>
-        <li ng-click="changeYear('1998')" ng-class="currentYear=='1998'|checkActive">1998</li>
-        <li ng-click="changeYear('1997')" ng-class="currentYear=='1997'|checkActive">1997</li>
-        <li ng-click="changeYear('95/96')" ng-class="currentYear=='95/96'|checkActive">95/96</li>
+        <li ng-repeat="year in allYears" ng-click="changeYear(year)" ng-class="currentYear===year|checkActive">
+            {{year}}
+        </li>
     </ul>
 
-        <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
-    <table class="legend" ng-init="orderby='name'">
-        <tr ng-repeat="pack in allPackData | orderBy: orderby">
-            <td ng-class="pack.id" class="colourCode"></td>
-            <td>{{pack.name}}:</td>
-            <td ng-if="pack.years[currentYear].numbers.adults!=='N/A' && !pack.years[currentYear].numbers.total">{{pack.years[currentYear].numbers.adults + pack.years[currentYear].numbers.pups}}</td>
-            <td ng-if="pack.years[currentYear].numbers.adults=='N/A'">{{pack.years[currentYear].numbers.adults}}</td>
-            <td ng-if="pack.years[currentYear].numbers.total">{{pack.years[currentYear].numbers.total}}</td>
-        </tr>
-        <tr class="total" ng-if="loners"><td></td> <td>Loners</td><td> {{loners}}</td> </tr>
-        <tr class="total" ng-if="unknowns"><td></td> <td>Unknown</td><td> {{unknowns}}</td> </tr>
-        <tr class="total" ng-if="captives"><td></td> <td>Captives</td><td> {{captives}}</td> </tr>
-        <tr class="total"><td></td> <td>Total</td><td> {{totalForYear + loners + unknowns + captives}}</td> </tr>
-    </table>
-
+    <legend></legend>
     <ul class="mapOpts">
         <li ng-click="toggleLabels()"> Show Labels </li>
     </ul>

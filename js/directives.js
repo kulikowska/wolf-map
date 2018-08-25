@@ -25,7 +25,9 @@ APP
             var allpackdata;
             var noTerritoryData;
 
-            $scope.currentYear = '95/96';
+            $scope.currentYear = '2016';
+            $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
+                            "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
@@ -199,7 +201,6 @@ APP
               popup.remove();
           }
 
-
           function getYearTotal(data) {
               console.log(data, ' getYearTotal data');
               var totalWolves = 0;
@@ -224,6 +225,16 @@ APP
         } 
     } 
 }])
+.directive('legend', [function() {
+    return {
+        restrict: 'E',
+        replace: false,
+        templateUrl: 'html/legend.html',
+        //template: TPL.content,
+        link: function($scope, $element, $attributes) {
+         }
+      } 
+ }])
 .directive('header', [function() {
     return {
         restrict: 'A',
