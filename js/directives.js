@@ -1,5 +1,5 @@
 APP
-.directive('templateBody',  ['styleSvc', function(styleSvc) {
+.directive('templateBody',  [function() {
     return {
         restrict: 'C',
         replace: false,
@@ -7,6 +7,16 @@ APP
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
 
+        } 
+    } 
+}])
+.directive('map', ['styleSvc', function(styleSvc) {
+    return {
+        restrict: 'A',
+        replace: false,
+        templateUrl: 'html/map.html',
+        //template: TPL.content,
+        link: function($scope, $element, $attributes) {
             mapboxgl.accessToken = 'pk.eyJ1Ijoia3VsaWtvd3NrYSIsImEiOiJjamRtY2l6dHAwbG9mMnhtdGp6eWY0a283In0.6OYpoUZAkRskJcXej314lg';
             var map = new mapboxgl.Map({
                 container: 'map',
@@ -222,9 +232,12 @@ APP
                var layerVis = (map.getLayoutProperty('pack-labels', 'visibility') === 'visible') ? 'none' : 'visible';
                map.setLayoutProperty('pack-labels', 'visibility', layerVis);
            }
-        } 
-    } 
-}])
+
+
+
+         }
+      } 
+ }])
 .directive('legend', [function() {
     return {
         restrict: 'E',
