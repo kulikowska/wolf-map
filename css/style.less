@@ -185,13 +185,36 @@ a {
         position:   absolute;
         left:       10px;
         bottom:     @panelFromTop;
-        background: #fff;
-        border:     1px solid #ccc;
         z-index:    2;
         color:      #222;
         list-style: none;
         margin:     0px;
         padding:    10px;
+        transition: 400ms;
+        .fa {
+            font-size:      40px;
+            color:          @niceBlue;
+            cursor:         pointer;
+            transition:     200ms;
+            text-shadow:    1px 1px #222;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        &.active {
+            background: #fff;
+            border:     1px solid #ccc;
+            .optsWrap {
+                max-height: 200px;
+                max-width:  300px;
+            }
+        }
+        .optsWrap {
+            max-height:     0px;
+            max-width:      0px;
+            overflow:       hidden;
+            transition:     400ms;
+        }
     }
 }
 .mapboxgl-canvas {

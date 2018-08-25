@@ -167,13 +167,36 @@ a:hover {
   position: absolute;
   left: 10px;
   bottom: 20px;
-  background: #fff;
-  border: 1px solid #ccc;
   z-index: 2;
   color: #222;
   list-style: none;
   margin: 0px;
   padding: 10px;
+  transition: 400ms;
+}
+#map .mapOpts .fa {
+  font-size: 40px;
+  color: #2d66b0;
+  cursor: pointer;
+  transition: 200ms;
+  text-shadow: 1px 1px #222;
+}
+#map .mapOpts .fa:hover {
+  opacity: 0.5;
+}
+#map .mapOpts.active {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+#map .mapOpts.active .optsWrap {
+  max-height: 200px;
+  max-width: 300px;
+}
+#map .mapOpts .optsWrap {
+  max-height: 0px;
+  max-width: 0px;
+  overflow: hidden;
+  transition: 400ms;
 }
 .mapboxgl-canvas {
   left: 0;

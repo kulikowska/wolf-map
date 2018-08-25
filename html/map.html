@@ -6,7 +6,11 @@
     </ul>
 
     <legend></legend>
-    <ul class="mapOpts">
-        <li ng-click="toggleLabels()"> Show Labels </li>
+    <ul class="mapOpts" ng-class="opts|checkActive">
+        <div class="optsWrap">
+            <li ng-click="toggleLabels()"> Show Labels </li>
+            <li ng-click="fitBoundsToggle()"> Zoom on year change</li>
+        </div>
+        <i class="fa fa-gear" ng-click="opts=!opts"></i>
     </ul>
 </div>
