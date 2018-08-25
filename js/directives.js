@@ -101,6 +101,10 @@ APP
                 //console.log(allpackdata, ' allpackdata');
                 labels.features = [];
                 var geojson;
+                var polyFeatures = {
+                      "type" : "FeatureCollection",
+                      "features" : []
+                };
                 legendData = [];
                 allpackdata.packs.map(pack => {
                     if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
@@ -117,6 +121,8 @@ APP
                               "geometry" : pack.years[$scope.currentYear].geometry
                           }]
                         }
+
+                        polyFeatures.features.push(geojson.features[0]);
 
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
@@ -173,6 +179,11 @@ APP
                         map.removeSource(pack.id);
                     }
                 });
+                console.log(polyFeatures, ' polyfeatures');
+                var bbox = turf.bbox(polyFeatures)
+                map.fitBounds(bbox, { duration: 700, padding: 20 });
+                console.log(bbox);
+
                 getNoTerritory();
                 $scope.$evalAsync(function() {
                     $scope.allPackData = legendData;
