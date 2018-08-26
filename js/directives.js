@@ -7,6 +7,12 @@ APP
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
 
+            $scope.state = {
+                'opts'             : false,
+                'zoomOnYearChange' : true,
+                'mapLabels'        : true
+            }
+
         } 
     } 
 }])
@@ -41,6 +47,7 @@ APP
             $scope.legendData = [];
 
             fetch('../wolf-report-data.json').then(function(data) {
+            //fetch('./wolf-report-data.json').then(function(data) { 
                 return data.json();
             }).then(function(json) {
                 allpackdata = json;
@@ -48,6 +55,7 @@ APP
             });
 
             fetch('../no-territory.json').then(function(data) {
+            //fetch('./no-territory.json').then(function(data) {
                 return data.json();
             }).then(function(json) {
                 console.log(json);
@@ -57,7 +65,7 @@ APP
             map.on('load', function() {
                 getYearData($scope.currentYear); 
                 //setLabelLayer($scope.currentYear);
-                console.log(map.queryRenderedFeatures('yellowstone-boundary'));
+                //console.log(map.queryRenderedFeatures('yellowstone-boundary'));
             });
             var popup = new mapboxgl.Popup();
 
@@ -92,16 +100,17 @@ APP
                     $scope.captives = undefined;
                 }
                 
-                console.log(legendData, ' legendData');
+                //console.log(legendData, ' legendData');
                 getYearTotal(legendData);
             }
 
             var legendData;
+            var polyFeatures;
             function getYearData(year) {
                 //console.log(allpackdata, ' allpackdata');
                 labels.features = [];
                 var geojson;
-                var polyFeatures = {
+                polyFeatures = {
                       "type" : "FeatureCollection",
                       "features" : []
                 };
@@ -114,6 +123,7 @@ APP
                               "type" : "Feature",
                               "properties" : { 
                                    "name" : pack.name,
+                                   "id" : pack.id,
                                    "adults" : pack.years[$scope.currentYear].numbers.adults,
                                    "pups" : pack.years[$scope.currentYear].numbers.pups,
                                    "total" : pack.years[$scope.currentYear].numbers.total
@@ -124,6 +134,7 @@ APP
 
                         polyFeatures.features.push(geojson.features[0]);
 
+                        console.log(geojson, ' geosjon');
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
@@ -179,10 +190,13 @@ APP
                         map.removeSource(pack.id);
                     }
                 });
-                console.log(polyFeatures, ' polyfeatures');
-                var bbox = turf.bbox(polyFeatures)
-                map.fitBounds(bbox, { duration: 700, padding: 20 });
-                console.log(bbox);
+
+                if ($scope.state.zoomOnYearChange) {
+                    //console.log(polyFeatures, ' polyfeatures');
+                    var bbox = turf.bbox(polyFeatures)
+                    map.fitBounds(bbox, { duration: 700, padding: 20 });
+                    //console.log(bbox);
+                }
 
                 getNoTerritory();
                 $scope.$evalAsync(function() {
@@ -244,8 +258,32 @@ APP
                map.setLayoutProperty('pack-labels', 'visibility', layerVis);
            }
 
+           $scope.highlightPack = function(pack) {
+                popup.remove();
+                //console.log(polyFeatures, ' polyFeatures');
+                var activePack = polyFeatures.features.find(function(feature) {
+                    return feature.properties.name === pack;
+                });
+                console.log(activePack);
 
+               var pack = {
+                      "type" : "FeatureCollection",
+                      "features" : [ activePack ] 
+               }
 
+               var centre = turf.centroid(pack)
+               const props = activePack.properties;
+               popup.setLngLat([centre.geometry.coordinates[0], centre.geometry.coordinates[1]])
+               .setHTML(
+                       '<div class="popUp">' + 
+                           '<div class="popHeader ' + props.id + '"> ' + props.name + '</div>' +
+                           '<div>Adults: ' + (typeof props.adults !== 'undefined' ? props.adults : 'N/A') + '</div>' +
+                           '<div>Pups: ' + (typeof props.pups !== 'undefined' ? props.pups : 'N/A') + '</div>' +
+                           '<div>Total: ' + (typeof props.total !== 'undefined' ? props.total : (props.pups + props.adults)) + '</div>' +
+                       '</div>'
+                )
+               .addTo(map);
+           }
          }
       } 
  }])

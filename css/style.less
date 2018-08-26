@@ -156,6 +156,14 @@ a {
             display:        inline-block;
             border-radius:  4px;
         }
+        .packRow {
+            cursor: pointer;
+            transition: 200ms;
+            &:hover {
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+        }
         /*
         li {
             text-align:     left;
@@ -191,22 +199,24 @@ a {
         margin:     0px;
         padding:    10px;
         transition: 400ms;
+        z-index:        5;
         .fa {
             font-size:      40px;
             color:          @niceBlue;
             cursor:         pointer;
             transition:     200ms;
             text-shadow:    1px 1px #222;
+            margin-top: 15px;
             &:hover {
                 opacity: 0.5;
             }
         }
         &.active {
-            background: #fff;
+            background: fade(#fff, 80%);
             border:     1px solid #ccc;
             .optsWrap {
                 max-height: 200px;
-                max-width:  300px;
+                max-width:  230px;
             }
         }
         .optsWrap {
@@ -214,6 +224,11 @@ a {
             max-width:      0px;
             overflow:       hidden;
             transition:     400ms;
+            .ui.toggle.checkbox {
+                margin: 5px 0px;
+                float: left;
+                font-family: @funFont;
+            }
         }
     }
 }

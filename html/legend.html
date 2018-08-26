@@ -1,6 +1,6 @@
 <table class="legend" ng-init="orderby='name'">
     <caption class="legendHead">Packs</caption>
-    <tr ng-repeat="pack in allPackData | orderBy: orderby">
+    <tr ng-repeat="pack in allPackData | orderBy: orderby" ng-mouseover="highlightPack(pack.name)" class="packRow">
         <!--<li> <span ng-click="orderby='name'">Pack</span><span ng-click="orderby='years[currentYear].numbers.adults'">Size</span></li>--!>
         <td ng-class="pack.id" class="colourCode"></td>
         <td>{{pack.name}}:</td>

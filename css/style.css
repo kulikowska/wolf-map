@@ -163,6 +163,14 @@ a:hover {
   display: inline-block;
   border-radius: 4px;
 }
+#map .legend .packRow {
+  cursor: pointer;
+  transition: 200ms;
+}
+#map .legend .packRow:hover {
+  font-weight: bold;
+  font-size: 1.1em;
+}
 #map .mapOpts {
   position: absolute;
   left: 10px;
@@ -173,6 +181,7 @@ a:hover {
   margin: 0px;
   padding: 10px;
   transition: 400ms;
+  z-index: 5;
 }
 #map .mapOpts .fa {
   font-size: 40px;
@@ -180,23 +189,29 @@ a:hover {
   cursor: pointer;
   transition: 200ms;
   text-shadow: 1px 1px #222;
+  margin-top: 15px;
 }
 #map .mapOpts .fa:hover {
   opacity: 0.5;
 }
 #map .mapOpts.active {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid #ccc;
 }
 #map .mapOpts.active .optsWrap {
   max-height: 200px;
-  max-width: 300px;
+  max-width: 230px;
 }
 #map .mapOpts .optsWrap {
   max-height: 0px;
   max-width: 0px;
   overflow: hidden;
   transition: 400ms;
+}
+#map .mapOpts .optsWrap .ui.toggle.checkbox {
+  margin: 5px 0px;
+  float: left;
+  font-family: 'Dosis', sans-serif;
 }
 .mapboxgl-canvas {
   left: 0;
