@@ -168,8 +168,7 @@ a:hover {
   transition: 200ms;
 }
 #map .legend .packRow:hover {
-  font-weight: bold;
-  font-size: 1.1em;
+  opacity: 0.5;
 }
 #map .mapOpts {
   position: absolute;
