@@ -1,10 +1,11 @@
 <div id="header">
     <div class="overlay">
-        <div class="title"> Yellowstone Wolf Map</div>
+        <div class="title" ng-click="nav='map'"> Yellowstone Wolf Map</div>
         <nav>
             <ul class="menu">
                 <li>About</li>
-                <li>Statistics</li>
+                <li ng-click="nav='stats'">Statistics</li>
+                <li ng-click="nav='edit'"><i class="fa fa-pencil"></i></li>
             </ul>
         </nav>
     </div>

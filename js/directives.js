@@ -13,16 +13,40 @@ APP
                 'mapLabels'        : true
             }
 
+            $scope.currentYear = '2016';
+            $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
+                            "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
+
+            KEY_API_SDK.ready( () => {
+                KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
+
+                KEY_API_SDK.getDataItem("territories").then( 
+                    function(response) {
+                        //SCOPE.allPackData = response.data.content;
+                        //console.log(SCOPE.allPackData, ' all pack data');
+                        $scope.allPackData = response.data.content;
+                        $scope.$digest();
+                    }
+                );
+                KEY_API_SDK.getDataItem("no-territories").then( 
+                    function(response) {
+                        $scope.noTerritoryData = response.data.content;
+                        $scope.$digest();
+                    }
+                );
+            });
+
         } 
     } 
 }])
-.directive('map', ['styleSvc', function(styleSvc) {
+.directive('map', ['styleSvc', '$rootScope', function(styleSvc, SCOPE) {
     return {
         restrict: 'A',
         replace: false,
         templateUrl: 'html/map.html',
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
+
             mapboxgl.accessToken = 'pk.eyJ1Ijoia3VsaWtvd3NrYSIsImEiOiJjamRtY2l6dHAwbG9mMnhtdGp6eWY0a283In0.6OYpoUZAkRskJcXej314lg';
             var map = new mapboxgl.Map({
                 container: 'map',
@@ -36,64 +60,59 @@ APP
                "features" : []
             }
 
-            var geodata;
-            var activePacks = [];
-            var allpackdata;
-            var noTerritoryData;
-
-            $scope.currentYear = '2016';
-            $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
-                            "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
             $scope.legendData = [];
 
+            /*
             fetch('../wolf-report-data.json').then(function(data) {
             //fetch('./wolf-report-data.json').then(function(data) { 
                 return data.json();
             }).then(function(json) {
-                allpackdata = json;
-                console.log(allpackdata);
+                allPackData = json;
+                //console.log(allPackData);
             });
+            */
 
+            /*
             fetch('../no-territory.json').then(function(data) {
             //fetch('./no-territory.json').then(function(data) {
                 return data.json();
             }).then(function(json) {
-                console.log(json);
-                noTerritoryData = json;
+                //console.log(json);
+                $scope.noTerritoryData = json;
             });
+            */
 
             map.on('load', function() {
                 getYearData($scope.currentYear); 
-                //setLabelLayer($scope.currentYear);
-                //console.log(map.queryRenderedFeatures('yellowstone-boundary'));
             });
+
             var popup = new mapboxgl.Popup();
 
             function getNoTerritory() {
-                noTerritoryData.packs.forEach(pack => {
+                $scope.noTerritoryData.packs.forEach(pack => {
                     if (pack.years[$scope.currentYear]) {
                         legendData.push(pack);
                     }
                 });
 
-                if (noTerritoryData.loners.years[$scope.currentYear]) {
-                    const lonerData = noTerritoryData.loners.years[$scope.currentYear].numbers;
+                if ($scope.noTerritoryData.loners.years[$scope.currentYear]) {
+                    const lonerData = $scope.noTerritoryData.loners.years[$scope.currentYear].numbers;
                     $scope.loners = (lonerData.adults + lonerData.pups);
                 }
                 else {
                     $scope.loners = undefined;
                 }
 
-                if (noTerritoryData.unknown.years[$scope.currentYear]) {
-                    const unknownData = noTerritoryData.unknown.years[$scope.currentYear].numbers;
+                if ($scope.noTerritoryData.unknown.years[$scope.currentYear]) {
+                    const unknownData = $scope.noTerritoryData.unknown.years[$scope.currentYear].numbers;
                     $scope.unknowns = (unknownData.adults + unknownData.pups);
                 }
                 else {
                     $scope.unknowns = undefined;
                 }
 
-                if (noTerritoryData.captive.years[$scope.currentYear]) {
-                    const captiveData = noTerritoryData.captive.years[$scope.currentYear].numbers;
+                if ($scope.noTerritoryData.captive.years[$scope.currentYear]) {
+                    const captiveData = $scope.noTerritoryData.captive.years[$scope.currentYear].numbers;
                     $scope.captives = (captiveData.adults + captiveData.pups);
                 }
                 else {
@@ -107,7 +126,6 @@ APP
             var legendData;
             var polyFeatures;
             function getYearData(year) {
-                //console.log(allpackdata, ' allpackdata');
                 labels.features = [];
                 var geojson;
                 polyFeatures = {
@@ -115,7 +133,7 @@ APP
                       "features" : []
                 };
                 legendData = [];
-                allpackdata.packs.map(pack => {
+                $scope.allPackData.packs.map(pack => {
                     if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
                         geojson = {
                           "type" : "FeatureCollection",
@@ -134,7 +152,7 @@ APP
 
                         polyFeatures.features.push(geojson.features[0]);
 
-                        console.log(geojson, ' geosjon');
+                        //console.log(geojson, ' geosjon');
                         var centroid = turf.centroid(geojson)
                         centroid.properties.pack = pack.name;
                         labels.features.push(centroid);
@@ -200,7 +218,7 @@ APP
 
                 getNoTerritory();
                 $scope.$evalAsync(function() {
-                    $scope.allPackData = legendData;
+                    $scope.legendData = legendData;
                 });
 
 
@@ -237,7 +255,7 @@ APP
           }
 
           function getYearTotal(data) {
-              console.log(data, ' getYearTotal data');
+              //console.log(data, ' getYearTotal data');
               var totalWolves = 0;
               data.forEach(pack => {
                 var adults = pack.years[$scope.currentYear].numbers.adults;
@@ -264,7 +282,7 @@ APP
                 var activePack = polyFeatures.features.find(function(feature) {
                     return feature.properties.name === pack;
                 });
-                console.log(activePack);
+                //console.log(activePack);
 
                var pack = {
                       "type" : "FeatureCollection",
@@ -294,8 +312,114 @@ APP
         templateUrl: 'html/legend.html',
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
+        }
+     } 
+ }])
+.directive('edit', [function() {
+    return {
+        restrict: 'E',
+        replace: false,
+        templateUrl: 'html/edit.html',
+        //template: TPL.content,
+        link: function($scope, $element, $attributes) {
+
+            $scope.formType = 'login';
+            $scope.email    = 'rubykulikowska@gmail.com';
+            $scope.password = 'donkey';
+
+            $scope.login = function(email, password) {
+                KEY_API_SDK.login(email, password)
+                .then( userLoginInfo => {
+                    if (userLoginInfo.success) {
+                        $scope.formType = 'edit';
+                        $scope.$digest();
+                    }
+                })
+                .catch( loginErrorResponse => {
+                    console.log(loginErrorResponse);
+                    $scope.errorMsg = loginErrorResponse.msg;
+                });
+            }
+
+            $scope.close = function() {
+                $scope.errorMsg = false;
+            }
+
+            $scope.setNewData = function(idx) {
+                $scope.dataToEdit = { 
+                    'data' : $scope.allPackData.packs[idx],
+                    'idx'  : idx
+                }
+                console.log($scope.dataToEdit, ' dataToEdit');
+            }
+
+            $scope.saveData = function() {
+
+                console.log($scope.dataToEdit, ' dataToEdit');
+                $scope.allPackData.packs[$scope.dataToEdit.idx] = $scope.dataToEdit.data;
+                console.log($scope.allPackData, ' all pack data');
+
+                KEY_API_SDK.updateDataItem('territories', $scope.allPackData )
+                .then( function(addResponse) {
+                    console.log(addResponse);
+                })
+                .then( function(updateResponse) {
+                    console.log( updateResponse );
+                })
+                .catch();
+            }
          }
-      } 
+     } 
+ }])
+.directive('charts', [function() {
+    return {
+        restrict: 'E',
+        replace: false,
+        templateUrl: 'html/charts.html',
+        //template: TPL.content,
+        link: function($scope, $element, $attributes) {
+
+            //console.log($scope.totalForYear);
+            var ctx = document.getElementById("chart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["1995", "1996", "1997", "1998", "1999", "2000"],
+                    datasets: [{
+                        label: 'Population Over the Years',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+     } 
  }])
 .directive('header', [function() {
     return {
@@ -304,8 +428,9 @@ APP
         templateUrl: 'html/header.html',
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
-         }
-      } 
+            $scope.nav = 'map';
+        }
+     } 
  }])
 .directive('footer', [function() {
     return {

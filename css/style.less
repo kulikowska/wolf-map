@@ -377,3 +377,21 @@ a {
 .mapboxgl-popup-content{
     padding: 0px 0px 10px;
 }
+charts, edit {
+    position : absolute;
+    left     : 0px;
+    right    : 0px;
+    top      : @headerHeight;
+    bottom   : 0px;
+    background  : #fff;
+    z-index     : 100; 
+    color       : #000;
+}
+edit {
+    bottom      : auto;
+    min-height  : calc(~"100%" - @headerHeight);
+    .ui.form {
+        max-width   : 400px;
+        margin      : 40px auto;
+    }
+}
