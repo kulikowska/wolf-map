@@ -14,8 +14,10 @@ APP
             }
 
             $scope.currentYear = '2016';
+            /*
             $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
                             "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
+            */
 
 
             KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
@@ -67,10 +69,15 @@ APP
                 }
             );
 
+            $scope.allYears = [];
+
             KEY_API_SDK.getDataItem("years").then( 
                 function(response) {
                     $scope.years = response.data.content;
-                    console.log($scope.years, ' years');
+
+                    for (year in $scope.years) {
+                        $scope.allYears.push(year); 
+                    }
                 }
             );
         } 
