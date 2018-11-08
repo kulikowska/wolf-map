@@ -14,6 +14,7 @@ APP
             }
 
             $scope.currentYear = '2016';
+
             /*
             $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
                             "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
@@ -47,6 +48,7 @@ APP
                                newYearsData[year] = {};    
                            }
                            newYearsData[year][pack.id] = pack.years[year];
+                           newYearsData[year][pack.id]['name'] = pack.name;
                        };
                     });
 
@@ -132,6 +134,7 @@ APP
 
             var popup = new mapboxgl.Popup();
 
+            /*
             function getNoTerritory() {
                 $scope.noTerritoryData.packs.forEach(pack => {
                     if (pack.years[$scope.currentYear]) {
@@ -166,10 +169,14 @@ APP
                 //console.log(legendData, ' legendData');
                 getYearTotal(legendData);
             }
+            */
 
             var legendData;
             var polyFeatures;
+            var activePacks = [];
+
             function getYearData(year) {
+
                 labels.features = [];
                 var geojson;
                 polyFeatures = {
@@ -177,96 +184,103 @@ APP
                       "features" : []
                 };
                 legendData = [];
-                $scope.allPackData.packs.map(pack => {
-                    if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
-                        geojson = {
-                          "type" : "FeatureCollection",
-                          "features" : [{
-                              "type" : "Feature",
-                              "properties" : { 
-                                   "name" : pack.name,
-                                   "id" : pack.id,
-                                   "adults" : pack.years[$scope.currentYear].numbers.adults,
-                                   "pups" : pack.years[$scope.currentYear].numbers.pups,
-                                   "total" : pack.years[$scope.currentYear].numbers.total
-                               },
-                              "geometry" : pack.years[$scope.currentYear].geometry
-                          }]
-                        }
+                yearPacks = [];
 
-                        polyFeatures.features.push(geojson.features[0]);
+                const yearData = $scope.years[$scope.currentYear];
+                console.log(yearData, ' yearData');
 
-                        //console.log(geojson, ' geosjon');
-                        var centroid = turf.centroid(geojson)
-                        centroid.properties.pack = pack.name;
-                        labels.features.push(centroid);
+                for (pack in yearData) {
+                    let data = yearData[pack];
+                    activePacks.push(pack);
 
-                        map.on('mouseenter', pack.id, function(e) {
-                           var props = e.features[0].properties;
-                           popup.setLngLat([centroid.geometry.coordinates[0], centroid.geometry.coordinates[1]])
-                           .setHTML(
-                                   '<div class="popUp">' + 
-                                       '<div class="popHeader ' + e.features[0].layer.id + '"> ' + props.name + '</div>' +
-                                       '<div>Adults: ' + (typeof props.adults !== 'undefined' ? props.adults : 'N/A') + '</div>' +
-                                       '<div>Pups: ' + (typeof props.pups !== 'undefined' ? props.pups : 'N/A') + '</div>' +
-                                       '<div>Total: ' + (typeof props.total !== 'undefined' ? props.total : (props.pups + props.adults)) + '</div>' +
-                                   '</div>'
-                            )
-                           .addTo(map);
-                        });
-
-                        legendData.push(pack);
-
-                        var before = map.getSource('pack-labels') ? 'pack-labels' : '';
-                        //console.log(map.getSource(pack.id));
-
-                        if (!map.getSource(pack.id)) {
-                            if (pack.years[$scope.currentYear].geometry.type === "Polygon") {
-                                map.addLayer({
-                                    "id": pack.id,
-                                    "type": "fill",
-                                    "source": {
-                                        "type": "geojson",
-                                        "data" : geojson 
-                                    },
-                                    "paint": styleSvc[pack.name] 
-                                }, before);
-                            }
-                            if (pack.years[$scope.currentYear].geometry.type === "Point") {
-                                map.addLayer({
-                                    "id": pack.id,
-                                    "type": "circle",
-                                    "source": {
-                                        "type": "geojson",
-                                        "data" : geojson 
-                                    },
-                                    "paint": styleSvc[pack.name + '-point'] 
-                                }, before);
-                            }
-                        }
-                        else {
-                            map.getSource(pack.id).setData(geojson);
-                        }
-                    } else if (map.getSource(pack.id)) {
-                        map.removeLayer(pack.id);
-                        map.removeSource(pack.id);
+                    geojson = {
+                      "type" : "FeatureCollection",
+                      "features" : [{
+                          "type" : "Feature",
+                          "properties" : { 
+                               "name"   : data.name,
+                               "id"     : pack,
+                               "adults" : data.numbers.adults,
+                               "pups"   : data.numbers.pups,
+                               "total"  : data.numbers.total
+                           },
+                          "geometry" : data.geometry
+                      }]
                     }
-                });
+
+                    legendData.push({ 'id' : pack, 'data' : data });
+
+                    //console.log(geojson, ' geojson');
+
+                    // Add each layer to array of all polygons 
+                    polyFeatures.features.push(geojson.features[0]);
+
+                    // Find center of polygon, create popup and label based on coords
+                    let centroid = turf.centroid(geojson)
+                    centroid.properties.pack = data.name;
+                    labels.features.push(centroid);
+
+                    map.on('mouseenter', pack, function(e) {
+                       var props = e.features[0].properties;
+
+                       popup.setLngLat([centroid.geometry.coordinates[0], centroid.geometry.coordinates[1]])
+                       .setHTML(
+                               '<div class="popUp">' + 
+                                   '<div class="popHeader ' + e.features[0].layer.id + '"> ' + props.name + '</div>' +
+                                   '<div>Adults: ' + (typeof props.adults !== 'undefined' ? props.adults : 'N/A') + '</div>' +
+                                   '<div>Pups: ' + (typeof props.pups !== 'undefined' ? props.pups : 'N/A') + '</div>' +
+                                   '<div>Total: ' + (typeof props.total !== 'undefined' ? props.total : (props.pups + props.adults)) + '</div>' +
+                               '</div>'
+                        )
+                       .addTo(map);
+                    });
+
+
+
+                    // Create label source 
+                    var before = map.getSource('pack-labels') ? 'pack-labels' : '';
+                    if (!map.getSource(pack)) {
+                        if (data.geometry.type === "Polygon") {
+                            map.addLayer({
+                                "id": pack,
+                                "type": "fill",
+                                "source": {
+                                    "type": "geojson",
+                                    "data" : geojson 
+                                },
+                                "paint": styleSvc[data.name] 
+                            }, before);
+                        }
+                        if (data.geometry.type === "Point") {
+                            map.addLayer({
+                                "id": pack,
+                                "type": "circle",
+                                "source": {
+                                    "type": "geojson",
+                                    "data" : geojson 
+                                },
+                                "paint": styleSvc[data.name + '-point'] 
+                            }, before);
+                        }
+                    }
+                    else {
+                        map.getSource(pack).setData(geojson);
+                    }
+                } 
+
 
                 if ($scope.state.zoomOnYearChange) {
-                    //console.log(polyFeatures, ' polyfeatures');
                     var bbox = turf.bbox(polyFeatures)
                     map.fitBounds(bbox, { duration: 700, padding: 20 });
-                    //console.log(bbox);
                 }
 
-                getNoTerritory();
+                //getNoTerritory();
+
                 $scope.$evalAsync(function() {
                     $scope.legendData = legendData;
                 });
 
-
-                //console.log(labels, ' labels');
+                // Add label layer
                 if (!map.getSource('pack-labels')) {
                     map.addLayer({
                         "id": "pack-labels",
@@ -290,7 +304,16 @@ APP
                 } else {
                     map.getSource('pack-labels').setData(labels);
                 }
+                $scope.state.activePacks = activePacks;
+                console.log($scope.state, ' state');
             }
+
+                /*
+                else if (map.getSource(pack)) {
+                    map.removeLayer(pack);
+                    map.removeSource(pack);
+                }
+                */
 
           $scope.changeYear = function(year) {
               $scope.currentYear = year;
@@ -321,12 +344,10 @@ APP
            }
 
            $scope.highlightPack = function(pack) {
-                popup.remove();
-                //console.log(polyFeatures, ' polyFeatures');
-                var activePack = polyFeatures.features.find(function(feature) {
-                    return feature.properties.name === pack;
-                });
-                //console.log(activePack);
+               popup.remove();
+               var activePack = polyFeatures.features.find(function(feature) {
+                   return feature.properties.name === pack;
+               });
 
                var pack = {
                       "type" : "FeatureCollection",
@@ -676,6 +697,86 @@ APP
                     }
                 return colorObj;
             }
-            */
+
+
+
+
+
+                $scope.allPackData.packs.map(pack => {
+                    if (pack.years[$scope.currentYear] && pack.years[$scope.currentYear].geometry) {
+                        geojson = {
+                          "type" : "FeatureCollection",
+                          "features" : [{
+                              "type" : "Feature",
+                              "properties" : { 
+                                   "name" : pack.name,
+                                   "id" : pack.id,
+                                   "adults" : pack.years[$scope.currentYear].numbers.adults,
+                                   "pups" : pack.years[$scope.currentYear].numbers.pups,
+                                   "total" : pack.years[$scope.currentYear].numbers.total
+                               },
+                              "geometry" : pack.years[$scope.currentYear].geometry
+                          }]
+                        }
+
+                        polyFeatures.features.push(geojson.features[0]);
+
+                        //console.log(geojson, ' geosjon');
+                        var centroid = turf.centroid(geojson)
+                        centroid.properties.pack = pack.name;
+                        labels.features.push(centroid);
+
+                        map.on('mouseenter', pack.id, function(e) {
+                           var props = e.features[0].properties;
+                           popup.setLngLat([centroid.geometry.coordinates[0], centroid.geometry.coordinates[1]])
+                           .setHTML(
+                                   '<div class="popUp">' + 
+                                       '<div class="popHeader ' + e.features[0].layer.id + '"> ' + props.name + '</div>' +
+                                       '<div>Adults: ' + (typeof props.adults !== 'undefined' ? props.adults : 'N/A') + '</div>' +
+                                       '<div>Pups: ' + (typeof props.pups !== 'undefined' ? props.pups : 'N/A') + '</div>' +
+                                       '<div>Total: ' + (typeof props.total !== 'undefined' ? props.total : (props.pups + props.adults)) + '</div>' +
+                                   '</div>'
+                            )
+                           .addTo(map);
+                        });
+
+                        legendData.push(pack);
+
+                        var before = map.getSource('pack-labels') ? 'pack-labels' : '';
+                        //console.log(map.getSource(pack.id));
+
+                        if (!map.getSource(pack.id)) {
+                            if (pack.years[$scope.currentYear].geometry.type === "Polygon") {
+                                map.addLayer({
+                                    "id": pack.id,
+                                    "type": "fill",
+                                    "source": {
+                                        "type": "geojson",
+                                        "data" : geojson 
+                                    },
+                                    "paint": styleSvc[pack.name] 
+                                }, before);
+                            }
+                            if (pack.years[$scope.currentYear].geometry.type === "Point") {
+                                map.addLayer({
+                                    "id": pack.id,
+                                    "type": "circle",
+                                    "source": {
+                                        "type": "geojson",
+                                        "data" : geojson 
+                                    },
+                                    "paint": styleSvc[pack.name + '-point'] 
+                                }, before);
+                            }
+                        }
+                        else {
+                            map.getSource(pack.id).setData(geojson);
+                        }
+                    } else if (map.getSource(pack.id)) {
+                        map.removeLayer(pack.id);
+                        map.removeSource(pack.id);
+                    }
+                });
+                */
 
 
