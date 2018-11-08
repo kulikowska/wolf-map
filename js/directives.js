@@ -25,6 +25,8 @@ APP
                         //SCOPE.allPackData = response.data.content;
                         //console.log(SCOPE.allPackData, ' all pack data');
                         $scope.allPackData = response.data.content;
+                        $scope.packDataUid = response.data.uid;
+
                         $scope.$digest();
                     }
                 );
@@ -359,7 +361,14 @@ APP
                 $scope.allPackData.packs[$scope.dataToEdit.idx] = $scope.dataToEdit.data;
                 console.log($scope.allPackData, ' all pack data');
 
-                KEY_API_SDK.updateDataItem('territories', $scope.allPackData )
+                let data = {
+                    'uid'     : $scope.packDataUid, 
+                    'content' : $scope.allPackData
+                }
+
+                console.log(data, ' data');
+                //if (false)  
+                KEY_API_SDK.updateDataItem('territories', data)
                 .then( function(addResponse) {
                     console.log(addResponse);
                 })
