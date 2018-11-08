@@ -177,21 +177,31 @@ APP
 
             function getYearData(year) {
 
-                labels.features = [];
                 var geojson;
+                labels.features = [];
+                legendData      = [];
+                lastYearPacks   = JSON.parse(JSON.stringify(activePacks));
+                activePacks     = [];
+
                 polyFeatures = {
                       "type" : "FeatureCollection",
                       "features" : []
                 };
-                legendData = [];
-                yearPacks = [];
 
                 const yearData = $scope.years[$scope.currentYear];
                 console.log(yearData, ' yearData');
 
                 for (pack in yearData) {
                     let data = yearData[pack];
+
                     activePacks.push(pack);
+
+                    // create an array of packs layers to be removed from map
+                    //console.log(pack, 'pack', lastYearPacks.indexOf(pack), 'idx');
+                    const idx = lastYearPacks.indexOf(pack);
+                    if (idx !== -1) {
+                        lastYearPacks.splice(idx, 1); 
+                    }
 
                     geojson = {
                       "type" : "FeatureCollection",
@@ -212,8 +222,9 @@ APP
 
                     //console.log(geojson, ' geojson');
 
-                    // Add each layer to array of all polygons 
+                    // Add each layer to array of all polygons to later find bounds
                     polyFeatures.features.push(geojson.features[0]);
+
 
                     // Find center of polygon, create popup and label based on coords
                     let centroid = turf.centroid(geojson)
@@ -237,8 +248,9 @@ APP
 
 
 
-                    // Create label source 
+                    // Add territory layer to map 
                     var before = map.getSource('pack-labels') ? 'pack-labels' : '';
+
                     if (!map.getSource(pack)) {
                         if (data.geometry.type === "Polygon") {
                             map.addLayer({
@@ -266,7 +278,15 @@ APP
                     else {
                         map.getSource(pack).setData(geojson);
                     }
+
                 } 
+                // END LOOP
+
+                // Remove the previous years packs that aren't in the current year
+                lastYearPacks.map(id => {
+                    map.removeLayer(id);
+                    map.removeSource(id);
+                });
 
 
                 if ($scope.state.zoomOnYearChange) {
@@ -304,16 +324,11 @@ APP
                 } else {
                     map.getSource('pack-labels').setData(labels);
                 }
-                $scope.state.activePacks = activePacks;
-                console.log($scope.state, ' state');
-            }
 
-                /*
-                else if (map.getSource(pack)) {
-                    map.removeLayer(pack);
-                    map.removeSource(pack);
-                }
-                */
+
+                //console.log(lastYearPacks, ' lastYearPacks');
+                //console.log(activePacks, ' activePacks');
+            }
 
           $scope.changeYear = function(year) {
               $scope.currentYear = year;
