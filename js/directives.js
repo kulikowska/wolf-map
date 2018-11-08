@@ -17,27 +17,62 @@ APP
             $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
                             "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
 
-            KEY_API_SDK.ready( () => {
-                KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
 
-                KEY_API_SDK.getDataItem("territories").then( 
-                    function(response) {
-                        //SCOPE.allPackData = response.data.content;
-                        //console.log(SCOPE.allPackData, ' all pack data');
-                        $scope.allPackData = response.data.content;
-                        $scope.packDataUid = response.data.uid;
+            KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
+            KEY_API_SDK.getDataItem("territories").then( 
+                function(response) {
+                    $scope.allPackData = response.data.content;
+                    $scope.packDataUid = response.data.uid;
 
-                        $scope.$digest();
-                    }
-                );
-                KEY_API_SDK.getDataItem("no-territories").then( 
-                    function(response) {
-                        $scope.noTerritoryData = response.data.content;
-                        $scope.$digest();
-                    }
-                );
-            });
+                    $scope.$digest();
 
+                    /* migrate to new format here
+
+                    let packs = response.data.content.packs;
+                    let newPacksData = {};
+                    let newYearsData = {};
+
+                    console.log(packs, ' original pack data');
+
+                    packs.map(pack => {
+                       newPacksData[pack.id] = {
+                            'name'  : pack.name,
+                            'years' : pack.years
+                       }
+
+                       for (year in pack.years) {
+                           if (!newYearsData.hasOwnProperty(year)) {
+                               newYearsData[year] = {};    
+                           }
+                           newYearsData[year][pack.id] = pack.years[year];
+                       };
+                    });
+
+                    console.log(newYearsData, ' newYearsData');
+                    console.log(newPacksData, ' newPacksData');
+                    */
+                }
+            );
+            KEY_API_SDK.getDataItem("no-territories").then( 
+                function(response) {
+                    $scope.noTerritoryData = response.data.content;
+                    $scope.$digest();
+                }
+            );
+
+            KEY_API_SDK.getDataItem("packs").then( 
+                function(response) {
+                    $scope.packs = response.data.content;
+                    console.log($scope.packs, ' packs');
+                }
+            );
+
+            KEY_API_SDK.getDataItem("years").then( 
+                function(response) {
+                    $scope.years = response.data.content;
+                    console.log($scope.years, ' years');
+                }
+            );
         } 
     } 
 }])
