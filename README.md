@@ -1,14 +1,9 @@
-# Key-Api-Sample
-
-Before you start go to [http://api.enkoda.pro] and create an Administrator's Account
-
-## Detailed documentation/Examples: 
-[https://gitlab.com/jarek707/key-api-sample/blob/master/DOCUMENTATION.md]
+# Wolves
 
 #### 1. Start with
 ```sh
-git clone git@gitlab.com:jarek707/key-api-sample.git
-cd key-api-sample
+git clone git@github.com:kulikowska/wolf-map.git
+cd wolf-map
 npm install
 npm run bg
 // Your should now connect from `http://localhost`
