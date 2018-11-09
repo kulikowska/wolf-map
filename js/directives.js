@@ -22,6 +22,7 @@ APP
 
 
             KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
+            /*
             KEY_API_SDK.getDataItem("territories").then( 
                 function(response) {
                     $scope.allPackData = response.data.content;
@@ -29,7 +30,7 @@ APP
 
                     $scope.$digest();
 
-                    /* migrate to new format here
+                    // migrate to new format here
 
                     let packs = response.data.content.packs;
                     let newPacksData = {};
@@ -54,7 +55,6 @@ APP
 
                     console.log(newYearsData, ' newYearsData');
                     console.log(newPacksData, ' newPacksData');
-                    */
                 }
             );
             KEY_API_SDK.getDataItem("no-territories").then( 
@@ -70,6 +70,7 @@ APP
                     console.log($scope.packs, ' packs');
                 }
             );
+            */
 
             $scope.allYears = [];
 
@@ -189,7 +190,6 @@ APP
                 };
 
                 const yearData = $scope.years[$scope.currentYear];
-                console.log(yearData, ' yearData');
 
                 for (pack in yearData) {
                     let data = yearData[pack];
@@ -440,7 +440,6 @@ APP
                 console.log($scope.allPackData, ' all pack data');
 
                 let data = {
-                    'uid'     : $scope.packDataUid, 
                     'content' : $scope.allPackData
                 }
 
