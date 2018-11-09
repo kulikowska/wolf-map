@@ -6,7 +6,7 @@ git clone git@github.com:kulikowska/wolf-map.git
 cd wolf-map
 npm install
 npm run bg
-// Your should now connect from `http://localhost`
+// Your should now be able to connect from `http://localhost`
 ```
 
 ### Optionally you can automatically run it in the browser:
