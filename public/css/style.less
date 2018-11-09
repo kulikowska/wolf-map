@@ -1,0 +1,397 @@
+@niceBlue:      #2d66b0;
+@darkBlue:      #162547;
+@panelFromTop:  20px;
+@crazyBS:       0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+@funFont:       'Dosis', sans-serif;
+@headerHeight:  70px;
+
+body {
+    //font-family: raleway;
+    color:       #fff;
+    margin:      0;
+    padding:     0;
+    background:  #222;
+    font-size:   22px;
+    font-weight: bold;
+    text-align:  center;
+
+    //font-family: 'Source Sans Pro', sans-serif;
+    //font-family: 'Poppins', sans-serif;
+    //font-family: 'IM Fell English SC', serif;
+    //font-family: 'Lora', serif;
+    font-family: 'Dosis', sans-serif;
+}
+
+a { 
+    color:      lighten(@niceBlue, 20%);
+    transition: 100ms;
+    font-size:  20px;
+    &:hover { 
+        color: lighten(@niceBlue, 40%);
+    }
+}
+
+#header {
+    width:              100%;
+    //min-height:         15%;
+    height:             @headerHeight;
+    float:              left;
+    background-size:    cover;
+    //background-image:   url('../images/northern_lights_cropped.jpg');
+    position:           relative;
+    background-image:   url('http://www.pbs.org/wnet/nature/files/2014/10/GrayWolf-Main-e1415205081524-1000x469.jpg');
+    background-position: 0px;
+    .overLay {
+        position:   absolute;
+        top:        0;
+        bottom:     0;
+        left:       0;
+        right:      0;
+        //background: linear-gradient(fade(#000, 1%), fade(#000, 100%));
+        background: fade(#fff, 60%);
+        .title {
+            font-size:      24px;
+            float:          left;
+            width:          100px;
+            color:          #222;
+            margin-left:    24px;
+            margin-top:     4px;
+        }
+        ul {
+            float:          right;
+            list-style:     none;
+            color:          #000;
+            display:        flex;
+            margin-right:   20px;
+            margin-top:     24px;
+            li {
+                margin:         0px 10px;
+                text-transform: uppercase;
+                font-size:      18px;
+                transition:     300ms;
+                cursor:         pointer;
+                &:hover {
+                    color:  lighten(@niceBlue, 20%);
+                }
+            }
+        }
+    }
+}
+#contentWrap {
+    background: #030303;
+    min-height: 45%;
+    width:      100%;
+    float:      left;
+}
+
+#footer {
+    width:      100%;
+    background: @darkBlue;
+    float:      left;
+    height:     5%;
+}
+#map {
+    width:      100%;
+    height:     calc(~"100%" - @headerHeight);
+    position:   relative;
+    .yearToggle {
+        position:   absolute;
+        top:        0px;
+        right:      0px;
+        background: fade(#fff, 90%);
+        z-index:    5;
+        width:      70px;
+        border:     1px solid #ccc;
+        border-top: 0px;
+        list-style: none;
+        padding:    0;
+        margin:     0;
+        max-height: 100%;
+        overflow:   auto;
+        li {
+            color:          #222;
+            font-size:      13px; 
+            padding:        6px;
+            border-bottom:  1px solid #ddd;
+            cursor:         pointer;
+            transition:     200ms;
+            font-family:    @funFont;
+            letter-spacing: 1px;
+            &:hover {
+                font-weight:    bold;
+            }
+            &.active {
+                background: @niceBlue;
+                color:      #fff;
+            }
+        }
+    }
+    .legend {
+        position:   absolute;
+        left:       10px;
+        top:        @panelFromTop;
+        background: #fff;
+        box-shadow:  @crazyBS;
+        min-height: 200px;
+        min-width:  50px;
+        z-index:    2;
+        color:      #222;
+        list-style: none;
+        margin:     0px;
+        padding:    0px;
+        font-family:    'Dosis', sans-serif;
+        padding-top: 5px;
+        .legendHead {
+            width:          100%;
+            background:     lighten(@niceBlue, 40%);
+            padding:        10px 0px;
+            text-align:     center;
+            text-transform: uppercase;
+            box-shadow:     @crazyBS;
+            border-bottom:  none;
+        }
+        .colourCode {
+            height:         20px;
+            width:          20px;
+            display:        inline-block;
+            border-radius:  4px;
+        }
+        .packRow {
+            cursor: pointer;
+            transition: 200ms;
+            &:hover {
+                //font-size: 0.9em;
+                opacity: 0.5;
+            }
+        }
+        /*
+        li {
+            text-align:     left;
+            font-size:      16px;
+            color:          #444;
+            font-family:    'Dosis', sans-serif;
+            margin:         4px 10px 4px 4px;
+            span {
+                height:         20px;
+                width:          20px;
+                display:        inline-block;
+                border-radius:  4px;
+            }
+            &.total {
+                border-top:     1px solid #999;
+                font-weight:    bold;
+                font-size:      16px;
+                text-align:     center;
+                margin-top:     8px;
+                padding-top:    8px;
+                padding-bottom: 8px;
+            }
+        }
+        */
+    }
+    .mapOpts {
+        position:   absolute;
+        left:       10px;
+        bottom:     @panelFromTop;
+        z-index:    2;
+        color:      #222;
+        list-style: none;
+        margin:     0px;
+        padding:    10px;
+        transition: 400ms;
+        z-index:        5;
+        .fa {
+            font-size:      40px;
+            color:          @niceBlue;
+            cursor:         pointer;
+            transition:     200ms;
+            text-shadow:    1px 1px #222;
+            margin-top: 15px;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        &.active {
+            background: fade(#fff, 80%);
+            border:     1px solid #ccc;
+            .optsWrap {
+                max-height: 200px;
+                max-width:  230px;
+            }
+        }
+        .optsWrap {
+            max-height:     0px;
+            max-width:      0px;
+            overflow:       hidden;
+            transition:     400ms;
+            .ui.toggle.checkbox {
+                margin: 5px 0px;
+                float: left;
+                font-family: @funFont;
+            }
+        }
+    }
+}
+.mapboxgl-canvas {
+    left:   0;
+    right:  0;
+}
+
+.mollies, .thorofare {
+    background: rgba(37, 111, 91, 1);
+}
+.canyon {
+      background : rgba(61, 49, 119, 1);
+}
+.snake-river {
+     background : rgba(42, 80, 111, 1);
+}
+.cougar-creek, .soda-butte {
+      background : rgba(247, 247, 16, 1);
+}
+.cinnabar {
+      background: rgba(68, 145, 48, 1);
+}
+.eight-mile {
+      background: rgba(191, 150, 0, 1);
+}
+.prospect-peak {
+      background: rgba(238, 164, 0, 1);
+}
+.wapati-lake, .blacktail {
+      background: rgba(238, 96, 0, 1);
+}
+.junction-butte {
+      background: rgba(238, 6, 0, 1);
+}
+.lamar-canyon {
+      background: rgba(88, 43, 115, 1);
+}
+.yellowstone-delta {
+    background: rgba(68, 145, 48, 1);
+}
+.mary-mountain {
+    background: rgba(74, 52, 54, 1);
+}
+.bechler, .crystal-creek {
+    background: rgba(91, 147, 198, 1);
+}
+.agate, .sunlight-basin {
+    background: rgba(170, 51, 174, 1);
+}
+.six-four-two, .seven-five-five, .seven-five-five-eight-eight-nine, 
+.nine-eleven, .three-oh-two, .six-eight-two, .fifteen, .thirty-five {
+    border: 1px solid #000;
+}
+.grayling {
+    background : rgba(238, 6, 0, 1);
+}
+.silver {
+    background : rgba(229, 229, 229, 1);
+}
+.quadrant, .jackson-trio {
+    background : rgba(86, 210, 179, 1);
+}
+.cottonwood {
+    background : rgba(84, 0, 4, 1);
+}
+.druid {
+    background : rgba(49, 60, 116, 1);
+}
+.everts {
+    background : rgba(217, 145, 175, 1);
+}
+.lava {
+    background : rgba(193, 228, 63, 1);
+}
+.gibbon {
+    background : rgba(255, 179, 88, 1);
+}
+.slough, .teton {
+    background : rgba(160, 24, 20, 1);
+}
+.cougar-two {
+    background : rgba(170, 89, 55, 1);
+}
+.hellroaring, .sheep-mountain, .chief-joseph-two {
+    background : rgba(176, 217, 4, 1);
+}
+.leopold {
+    background : rgba(180, 177, 118, 1);
+}
+.swan-lake {
+    background : rgba(125, 78, 189, 1);
+}
+.hayden-valley {
+    background : rgba(86, 210, 179, 1);
+}
+.nez-perce {
+    background: rgba(238, 96, 0, 1);
+}
+.biscuit-basin {
+    background : rgba(217, 145, 175, 1);
+}
+.chief-joseph {
+    background : rgba(66, 51, 51, 1);
+}
+.geode-creek, .gros-ventre {
+    background : rgba(71, 151, 151, 1);
+}
+.specimen-ridge {
+    background : rgba(171, 212, 189, 1);
+}
+.buffalo-fork {
+    background: rgba(141, 202, 75, 1);
+}
+.rose-creek, .rose-creek-two {
+    background: rgba(244, 181, 206, 1);
+}
+.oxbow {
+    background: rgba(233, 246, 104, 1);
+}
+.tower {
+    background: rgba(255, 181, 108, 1);
+}
+.washakie {
+    background: rgba(116, 39, 109, 1);
+}
+.loners {
+    background: #ccc;
+}
+.unknown, .five-two-seven, .four-seven-one, .yellowstone-delta-sub,
+.five-two-seven, .four-six-nine, .gardners-hole {
+    border: 1px dashed #222;
+}
+.popUp {
+    color: #000;
+    font-family: 'Dosis', sans-serif;
+    font-size: 14px;
+    .popHeader {
+       padding: 10px;
+       font-size: 16px;
+       text-align: center;
+       width: 150px;
+       margin-bottom: 5px;
+    }
+}
+.mapboxgl-popup-content{
+    padding: 0px 0px 10px;
+}
+charts, edit {
+    position : absolute;
+    left     : 0px;
+    right    : 0px;
+    top      : @headerHeight;
+    bottom   : 0px;
+    background  : #fff;
+    z-index     : 100; 
+    color       : #000;
+}
+edit {
+    bottom      : auto;
+    min-height  : calc(~"100%" - @headerHeight);
+    .ui.form {
+        max-width   : 400px;
+        margin      : 40px auto;
+    }
+}

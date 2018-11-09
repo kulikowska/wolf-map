@@ -1,0 +1,60 @@
+<div>
+    <form class="ui form" ng-if="formType == 'login'">
+        <h4> Login </h4>
+        <div class="field">
+            <label> E-mail</label>
+            <input type="text" ng-model="email"> </input> 
+        </div>
+        <div class="field">
+            <label> Password</label>
+            <input type="text" ng-model="password"> </input> 
+        </div>
+         <div class="ui teal basic button" ng-click="login(email, password)">Login</div>
+
+        <div class="ui negative message" ng-if="errorMsg">
+            <i class="close icon" ng-click="close()"></i>
+            <div class="header"> Oops!</div>
+            <p> {{errorMsg}} </p>
+        </div>
+    </form>
+
+    <form class="ui form" ng-if="formType == 'edit'">
+        <h4> Edit Data </h4>
+        <div class="field">
+            <label> Pack</label>
+            <select class="ui fluid dropdown" ng-model="activePack" ng-change="setNewData(activePack)"> 
+                <option ng-repeat="(i, pack) in allPackData.packs" value={{i}}>{{pack.name}}</option>
+            </select> 
+        </div>
+
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Adults</th>
+                    <th>Pups</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(year, data) in dataToEdit.data.years">
+                <td data-label="Year">{{year}}</td>
+                <td data-label="Adults">
+                    <input type="text" ng-model="data.numbers.adults"></input>
+                </td>
+                <td data-label="Pups">
+                    <input type="text" ng-model="data.numbers.pups"></input>
+                </td>
+            </tr>
+        </table> 
+
+        <div class="ui teal basic button" ng-click="saveData()">Save Changes</div>
+
+        <div class="ui negative message" ng-if="errorMsg">
+            <i class="close icon" ng-click="close()"></i>
+            <div class="header"> Oops!</div>
+            <p> {{errorMsg}} </p>
+        </div>
+    </form>
+
+
+</div>

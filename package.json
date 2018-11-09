@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mac":  "npm run bg",
+    "mac":  "npm run bg; sleep 1; open http://localhost:8181",
+    "bg":   "bash ./.killLastInstance; sleep 0.5; node `pwd`/server.js &"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/kulikowska/wolf-map#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "turf-extent": "^1.0.4"
   }
 }
