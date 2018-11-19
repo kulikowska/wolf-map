@@ -15,13 +15,8 @@ APP
 
             $scope.currentYear = '2016';
 
-            /*
-            $scope.allYears = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
-                            "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "95/96"]
-            */
-
-
             KEY_API_SDK.setClientUid('b6be70d1-e2b8-cca8-a121-85f4cca43715'); 
+
             /*
             KEY_API_SDK.getDataItem("territories").then( 
                 function(response) {
@@ -110,26 +105,6 @@ APP
             }
 
             $scope.legendData = [];
-
-            /*
-            fetch('../wolf-report-data.json').then(function(data) {
-            //fetch('./wolf-report-data.json').then(function(data) { 
-                return data.json();
-            }).then(function(json) {
-                allPackData = json;
-                //console.log(allPackData);
-            });
-            */
-
-            /*
-            fetch('../no-territory.json').then(function(data) {
-            //fetch('./no-territory.json').then(function(data) {
-                return data.json();
-            }).then(function(json) {
-                //console.log(json);
-                $scope.noTerritoryData = json;
-            });
-            */
 
             map.on('load', function() {
                 getYearData($scope.currentYear); 
@@ -249,7 +224,6 @@ APP
                     });
 
 
-
                     // Add territory layer to map 
                     var before = map.getSource('pack-labels') ? 'pack-labels' : '';
 
@@ -327,7 +301,6 @@ APP
                     map.getSource('pack-labels').setData(labels);
                 }
 
-
                 //console.log(lastYearPacks, ' lastYearPacks');
                 //console.log(activePacks, ' activePacks');
             }
@@ -395,68 +368,6 @@ APP
         //template: TPL.content,
         link: function($scope, $element, $attributes) {
         }
-     } 
- }])
-.directive('edit', [function() {
-    return {
-        restrict: 'E',
-        replace: false,
-        templateUrl: 'html/edit.html',
-        //template: TPL.content,
-        link: function($scope, $element, $attributes) {
-
-            $scope.formType = 'login';
-            $scope.email    = 'rubykulikowska@gmail.com';
-            $scope.password = 'donkey';
-
-            $scope.login = function(email, password) {
-                KEY_API_SDK.login(email, password)
-                .then( userLoginInfo => {
-                    if (userLoginInfo.success) {
-                        $scope.formType = 'edit';
-                        $scope.$digest();
-                    }
-                })
-                .catch( loginErrorResponse => {
-                    console.log(loginErrorResponse);
-                    $scope.errorMsg = loginErrorResponse.msg;
-                });
-            }
-
-            $scope.close = function() {
-                $scope.errorMsg = false;
-            }
-
-            $scope.setNewData = function(idx) {
-                $scope.dataToEdit = { 
-                    'data' : $scope.allPackData.packs[idx],
-                    'idx'  : idx
-                }
-                console.log($scope.dataToEdit, ' dataToEdit');
-            }
-
-            $scope.saveData = function() {
-
-                console.log($scope.dataToEdit, ' dataToEdit');
-                $scope.allPackData.packs[$scope.dataToEdit.idx] = $scope.dataToEdit.data;
-                console.log($scope.allPackData, ' all pack data');
-
-                let data = {
-                    'content' : $scope.allPackData
-                }
-
-                console.log(data, ' data');
-                //if (false)  
-                KEY_API_SDK.updateDataItem('territories', data)
-                .then( function(addResponse) {
-                    console.log(addResponse);
-                })
-                .then( function(updateResponse) {
-                    console.log( updateResponse );
-                })
-                .catch();
-            }
-         }
      } 
  }])
 .directive('charts', [function() {
