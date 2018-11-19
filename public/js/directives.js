@@ -52,12 +52,6 @@ APP
                     console.log(newPacksData, ' newPacksData');
                 }
             );
-            KEY_API_SDK.getDataItem("no-territories").then( 
-                function(response) {
-                    $scope.noTerritoryData = response.data.content;
-                    $scope.$digest();
-                }
-            );
 
             KEY_API_SDK.getDataItem("packs").then( 
                 function(response) {
@@ -69,15 +63,122 @@ APP
 
             $scope.allYears = [];
 
-            KEY_API_SDK.getItem("years").then( 
+            KEY_API_SDK.getItem("years-new").then( 
                 function(response) {
                     console.log( response );
-                    //$scope.years = response.data.content;
                     $scope.years = response;
+
+
+                    /*
+                    REFORMATTING STUFF 
+                    let newData = response;
+                    newData['2008']['other']['no-territory']['five-two-seven'] = {
+                        "name" : "527F Group",
+                        "id"   : "five-two-seven",
+                        "numbers" : {
+                            "adults" : 3,
+                            "pups"   : 0
+                        }
+                    }
+                    newData['2008']['other']['no-territory']['four-seven-one'] = {
+                        "name" : "471F Group",
+                        "id"   : "four-seven-one",
+                        "numbers" : {
+                            "adults" : 3,
+                            "pups"   : 0
+                        }
+                    }
+                    newData['2008']['other']['no-territory']['yellowstone-delta-sub'] = {
+                        "name" : "Yellowstone Delta Subgroup",
+                        "id"   : "yellowstone-delta-sub",
+                        "numbers" : {
+                            "adults" : 4,
+                            "pups"   : 0
+                        }
+                    }
+                    newData['2007']['other']['no-territory']['five-two-seven'] = {
+                        "name" : "527F/B271M Idaho Wolf",
+                        "id"   : "five-two-seven",
+                        "numbers" : {
+                            "adults" : 2,
+                            "pups"   : 0 
+                        }
+                    }
+                    newData['2007']['other']['no-territory']['four-six-nine'] = {
+                        "name" : "469F Group",
+                        "id"   : "four-six-nine",
+                        "numbers" : {
+                            "adults" : 4,
+                            "pups"   : 0 
+                        }
+                    }
+                    newData['2007']['other']['no-territory']['gardeners-hole'] = {
+                        "name" : "Gardner's Hole Group",
+                        "id"   : "gardners-hole",
+                        "numbers" : {
+                            "adults" : 1,
+                            "pups"   : 1 
+                        }
+                    }
+                    newData['2005']['other']['no-territory']['unknown'] = {
+                        "name" : "Unknown Group",
+                        "id"   : "unknown",
+                        "numbers" : {
+                            "adults" : 3,
+                            "pups"   : "N/A",
+                            "total"  : 3
+                        }
+                    }
+
+                    newData['1997']['other']['no-territory']['washakie'] = {
+                        "name" : "Washakie",
+                        "id"   : "washakie",
+                        "numbers" : {
+                            "adults" : 1,
+                            "pups"   : 5
+                        }
+                    }
+                    console.log(newData, ' newData');
+                    */
+
+
+
+
+                    /*
+                    let reformat = {};
 
                     for (year in $scope.years) {
                         $scope.allYears.push(year); 
+                        reformat[year] = { 
+                            'packs' : {},
+                            'other' : {
+                                'loners' : {
+                                    'adults' : null,
+                                    'pups' : null,
+                                    'total' : null
+                                },
+                                'no-territory' : {},
+                                'unknown' : {
+                                    'adults' : null,
+                                    'pups' : null,
+                                    'total' : null
+                                },
+                                'captives' : {
+                                    'adults' : null,
+                                    'pups' : null,
+                                    'total' : null
+                                },
+                                'total' : null
+                            }
+                        };
+
+                        for (pack in $scope.years[year]) {
+                            reformat[year].packs[pack] = $scope.years[year][pack];
+                        }
                     }
+
+                    console.log(reformat, ' reformat');
+                    */
                 }
             );
         } 
@@ -166,7 +267,7 @@ APP
                       "features" : []
                 };
 
-                const yearData = $scope.years[$scope.currentYear];
+                const yearData = $scope.years[$scope.currentYear].packs;
 
                 for (pack in yearData) {
                     let data = yearData[pack];
