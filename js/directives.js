@@ -74,7 +74,7 @@ APP
 
             $scope.allYears = [];
 
-            KEY_API_SDK.getDataItem("years").then( 
+            KEY_API_SDK.getItem("years").then( 
                 function(response) {
                     $scope.years = response.data.content;
 

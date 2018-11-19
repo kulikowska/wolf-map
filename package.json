@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mac":  "npm run bg; sleep 1; open http://localhost:8182",
-    "bg":   "bash ./.killLastInstance; sleep 0.5; node `pwd`/server.js &"
+    "mac": "npm run bg; sleep 1; open http://localhost:8182",
+    "bg": "bash ./.killLastInstance; sleep 0.5; node `pwd`/server.js &"
   },
   "repository": {
     "type": "git",
