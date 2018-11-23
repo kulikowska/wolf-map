@@ -4,7 +4,6 @@ APP
         restrict: 'A',
         replace: false,
         templateUrl: 'html/content.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
 
             $scope.state = {
@@ -44,7 +43,6 @@ APP
         restrict: 'A',
         replace: false,
         templateUrl: 'html/map.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
 
             mapboxgl.accessToken = 'pk.eyJ1Ijoia3VsaWtvd3NrYSIsImEiOiJjamRtY2l6dHAwbG9mMnhtdGp6eWY0a283In0.6OYpoUZAkRskJcXej314lg';
@@ -268,7 +266,6 @@ APP
         restrict: 'E',
         replace: false,
         templateUrl: 'html/legend.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
         }
      } 
@@ -278,7 +275,6 @@ APP
         restrict: 'A',
         replace: false,
         templateUrl: 'html/charts.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
 
             //console.log($scope.totalForYear);
@@ -328,7 +324,6 @@ APP
         restrict: 'A',
         replace: false,
         templateUrl: 'html/header.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
             $scope.nav = 'map';
         }
@@ -339,7 +334,6 @@ APP
         restrict: 'A',
         replace: false,
         templateUrl: 'html/footer.html',
-        //template: TPL.content,
         link: function($scope, $element, $attributes) {
          }
       } 
