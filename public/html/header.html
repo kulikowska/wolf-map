@@ -8,15 +8,24 @@
                 <li class="packs">
                     Packs
                     <!-- Should be generated from data, option for year only packs or all packs across all years --!>
-                    <ul class="sub-list">
-                        <li> Canyon  </li>
-                        <li> Bechler </li>
-                        <li> Mollies </li>
-                        <li> Cinnabar</li>
-                        <li> 8 Mile </li>
-                        <li> Jackson Trio</li>
-                        <li> Chief Joseph </li>
-                    </ul>
+                    <div class="sub-list">
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="year">
+                            <i class="dropdown icon"></i>
+                            <div class="default text"> {{currentYear}} </div>
+                            <div class="menu">
+                                <div 
+                                    ng-repeat="item in packsDropdownItems" 
+                                    class="item"
+                                    ng-click="state.menu.changeYear(item)"> 
+                                    {{item}} 
+                                </div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li ng-repeat="pack in state.menu.packList"> {{pack.name}} </li>
+                        </ul>
+                    </div>
                  </li>
                 <li>Years</li>
             </ul>

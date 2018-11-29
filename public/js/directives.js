@@ -9,7 +9,10 @@ APP
             $scope.state = {
                 'opts'             : false,
                 'zoomOnYearChange' : true,
-                'mapLabels'        : true
+                'mapLabels'        : true,
+                'menu'             : {
+                    'packList'     : []
+                }
             }
 
             $scope.currentYear = '2016';
@@ -19,7 +22,7 @@ APP
             KEY_API_SDK.getItem("packs").then( 
                 function(response) {
                     $scope.packs = response;
-                    console.log($scope.packs, ' packs');
+                    //console.log($scope.packs, ' packs');
                 }
             );
 
@@ -33,6 +36,20 @@ APP
                     for (year in response) {
                         $scope.allYears.push(year);
                     }
+                    
+
+                    $scope.packsDropdownItems = angular.copy($scope.allYears);
+                    $scope.packsDropdownItems.unshift('All');
+
+                    
+                    let packList = [];
+                    const packs = $scope.years[$scope.currentYear].packs;
+
+                    for (pack in packs) {
+                        packList.push({ 'name' : packs[pack].name, 'id' : pack});
+                    }
+
+                    $scope.state.menu.packList = packList;
                 }
             );
         } 
@@ -326,6 +343,32 @@ APP
         templateUrl: 'html/header.html',
         link: function($scope, $element, $attributes) {
             $scope.nav = 'map';
+
+            KEY_API_SDK.getItem("packs").then( 
+                function(response) {
+                    console.log( response );
+                    $scope.packs = response;
+
+                }
+            );
+
+            $('.ui.dropdown')
+                .dropdown()
+            ;
+
+            $scope.state.menu['changeYear'] = function(year) {
+                console.log(year);
+
+                let packList = [];
+                const packs = year === 'All' ? $scope.packs : $scope.years[year].packs;
+
+                for (pack in packs) {
+                    packList.push({ 'name' : packs[pack].name, 'id' : pack});
+                }
+
+                $scope.state.menu.packList = packList;
+
+            }
         }
      } 
  }])

@@ -61,19 +61,46 @@ a:hover {
   color: #6a9ad9;
 }
 #header .overLay ul.menu > li.packs:hover .sub-list {
-  max-height: 500px;
+  left: 0px;
 }
-#header .overLay ul.menu > li ul.sub-list {
-  max-height: 0px;
+#header .overLay ul.menu > li .sub-list {
   transition: 500ms;
   overflow: hidden;
   background: #fff;
-  top: 46px;
-  position: absolute;
-  left: -100px;
-  right: -100px;
+  position: fixed;
+  min-height: 300px;
+  right: 0px;
+  bottom: 0px;
+  left: 100%;
+  top: 70px;
+  bottom: -100%;
   list-style: none;
   z-index: 100;
+  padding-bottom: 30px;
+  overflow: auto;
+}
+#header .overLay ul.menu > li .sub-list .ui.selection.dropdown {
+  margin: 10 0px;
+}
+#header .overLay ul.menu > li .sub-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+#header .overLay ul.menu > li .sub-list ul li {
+  max-width: 100px;
+  color: #000;
+  list-style: none;
+  flex-grow: 1;
+  min-width: 33%;
+  max-width: 33%;
+  font-size: 14px;
+  transition: 200ms;
+  backface-visibility: hidden;
+}
+#header .overLay ul.menu > li .sub-list ul li:hover {
+  transform: scale(1.1);
+  color: #6a9ad9;
 }
 #contentWrap {
   background: #030303;

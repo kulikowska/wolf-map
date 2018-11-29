@@ -77,21 +77,49 @@ a {
                 &.packs {
                     &:hover {
                         .sub-list {
-                            max-height: 500px;
+                            left: 0px;
                         }
                     }
                 }
-                ul.sub-list {
-                    max-height: 0px;
+                .sub-list {
+                    //max-height: 0px;
                     transition: 500ms;
                     overflow:   hidden;
                     background: #fff;
-                    top:        46px;
-                    position:   absolute;
-                    left:       -100px;
-                    right:      -100px;
+                    position:   fixed;
+                    min-height: 300px;
+                    right:      0px;
+                    bottom:     0px;
+                    left:       100%;
+                    top:        @headerHeight;
+                    bottom:     -100%;
                     list-style: none;
                     z-index:    100;
+                    padding-bottom: 30px;
+                    overflow:   auto;
+                    .ui.selection.dropdown {
+                        margin  : 10 0px;
+                    }
+                    ul {
+                        display     : flex;
+                        flex-wrap   : wrap;
+                        max-width   : 100%;
+                        li {
+                            max-width   : 100px;
+                            color       : #000;
+                            list-style  : none;
+                            flex-grow   : 1;
+                            min-width   : 33%;
+                            max-width   : 33%;
+                            font-size   : 14px;
+                            transition  : 200ms;
+                            backface-visibility : hidden;
+                            &:hover {
+                                transform: scale(1.1);
+                                color:  lighten(@niceBlue, 20%);
+                            }
+                        }
+                    }
                 }
             }
         }
