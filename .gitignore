@@ -1,3 +1,6 @@
 .killLastInstance
 config.json
 node_modules
+
+wolfs/src/css/*.map
+wolfs/src/css/*.css
