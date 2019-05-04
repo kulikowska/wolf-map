@@ -2,6 +2,50 @@
   "1997": {
     "packs": [
       {
+        "id": "leopold",
+        "name": "Leopold",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.46217763965227,
+                44.88821393354323
+              ],
+              [
+                -110.4654598433607,
+                44.90495432045793
+              ],
+              [
+                -110.4976254397094,
+                44.96072041262161
+              ],
+              [
+                -110.66107918441578,
+                44.98161873658893
+              ],
+              [
+                -110.66239206590204,
+                44.945390135375675
+              ],
+              [
+                -110.60659460284857,
+                44.89239948716204
+              ],
+              [
+                -110.46217763965227,
+                44.88821393354323
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 4,
+          "pups": 5,
+          "total": 9
+        }
+      },
+      {
         "id": "druid",
         "name": "Druid",
         "geometry": {
@@ -37,7 +81,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 5
+          "pups": 5,
+          "total": 8
         }
       },
       {
@@ -92,7 +137,8 @@
         },
         "numbers": {
           "adults": "N/A",
-          "pups": "N/A"
+          "pups": "N/A",
+          "total": "N/A"
         }
       },
       {
@@ -147,7 +193,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 5
+          "pups": 5,
+          "total": 8
         }
       },
       {
@@ -190,7 +237,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 9
+          "pups": 9,
+          "total": 15
         }
       },
       {
@@ -233,7 +281,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 6
+          "pups": 6,
+          "total": 8
         }
       },
       {
@@ -272,7 +321,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 4
+          "pups": 4,
+          "total": 8
         }
       },
       {
@@ -315,14 +365,97 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 6
+          "pups": 6,
+          "total": 8
         }
       }
     ],
-    "numbers": null
+    "total": 86,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 2,
+          "pups": 0,
+          "total": 2
+        }
+      },
+      "captive": {
+        "numbers": {
+          "adults": 4,
+          "pups": 1,
+          "total": 5
+        }
+      },
+      "unknown": {
+        "numbers": {
+          "adults": 6,
+          "pups": 3,
+          "total": 9
+        }
+      },
+      "packs": [
+        {
+          "id": "washakie",
+          "name": "Washakie",
+          "data": {
+            "adults": 1,
+            "pups": 5,
+            "total": 6
+          }
+        }
+      ]
+    }
   },
   "1998": {
     "packs": [
+      {
+        "id": "leopold",
+        "name": "Leopold",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.76579790693592,
+                44.963708307161966
+              ],
+              [
+                -110.60690836851647,
+                44.87460018477503
+              ],
+              [
+                -110.49632124977452,
+                44.87910390846798
+              ],
+              [
+                -110.4721700399358,
+                44.91422085560279
+              ],
+              [
+                -110.4937790171604,
+                44.93492079684762
+              ],
+              [
+                -110.53826808791672,
+                44.955613279231926
+              ],
+              [
+                -110.64249962512342,
+                44.963708307161966
+              ],
+              [
+                -110.76579790693592,
+                44.963708307161966
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 8,
+          "pups": 5,
+          "total": 13
+        }
+      },
       {
         "id": "druid",
         "name": "Druid",
@@ -367,7 +500,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 1
+          "pups": 1,
+          "total": 7
         }
       },
       {
@@ -410,7 +544,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 3
+          "pups": 3,
+          "total": 7
         }
       },
       {
@@ -461,7 +596,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 5
+          "pups": 5,
+          "total": 11
         }
       },
       {
@@ -508,7 +644,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 10
+          "pups": 10,
+          "total": 22
         }
       },
       {
@@ -555,7 +692,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 8
+          "pups": 8,
+          "total": 16
         }
       },
       {
@@ -610,7 +748,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -657,7 +796,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 0
+          "pups": 0,
+          "total": 7
         }
       },
       {
@@ -704,7 +844,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -739,7 +880,8 @@
         },
         "numbers": {
           "adults": 1,
-          "pups": 5
+          "pups": 5,
+          "total": 6
         }
       },
       {
@@ -814,14 +956,72 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       }
     ],
-    "numbers": null
+    "total": 112,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 16,
+          "pups": 0,
+          "total": 16
+        }
+      }
+    }
   },
   "1999": {
     "packs": [
+      {
+        "id": "leopold",
+        "name": "Leopold",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.7789663535514,
+                44.96779929313266
+              ],
+              [
+                -110.61390915022126,
+                44.87862187765171
+              ],
+              [
+                -110.50585965567298,
+                44.883318876936585
+              ],
+              [
+                -110.47868156195352,
+                44.91947292760517
+              ],
+              [
+                -110.50320813433497,
+                44.94152981059793
+              ],
+              [
+                -110.54695823642189,
+                44.95841871553367
+              ],
+              [
+                -110.64506452595265,
+                44.96826828174957
+              ],
+              [
+                -110.7789663535514,
+                44.96779929313266
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 10,
+          "pups": 1,
+          "total": 11
+        }
+      },
       {
         "id": "druid",
         "name": "Druid",
@@ -866,7 +1066,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 2
+          "pups": 2,
+          "total": 8
         }
       },
       {
@@ -909,7 +1110,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -964,7 +1166,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 3
+          "pups": 3,
+          "total": 8
         }
       },
       {
@@ -1011,7 +1214,8 @@
         },
         "numbers": {
           "adults": 10,
-          "pups": 6
+          "pups": 6,
+          "total": 16
         }
       },
       {
@@ -1058,7 +1262,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 1
+          "pups": 1,
+          "total": 13
         }
       },
       {
@@ -1113,7 +1318,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 7
+          "pups": 7,
+          "total": 9
         }
       },
       {
@@ -1148,7 +1354,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 3
+          "pups": 3,
+          "total": 9
         }
       },
       {
@@ -1199,7 +1406,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -1246,7 +1454,8 @@
         },
         "numbers": {
           "adults": 1,
-          "pups": 5
+          "pups": 5,
+          "total": 6
         }
       },
       {
@@ -1313,14 +1522,68 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 2
+          "pups": 2,
+          "total": 5
         }
       }
     ],
-    "numbers": null
+    "total": 118,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 14,
+          "pups": 3,
+          "total": 17
+        }
+      }
+    }
   },
   "2000": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.36058657934083,
+                44.59268915421467
+              ],
+              [
+                -110.29524159782237,
+                44.56359863783183
+              ],
+              [
+                -110.00255053478305,
+                44.60722895459895
+              ],
+              [
+                -109.96034856755409,
+                44.66244701207728
+              ],
+              [
+                -110.00935730369173,
+                44.80460899312425
+              ],
+              [
+                -110.15229945075464,
+                44.83261328203483
+              ],
+              [
+                -110.36058657934083,
+                44.59268915421467
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 4,
+          "pups": 0,
+          "total": 4
+        }
+      },
       {
         "id": "leopold",
         "name": "Leopold",
@@ -1366,7 +1629,7 @@
         "numbers": {
           "adults": "6-8",
           "pups": "5-7",
-          "total": 13
+          "total": "N/A"
         }
       },
       {
@@ -1413,7 +1676,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 7
+          "pups": 7,
+          "total": 13
         }
       },
       {
@@ -1452,7 +1716,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 20
+          "pups": 20,
+          "total": 27
         }
       },
       {
@@ -1523,7 +1788,8 @@
         },
         "numbers": {
           "adults": 15,
-          "pups": 7
+          "pups": 7,
+          "total": 22
         }
       },
       {
@@ -1570,7 +1836,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 6
+          "pups": 6,
+          "total": 13
         }
       },
       {
@@ -1610,14 +1877,63 @@
         "numbers": {
           "adults": "10-13",
           "pups": "5-8",
-          "total": 18
+          "total": "N/A"
         }
       }
     ],
-    "numbers": null
+    "total": 88,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 2,
+          "pups": 0,
+          "total": 2
+        }
+      }
+    }
   },
   "2001": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.02560820052874,
+                44.610827427701935
+              ],
+              [
+                -110.23446478078716,
+                44.70784575920962
+              ],
+              [
+                -110.35168020848245,
+                44.64419578972658
+              ],
+              [
+                -110.27708857267672,
+                44.53036124113598
+              ],
+              [
+                -110.01068987336605,
+                44.56833086060635
+              ],
+              [
+                -110.02560820052874,
+                44.610827427701935
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 4,
+          "pups": 6,
+          "total": 10
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -1662,7 +1978,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 3
+          "pups": 3,
+          "total": 6
         }
       },
       {
@@ -1705,7 +2022,8 @@
         },
         "numbers": {
           "adults": 10,
-          "pups": 4
+          "pups": 4,
+          "total": 14
         }
       },
       {
@@ -1748,7 +2066,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 5
+          "pups": 5,
+          "total": 16
         }
       },
       {
@@ -1783,7 +2102,8 @@
         },
         "numbers": {
           "adults": 26,
-          "pups": 11
+          "pups": 11,
+          "total": 37
         }
       },
       {
@@ -1822,7 +2142,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 2
+          "pups": 2,
+          "total": 8
         }
       },
       {
@@ -1909,7 +2230,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 7
+          "pups": 7,
+          "total": 11
         }
       },
       {
@@ -1952,7 +2274,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 5
+          "pups": 5,
+          "total": 9
         }
       },
       {
@@ -1991,14 +2314,64 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       }
     ],
-    "numbers": null
+    "total": 132,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 1,
+          "pups": 0,
+          "total": 1
+        }
+      }
+    }
   },
   "2002": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.25883281624597,
+                44.6773802358704
+              ],
+              [
+                -110.3681424585709,
+                44.57564732326256
+              ],
+              [
+                -110.23465856842911,
+                44.51272322042723
+              ],
+              [
+                -110.06543883368299,
+                44.5449428652947
+              ],
+              [
+                -110.14637001116722,
+                44.6085804232051
+              ],
+              [
+                -110.25883281624597,
+                44.6773802358704
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 10,
+          "pups": 2,
+          "total": 12
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -2035,7 +2408,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 5
+          "pups": 5,
+          "total": 10
         }
       },
       {
@@ -2070,7 +2444,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 2
+          "pups": 2,
+          "total": 4
         }
       },
       {
@@ -2109,7 +2484,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 8
+          "pups": 8,
+          "total": 16
         }
       },
       {
@@ -2148,7 +2524,8 @@
         },
         "numbers": {
           "adults": 10,
-          "pups": 4
+          "pups": 4,
+          "total": 14
         }
       },
       {
@@ -2191,7 +2568,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 4
+          "pups": 4,
+          "total": 10
         }
       },
       {
@@ -2242,7 +2620,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 3
+          "pups": 3,
+          "total": 11
         }
       },
       {
@@ -2285,7 +2664,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 11
+          "pups": 11,
+          "total": 16
         }
       },
       {
@@ -2333,7 +2713,7 @@
         "numbers": {
           "adults": "15*",
           "pups": "3*",
-          "total": 20
+          "total": "N/A"
         }
       },
       {
@@ -2368,7 +2748,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 8
+          "pups": 8,
+          "total": 10
         }
       },
       {
@@ -2415,7 +2796,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 3
+          "pups": 3,
+          "total": 9
         }
       },
       {
@@ -2458,7 +2840,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -2501,7 +2884,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 3
+          "pups": 3,
+          "total": 10
         }
       },
       {
@@ -2548,14 +2932,55 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       }
     ],
-    "numbers": null
+    "total": 128
   },
   "2003": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.21526641985834,
+                44.485015724685894
+              ],
+              [
+                -110.14982351145218,
+                44.61132852980754
+              ],
+              [
+                -110.2002690866803,
+                44.69280025074889
+              ],
+              [
+                -110.32842811564326,
+                44.674382139439615
+              ],
+              [
+                -110.38023708479834,
+                44.605504741725355
+              ],
+              [
+                -110.21526641985834,
+                44.485015724685894
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 5,
+          "pups": 2,
+          "total": 7
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -2600,7 +3025,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 4
+          "pups": 4,
+          "total": 10
         }
       },
       {
@@ -2635,7 +3061,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 4
+          "pups": 4,
+          "total": 8
         }
       },
       {
@@ -2678,7 +3105,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 6
+          "pups": 6,
+          "total": 15
         }
       },
       {
@@ -2721,7 +3149,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 8
+          "pups": 8,
+          "total": 19
         }
       },
       {
@@ -2760,7 +3189,8 @@
         },
         "numbers": {
           "adults": 13,
-          "pups": 4
+          "pups": 4,
+          "total": 17
         }
       },
       {
@@ -2799,7 +3229,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 6
+          "pups": 6,
+          "total": 10
         }
       },
       {
@@ -2838,7 +3269,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 9
+          "pups": 9,
+          "total": 17
         }
       },
       {
@@ -2993,7 +3425,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 0
+          "pups": 0,
+          "total": 5
         }
       },
       {
@@ -3040,7 +3473,8 @@
         },
         "numbers": {
           "adults": 14,
-          "pups": 6
+          "pups": 6,
+          "total": 20
         }
       },
       {
@@ -3079,7 +3513,8 @@
         },
         "numbers": {
           "adults": 13,
-          "pups": 2
+          "pups": 2,
+          "total": 15
         }
       },
       {
@@ -3114,7 +3549,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 7
+          "pups": 7,
+          "total": 12
         }
       },
       {
@@ -3161,7 +3597,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 2
+          "pups": 2,
+          "total": 7
         }
       },
       {
@@ -3192,7 +3629,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -3231,7 +3669,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -3278,14 +3717,60 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 3
+          "pups": 3,
+          "total": 5
         }
       }
     ],
-    "numbers": null
+    "total": 174,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 2,
+          "pups": 0,
+          "total": 2
+        }
+      }
+    }
   },
   "2004": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.1516682718716,
+                44.59169919342705
+              ],
+              [
+                -110.2540286649727,
+                44.666736658043305
+              ],
+              [
+                -110.37486010644443,
+                44.57360997791676
+              ],
+              [
+                -110.25479829198925,
+                44.528636649072325
+              ],
+              [
+                -110.1516682718716,
+                44.59169919342705
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 4,
+          "pups": 2,
+          "total": 6
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -3330,7 +3815,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 5
+          "pups": 5,
+          "total": 12
         }
       },
       {
@@ -3361,7 +3847,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 2
+          "pups": 2,
+          "total": 4
         }
       },
       {
@@ -3412,7 +3899,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 8
+          "pups": 8,
+          "total": 15
         }
       },
       {
@@ -3467,7 +3955,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 11
+          "pups": 11,
+          "total": 23
         }
       },
       {
@@ -3506,7 +3995,8 @@
         },
         "numbers": {
           "adults": 15,
-          "pups": 4
+          "pups": 4,
+          "total": 19
         }
       },
       {
@@ -3549,7 +4039,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 2
+          "pups": 2,
+          "total": 11
         }
       },
       {
@@ -3604,7 +4095,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -3647,7 +4139,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 2
+          "pups": 2,
+          "total": 8
         }
       },
       {
@@ -3690,7 +4183,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -3729,7 +4223,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 2
+          "pups": 2,
+          "total": 14
         }
       },
       {
@@ -3744,7 +4239,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 2
+          "pups": 2,
+          "total": 4
         }
       },
       {
@@ -3791,7 +4287,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 6
+          "pups": 6,
+          "total": 11
         }
       },
       {
@@ -3822,7 +4319,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -3873,7 +4371,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 5
+          "pups": 5,
+          "total": 12
         }
       },
       {
@@ -3912,14 +4411,51 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 2
+          "pups": 2,
+          "total": 5
         }
       }
     ],
-    "numbers": null
+    "total": 171
   },
   "2005": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.59415986363499,
+                44.609539711216314
+              ],
+              [
+                -110.27282775297247,
+                44.523292049055584
+              ],
+              [
+                -110.13233836505825,
+                44.62443375306671
+              ],
+              [
+                -110.37744750993306,
+                44.68609694256455
+              ],
+              [
+                -110.59415986363499,
+                44.609539711216314
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 7,
+          "pups": "N/A",
+          "total": 7
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -3960,7 +4496,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 0
+          "pups": 0,
+          "total": 5
         }
       },
       {
@@ -3991,7 +4528,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       },
       {
@@ -4038,7 +4576,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 3
+          "pups": 3,
+          "total": 15
         }
       },
       {
@@ -4117,7 +4656,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 2
+          "pups": 2,
+          "total": 14
         }
       },
       {
@@ -4152,7 +4692,8 @@
         },
         "numbers": {
           "adults": 12,
-          "pups": 5
+          "pups": 5,
+          "total": 17
         }
       },
       {
@@ -4191,7 +4732,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 3
+          "pups": 3,
+          "total": 8
         }
       },
       {
@@ -4234,7 +4776,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -4277,7 +4820,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 3
+          "pups": 3,
+          "total": 9
         }
       },
       {
@@ -4360,7 +4904,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -4407,7 +4952,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -4422,14 +4968,72 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 2
+          "pups": 2,
+          "total": 5
         }
       }
     ],
-    "numbers": null
+    "total": 118,
+    "noTerritory": {
+      "packs": [
+        {
+          "id": "unknown",
+          "name": "Unknown Group",
+          "data": {
+            "adults": 3,
+            "pups": "N/A",
+            "total": 3
+          }
+        }
+      ]
+    }
   },
   "2006": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.2663591174406,
+                44.49451436421896
+              ],
+              [
+                -110.1596862279073,
+                44.55449072181642
+              ],
+              [
+                -110.23513778392211,
+                44.63292311804773
+              ],
+              [
+                -110.39297897006303,
+                44.67980841265057
+              ],
+              [
+                -110.516129785618,
+                44.65328586306802
+              ],
+              [
+                -110.51959882267955,
+                44.607613993776965
+              ],
+              [
+                -110.2663591174406,
+                44.49451436421896
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 6,
+          "pups": 5,
+          "total": 11
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -4474,7 +5078,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -4509,7 +5114,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -4556,7 +5162,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 0
+          "pups": 0,
+          "total": 8
         }
       },
       {
@@ -4599,7 +5206,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 1
+          "pups": 1,
+          "total": 6
         }
       },
       {
@@ -4634,7 +5242,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 8
+          "pups": 8,
+          "total": 12
         }
       },
       {
@@ -4677,7 +5286,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 12
+          "pups": 12,
+          "total": 19
         }
       },
       {
@@ -4712,7 +5322,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 5
+          "pups": 5,
+          "total": 16
         }
       },
       {
@@ -4755,7 +5366,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 6
+          "pups": 6,
+          "total": 13
         }
       },
       {
@@ -4802,7 +5414,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 9
+          "pups": 9,
+          "total": 12
         }
       },
       {
@@ -4857,7 +5470,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 4
+          "pups": 4,
+          "total": 12
         }
       },
       {
@@ -4900,7 +5514,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 3
+          "pups": 3,
+          "total": 5
         }
       },
       {
@@ -4943,14 +5558,63 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 2
+          "pups": 2,
+          "total": 5
         }
       }
     ],
-    "numbers": null
+    "total": 136
   },
   "2007": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.75573061871906,
+                44.91050497478494
+              ],
+              [
+                -110.9092569395666,
+                44.63976472881251
+              ],
+              [
+                -110.29353558963862,
+                44.52926992612092
+              ],
+              [
+                -110.22081259555353,
+                44.56036781698322
+              ],
+              [
+                -110.13677713571553,
+                44.774146302614184
+              ],
+              [
+                -110.13677713571553,
+                44.81887083275808
+              ],
+              [
+                -110.16909846642511,
+                44.82918695540741
+              ],
+              [
+                -110.75573061871906,
+                44.91050497478494
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 9,
+          "pups": 5,
+          "total": 14
+        }
+      },
       {
         "id": "cougar-creek",
         "name": "Cougar Creek",
@@ -4995,7 +5659,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 4
+          "pups": 4,
+          "total": 7
         }
       },
       {
@@ -5038,7 +5703,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 3
+          "pups": 3,
+          "total": 11
         }
       },
       {
@@ -5073,7 +5739,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 9
+          "pups": 9,
+          "total": 16
         }
       },
       {
@@ -5120,7 +5787,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 8
+          "pups": 8,
+          "total": 16
         }
       },
       {
@@ -5159,7 +5827,8 @@
         },
         "numbers": {
           "adults": 13,
-          "pups": 3
+          "pups": 3,
+          "total": 16
         }
       },
       {
@@ -5198,7 +5867,8 @@
         },
         "numbers": {
           "adults": 16,
-          "pups": 6
+          "pups": 6,
+          "total": 22
         }
       },
       {
@@ -5237,7 +5907,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 9
+          "pups": 9,
+          "total": 17
         }
       },
       {
@@ -5284,7 +5955,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 7
+          "pups": 7,
+          "total": 16
         }
       },
       {
@@ -5331,7 +6003,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 6
+          "pups": 6,
+          "total": 17
         }
       },
       {
@@ -5366,14 +6039,93 @@
         },
         "numbers": {
           "adults": 1,
-          "pups": 3
+          "pups": 3,
+          "total": 4
         }
       }
     ],
-    "numbers": null
+    "total": 171,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 7,
+          "pups": 0,
+          "total": 7
+        }
+      },
+      "packs": [
+        {
+          "id": "five-two-seven",
+          "name": "527F/B271M Idaho Wolf",
+          "data": {
+            "adults": 2,
+            "pups": 0,
+            "total": 2
+          }
+        },
+        {
+          "id": "four-six-nine",
+          "name": "469F Group",
+          "data": {
+            "adults": 4,
+            "pups": 0,
+            "total": 4
+          }
+        },
+        {
+          "id": "gardners-hole",
+          "name": "Gardner's Hole Group",
+          "data": {
+            "adults": 1,
+            "pups": 1,
+            "total": 2
+          }
+        }
+      ]
+    }
   },
   "2008": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.33868675595293,
+                44.77432322499914
+              ],
+              [
+                -110.55644030168612,
+                44.71266028891395
+              ],
+              [
+                -110.58632804325617,
+                44.60535185621174
+              ],
+              [
+                -110.234791273348,
+                44.49378407282725
+              ],
+              [
+                -110.17359256441742,
+                44.64181850027339
+              ],
+              [
+                -110.33868675595293,
+                44.77432322499914
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 10,
+          "pups": 3,
+          "total": 13
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -5406,7 +6158,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -5449,7 +6202,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -5488,7 +6242,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 3
+          "pups": 3,
+          "total": 9
         }
       },
       {
@@ -5535,7 +6290,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 0
+          "pups": 0,
+          "total": 7
         }
       },
       {
@@ -5586,7 +6342,8 @@
         },
         "numbers": {
           "adults": 0,
-          "pups": 0
+          "pups": 0,
+          "total": 0
         }
       },
       {
@@ -5629,7 +6386,8 @@
         },
         "numbers": {
           "adults": 0,
-          "pups": 0
+          "pups": 0,
+          "total": 0
         }
       },
       {
@@ -5672,7 +6430,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -5711,7 +6470,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 0
+          "pups": 0,
+          "total": 8
         }
       },
       {
@@ -5750,7 +6510,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -5785,7 +6546,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -5824,7 +6586,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -5859,7 +6622,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 3
+          "pups": 3,
+          "total": 8
         }
       },
       {
@@ -5910,14 +6674,97 @@
         },
         "numbers": {
           "adults": 19,
-          "pups": 6
+          "pups": 6,
+          "total": 25
         }
       }
     ],
-    "numbers": null
+    "total": 124,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 6,
+          "pups": 0,
+          "total": 6
+        }
+      },
+      "packs": [
+        {
+          "id": "five-two-seven",
+          "name": "527F Group",
+          "data": {
+            "adults": 3,
+            "pups": 0,
+            "total": 3
+          }
+        },
+        {
+          "id": "four-seven-one",
+          "name": "471F Group",
+          "data": {
+            "adults": 3,
+            "pups": 0,
+            "total": 3
+          }
+        },
+        {
+          "id": "yellowstone-delta-sub",
+          "name": "Yellowstone Delta Subgroup",
+          "data": {
+            "adults": 4,
+            "pups": 0,
+            "total": 4
+          }
+        }
+      ]
+    }
   },
   "2009": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.12677366879866,
+                44.78734272571583
+              ],
+              [
+                -110.54220494181355,
+                44.64036752949812
+              ],
+              [
+                -110.52615824027966,
+                44.523535581693835
+              ],
+              [
+                -110.26762804892365,
+                44.523535581693835
+              ],
+              [
+                -110.22483684483545,
+                44.526077903117056
+              ],
+              [
+                -110.16599893921338,
+                44.56292909539036
+              ],
+              [
+                -110.12677366879866,
+                44.78734272571583
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 10,
+          "pups": 5,
+          "total": 15
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -5958,7 +6805,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -6001,7 +6849,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 3
+          "pups": 3,
+          "total": 6
         }
       },
       {
@@ -6039,7 +6888,7 @@
           ]
         },
         "numbers": {
-          "total": 6
+          "total": "N/A"
         }
       },
       {
@@ -6081,7 +6930,7 @@
           ]
         },
         "numbers": {
-          "total": 4
+          "total": "N/A"
         }
       },
       {
@@ -6124,7 +6973,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       },
       {
@@ -6163,7 +7013,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -6210,7 +7061,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 2
+          "pups": 2,
+          "total": 4
         }
       },
       {
@@ -6253,7 +7105,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -6292,7 +7145,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 3
+          "pups": 3,
+          "total": 7
         }
       },
       {
@@ -6323,7 +7177,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -6370,7 +7225,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 0
+          "pups": 0,
+          "total": 11
         }
       },
       {
@@ -6413,7 +7269,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -6456,14 +7313,72 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 6
+          "pups": 6,
+          "total": 17
         }
       }
     ],
-    "numbers": null
+    "total": 86,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 2,
+          "pups": 0,
+          "total": 2
+        }
+      }
+    }
   },
   "2010": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.2585090897137,
+                44.74813078331891
+              ],
+              [
+                -110.51695253411057,
+                44.633716996659814
+              ],
+              [
+                -110.53339893511625,
+                44.585210945243546
+              ],
+              [
+                -110.34778955232247,
+                44.55508336631067
+              ],
+              [
+                -110.27378074779277,
+                44.55006058592403
+              ],
+              [
+                -110.1938982286176,
+                44.590230691153295
+              ],
+              [
+                -110.1504327402419,
+                44.70389532157782
+              ],
+              [
+                -110.2585090897137,
+                44.74813078331891
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 9,
+          "pups": 7,
+          "total": 16
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -6508,7 +7423,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 3
+          "pups": 3,
+          "total": 6
         }
       },
       {
@@ -6555,7 +7471,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -6598,7 +7515,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 4
+          "pups": 4,
+          "total": 7
         }
       },
       {
@@ -6613,7 +7531,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 7
+          "pups": 7,
+          "total": 11
         }
       },
       {
@@ -6644,7 +7563,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 5
+          "pups": 5,
+          "total": 9
         }
       },
       {
@@ -6695,7 +7615,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 6
+          "pups": 6,
+          "total": 14
         }
       },
       {
@@ -6750,7 +7671,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 4
+          "pups": 4,
+          "total": 8
         }
       },
       {
@@ -6793,7 +7715,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 2
+          "pups": 2,
+          "total": 6
         }
       },
       {
@@ -6840,7 +7763,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -6875,7 +7799,8 @@
         },
         "numbers": {
           "adults": "N/A",
-          "pups": "N/A"
+          "pups": "N/A",
+          "total": "N/A"
         }
       },
       {
@@ -6918,14 +7843,60 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 0
+          "pups": 0,
+          "total": 7
         }
       }
     ],
-    "numbers": null
+    "total": 97,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 6,
+          "pups": 0,
+          "total": 6
+        }
+      }
+    }
   },
   "2011": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.1671413217417,
+                44.72770068928128
+              ],
+              [
+                -110.2756794000569,
+                44.80325117662744
+              ],
+              [
+                -110.54170410181331,
+                44.630851885445196
+              ],
+              [
+                -110.25758972033906,
+                44.489070835555026
+              ],
+              [
+                -110.1671413217417,
+                44.72770068928128
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 12,
+          "pups": 7,
+          "total": 19
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -6966,7 +7937,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 2
+          "pups": 2,
+          "total": 7
         }
       },
       {
@@ -7013,7 +7985,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 3
+          "pups": 3,
+          "total": 7
         }
       },
       {
@@ -7060,7 +8033,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 2
+          "pups": 2,
+          "total": 7
         }
       },
       {
@@ -7111,7 +8085,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 5
+          "pups": 5,
+          "total": 11
         }
       },
       {
@@ -7126,7 +8101,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -7165,7 +8141,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -7204,7 +8181,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -7247,7 +8225,8 @@
         },
         "numbers": {
           "adults": 10,
-          "pups": 5
+          "pups": 5,
+          "total": 15
         }
       },
       {
@@ -7290,7 +8269,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -7333,14 +8313,76 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 5
+          "pups": 5,
+          "total": 10
         }
       }
     ],
-    "numbers": null
+    "total": 99,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 1,
+          "pups": 0,
+          "total": 1
+        }
+      }
+    }
   },
   "2012": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.24171763979645,
+                45.048072759154394
+              ],
+              [
+                -110.47901807800903,
+                44.95132460972388
+              ],
+              [
+                -110.52177491372177,
+                44.91954352677254
+              ],
+              [
+                -110.44053692586354,
+                44.631200936835
+              ],
+              [
+                -110.29302584265263,
+                44.53070290740018
+              ],
+              [
+                -110.19896080408373,
+                44.500214663031414
+              ],
+              [
+                -110.0450361955152,
+                44.73000647709199
+              ],
+              [
+                -110.1882715951589,
+                45.034477421918325
+              ],
+              [
+                -110.24171763979645,
+                45.048072759154394
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 5,
+          "pups": 0,
+          "total": 5
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -7385,7 +8427,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 2
+          "pups": 2,
+          "total": 8
         }
       },
       {
@@ -7424,7 +8467,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 2
+          "pups": 2,
+          "total": 4
         }
       },
       {
@@ -7471,7 +8515,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 5
+          "pups": 5,
+          "total": 11
         }
       },
       {
@@ -7514,7 +8559,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 3
+          "pups": 3,
+          "total": 10
         }
       },
       {
@@ -7557,7 +8603,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -7604,7 +8651,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 4
+          "pups": 4,
+          "total": 11
         }
       },
       {
@@ -7619,7 +8667,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 2
+          "pups": 2,
+          "total": 10
         }
       },
       {
@@ -7658,7 +8707,8 @@
         },
         "numbers": {
           "adults": 11,
-          "pups": 0
+          "pups": 0,
+          "total": 11
         }
       },
       {
@@ -7705,7 +8755,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 0
+          "pups": 0,
+          "total": 4
         }
       },
       {
@@ -7740,7 +8791,8 @@
         },
         "numbers": {
           "adults": 0,
-          "pups": 0
+          "pups": 0,
+          "total": 0
         }
       },
       {
@@ -7783,14 +8835,59 @@
         },
         "numbers": {
           "adults": 0,
-          "pups": 0
+          "pups": 0,
+          "total": 0
         }
       }
     ],
-    "numbers": null
+    "total": 83
   },
   "2013": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.30563982525673,
+                44.93601131036195
+              ],
+              [
+                -110.33270587839648,
+                44.58102524540928
+              ],
+              [
+                -110.29927134217193,
+                44.55153372738857
+              ],
+              [
+                -110.26424468517295,
+                44.54359114866463
+              ],
+              [
+                -110.20692833735761,
+                44.59236415565903
+              ],
+              [
+                -110.20215197504076,
+                44.612768620256446
+              ],
+              [
+                -110.30563982525673,
+                44.93601131036195
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 2,
+          "pups": 5,
+          "total": 7
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -7831,7 +8928,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 3
+          "pups": 3,
+          "total": 8
         }
       },
       {
@@ -7846,7 +8944,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       },
       {
@@ -7889,7 +8988,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 6
+          "pups": 6,
+          "total": 13
         }
       },
       {
@@ -7924,7 +9024,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 9
+          "pups": 9,
+          "total": 18
         }
       },
       {
@@ -7971,7 +9072,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       },
       {
@@ -8010,7 +9112,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -8025,7 +9128,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 4
+          "pups": 4,
+          "total": 11
         }
       },
       {
@@ -8064,7 +9168,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -8103,7 +9208,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 6
+          "pups": 6,
+          "total": 13
         }
       },
       {
@@ -8154,14 +9260,51 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       }
     ],
-    "numbers": null
+    "total": 95
   },
   "2014": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.34869029548345,
+                44.605270922795626
+              ],
+              [
+                -110.32409164051617,
+                44.559877848629355
+              ],
+              [
+                -110.16531850391969,
+                44.576605736333164
+              ],
+              [
+                -110.2547681583407,
+                44.67846216689745
+              ],
+              [
+                -110.34869029548345,
+                44.605270922795626
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 6,
+          "pups": 6,
+          "total": 12
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -8194,7 +9337,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 3
+          "pups": 3,
+          "total": 6
         }
       },
       {
@@ -8237,7 +9381,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 5
+          "pups": 5,
+          "total": 14
         }
       },
       {
@@ -8280,7 +9425,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 3
+          "pups": 3,
+          "total": 11
         }
       },
       {
@@ -8311,7 +9457,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -8358,7 +9505,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 6
+          "pups": 6,
+          "total": 14
         }
       },
       {
@@ -8401,7 +9549,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 3
+          "pups": 3,
+          "total": 8
         }
       },
       {
@@ -8436,7 +9585,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 6
+          "pups": 6,
+          "total": 8
         }
       },
       {
@@ -8451,7 +9601,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 4
+          "pups": 4,
+          "total": 10
         }
       },
       {
@@ -8490,7 +9641,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -8525,14 +9677,71 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       }
     ],
-    "numbers": null
+    "total": 97
   },
   "2015": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.26421014302464,
+                44.87884765827991
+              ],
+              [
+                -110.38427330987665,
+                44.6038944921296
+              ],
+              [
+                -110.35736260006674,
+                44.55818767202837
+              ],
+              [
+                -110.26731522492774,
+                44.51834922947597
+              ],
+              [
+                -110.16588254948587,
+                44.567036957639715
+              ],
+              [
+                -110.05409960104214,
+                44.737858564105096
+              ],
+              [
+                -110.07273009244376,
+                44.84876955043836
+              ],
+              [
+                -110.1151662117607,
+                44.86711172981495
+              ],
+              [
+                -110.17830287708979,
+                44.87297999319972
+              ],
+              [
+                -110.26421014302464,
+                44.87884765827991
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 10,
+          "pups": 6,
+          "total": 16
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -8573,7 +9782,8 @@
         },
         "numbers": {
           "adults": 4,
-          "pups": 2
+          "pups": 2,
+          "total": 6
         }
       },
       {
@@ -8624,7 +9834,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 0
+          "pups": 0,
+          "total": 7
         }
       },
       {
@@ -8667,7 +9878,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 2
+          "pups": 2,
+          "total": 7
         }
       },
       {
@@ -8710,7 +9922,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -8769,7 +9982,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 5
+          "pups": 5,
+          "total": 13
         }
       },
       {
@@ -8816,7 +10030,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 4
+          "pups": 4,
+          "total": 6
         }
       },
       {
@@ -8863,7 +10078,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 8
+          "pups": 8,
+          "total": 14
         }
       },
       {
@@ -8898,7 +10114,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 3
+          "pups": 3,
+          "total": 9
         }
       },
       {
@@ -8913,14 +10130,76 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 0
+          "pups": 0,
+          "total": 6
         }
       }
     ],
-    "numbers": null
+    "total": 98,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 1,
+          "pups": 0,
+          "total": 1
+        }
+      }
+    }
   },
   "2016": {
     "packs": [
+      {
+        "id": "mollies",
+        "name": "Mollies",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.5128806838688,
+                44.62854792022438
+              ],
+              [
+                -110.2572773477966,
+                44.530629113617294
+              ],
+              [
+                -110.15296355388688,
+                44.585267479328905
+              ],
+              [
+                -110.02378024619965,
+                44.68898813487698
+              ],
+              [
+                -110.14518451173724,
+                44.91405776345374
+              ],
+              [
+                -110.25985823714151,
+                44.94534819751195
+              ],
+              [
+                -110.37811551646433,
+                44.89629074477975
+              ],
+              [
+                -110.46173177456912,
+                44.85227258899326
+              ],
+              [
+                -110.5128806838688,
+                44.62854792022438
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 14,
+          "pups": 4,
+          "total": 18
+        }
+      },
       {
         "id": "canyon",
         "name": "Canyon",
@@ -8949,7 +10228,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 1
+          "pups": 1,
+          "total": 6
         }
       },
       {
@@ -8988,7 +10268,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 5
+          "pups": 5,
+          "total": 14
         }
       },
       {
@@ -9055,7 +10336,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 0
+          "pups": 0,
+          "total": 3
         }
       },
       {
@@ -9090,7 +10372,8 @@
         },
         "numbers": {
           "adults": 6,
-          "pups": 2
+          "pups": 2,
+          "total": 8
         }
       },
       {
@@ -9133,7 +10416,8 @@
         },
         "numbers": {
           "adults": 8,
-          "pups": 10
+          "pups": 10,
+          "total": 18
         }
       },
       {
@@ -9180,7 +10464,8 @@
         },
         "numbers": {
           "adults": 9,
-          "pups": 2
+          "pups": 2,
+          "total": 11
         }
       },
       {
@@ -9219,7 +10504,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       },
       {
@@ -9262,7 +10548,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 4
+          "pups": 4,
+          "total": 7
         }
       },
       {
@@ -9317,7 +10604,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 0
+          "pups": 0,
+          "total": 5
         }
       },
       {
@@ -9332,14 +10620,63 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 4
+          "pups": 4,
+          "total": 9
         }
       }
     ],
-    "numbers": null
+    "total": 108
   },
   "95/96": {
     "packs": [
+      {
+        "id": "leopold",
+        "name": "Leopold",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -110.47594104291598,
+                44.90320368005254
+              ],
+              [
+                -110.50114075139979,
+                44.93379375920097
+              ],
+              [
+                -110.55634011284312,
+                44.95078121063321
+              ],
+              [
+                -110.64633907171749,
+                44.95247967932258
+              ],
+              [
+                -110.65593896066471,
+                44.93549273053253
+              ],
+              [
+                -110.61873939099794,
+                44.86834514336044
+              ],
+              [
+                -110.50474070975339,
+                44.87599882676841
+              ],
+              [
+                -110.47594104291598,
+                44.90320368005254
+              ]
+            ]
+          ]
+        },
+        "numbers": {
+          "adults": 2,
+          "pups": 3,
+          "total": 5
+        }
+      },
       {
         "id": "druid",
         "name": "Druid",
@@ -9380,7 +10717,8 @@
         },
         "numbers": {
           "adults": 5,
-          "pups": 0
+          "pups": 0,
+          "total": 5
         }
       },
       {
@@ -9415,7 +10753,8 @@
         },
         "numbers": {
           "adults": 1,
-          "pups": 1
+          "pups": 1,
+          "total": 2
         }
       },
       {
@@ -9466,7 +10805,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -9509,7 +10849,8 @@
         },
         "numbers": {
           "adults": 7,
-          "pups": 2
+          "pups": 2,
+          "total": 9
         }
       },
       {
@@ -9556,7 +10897,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -9591,7 +10933,8 @@
         },
         "numbers": {
           "adults": 3,
-          "pups": 2
+          "pups": 2,
+          "total": 5
         }
       },
       {
@@ -9646,7 +10989,8 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       },
       {
@@ -9677,10 +11021,34 @@
         },
         "numbers": {
           "adults": 2,
-          "pups": 0
+          "pups": 0,
+          "total": 2
         }
       }
     ],
-    "numbers": null
+    "total": 51,
+    "noTerritory": {
+      "loners": {
+        "numbers": {
+          "adults": 2,
+          "pups": 0,
+          "total": 2
+        }
+      },
+      "captive": {
+        "numbers": {
+          "adults": 2,
+          "pups": 10,
+          "total": 12
+        }
+      },
+      "unknown": {
+        "numbers": {
+          "adults": 1,
+          "pups": 2,
+          "total": 3
+        }
+      }
+    }
   }
 }

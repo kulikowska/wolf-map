@@ -4,47 +4,26 @@ import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
 import '../css/mapbox.css';
 
-const packs = require('../wolf-report-data.json')
-const years = require('../year-data.json')
-const noTerritory = require('../no-territory.json')
+const packs = require('../data/wolf-report-data.json')
+const years = require('../data/year-data.json')
+const noTerritory = require('../data/no-territory.json')
 const styles = require('../styles.json')
+
+
 let activePacks = [];
+let legendData;
 
 console.log('packs', packs);
+console.log(noTerritory, ' no territory');
 
 var allYears = ['95/96'];
 for (var i = 1997; i < 2017; i++) {
     allYears.push(i.toString());
 }
 
-/*
-var years = { };
-
-packs.packs.map(pack => {
-    allYears.forEach(year => {
-        if (pack.years[year]) {
-            if (years[year]) {
-                years[year].packs.push( {
-                    "id" : pack.id,
-                    "name" : pack.name,
-                    "geometry" : pack.years[year].geometry,
-                    "numbers" : pack.years[year].numbers
-                })
-            } else {
-                years[year] = {
-                    "packs" : [],
-                    "numbers" : null
-                }
-            }
-
-        }
-    });
-})
-*/
 
 console.log('years', years);
 
-var legendData;
 
 var labels = {
    "type" : "FeatureCollection",
@@ -94,7 +73,7 @@ class Map extends Component {
         let geojson;
         let lastYearPacks   = JSON.parse(JSON.stringify(activePacks));
         labels.features = [];
-        legendData      = { 'packs' : [], 'other' : yearData.other };
+        legendData      = { 'packs' : [], 'noTerritory' : yearData.other, 'total' : yearData.total };
         activePacks     = [];
 
         yearData.packs.forEach(pack => {
@@ -125,7 +104,7 @@ class Map extends Component {
 
             legendData.packs.push({ 'id' : pack.id, 'name' : pack.name, 'data' : pack.numbers});
 
-            console.log(legendData);
+            //console.log(legendData);
 
 
             // Add each layer to array of all polygons to later find bounds
@@ -185,18 +164,14 @@ class Map extends Component {
         });
         // END LOOP
 
-        console.log(polyFeatures, ' poly features');
+        //console.log(polyFeatures, ' poly features');
 
 
         // Add no territory packs to legend data
 
-        /*
-        if (yearData.other['no-territory']) {
-            for (pack in yearData.other['no-territory']) {
-                legendData.packs.push({ 'id' : pack, 'data' : yearData.other['no-territory'][pack]});
-            }
+        if (years[year].noTerritory) {
+            legendData.noTerritory = years[year].noTerritory;
         }
-        */
 
         // Remove the previous years packs that aren't in the current year
 
@@ -272,8 +247,8 @@ class Map extends Component {
 
     render() {
         const { allYears, currentYear, legendData } = this.state;
+        console.log(legendData, ' legend data from state');
 
-        let yearTotal = 0;
 
         return (
             <div id="map">
@@ -293,21 +268,50 @@ class Map extends Component {
                 <caption className="legendHead">Packs</caption>
                 <tbody>
                     { legendData.packs && legendData.packs.map(pack => {
-                        var total = 0;
-                        total += pack.data.adults;
-                        total += pack.data.pups;
-                        yearTotal += total;
                         return (
                             <tr onMouseOver={() => this.hoverPack(pack)}>
                                 <td className={"colourCode " + pack.id}></td>
                                 <td>{pack.name}:</td>
-                                <td>{total}</td>
+                                <td>{pack.data.total}</td>
                             </tr>    
                         )
                     })}
+
+                    { legendData.noTerritory ? <tr><td> No Territory: </td></tr> : false }
+
+                    { legendData.noTerritory && legendData.noTerritory.packs && legendData.noTerritory.packs.map(pack => {
+                        return (
+                            <tr>
+                                <td className={"colourCode " + pack.id}></td>
+                                <td>{pack.name}:</td>
+                                <td>{pack.data.total}</td>
+                            </tr>    
+                        )
+                    })}
+
+                    { legendData.noTerritory && legendData.noTerritory.captive ? 
+                        <tr>
+                            <td> Captives : </td>
+                            <td> { legendData.noTerritory.captive.numbers.total} </td>
+                        </tr>
+                    : false }
+
+                    { legendData.noTerritory && legendData.noTerritory.loners ? 
+                        <tr>
+                            <td> Loners: </td>
+                            <td> { legendData.noTerritory.loners.numbers.total} </td>
+                        </tr>
+                    : false }
+
+                    { legendData.noTerritory && legendData.noTerritory.unknown ? 
+                        <tr>
+                            <td> Unknown: </td>
+                            <td> { legendData.noTerritory.unknown.numbers.total } </td>
+                        </tr>
+                    : false }
                     <tr> 
                         <td> Total: </td>
-                        <td> {yearTotal} </td>
+                        <td> {legendData.total} </td>
                     </tr>
                 </tbody>
             </table>
