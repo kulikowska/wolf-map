@@ -13,34 +13,34 @@ const styles = require('../styles.json')
 let activePacks = [];
 let legendData;
 
-console.log('packs', packs);
-console.log(noTerritory, ' no territory');
+//console.log('packs', packs);
+//console.log(noTerritory, ' no territory');
 
 var allYears = ['95/96'];
-for (var i = 1997; i < 2017; i++) {
+for (var i = 1997; i < 2018; i++) {
     allYears.push(i.toString());
 }
 
 
-console.log('years', years);
+//console.log('years', years);
 
 
 var labels = {
    "type" : "FeatureCollection",
    "features" : []
 }
+
 var polyFeatures = {
       "type" : "FeatureCollection",
       "features" : []
 };
-
 
 class Map extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentYear : '2016',
+            currentYear : '2017',
             map : false,
             popup: false,
             allYears : allYears.reverse(),
@@ -61,7 +61,7 @@ class Map extends Component {
         this.setState({ map, popup });
 
         map.on('load', () => {
-            this.getYearData('2016');
+            this.getYearData('2017');
         });
     }
 
@@ -72,6 +72,7 @@ class Map extends Component {
 
         let geojson;
         let lastYearPacks   = JSON.parse(JSON.stringify(activePacks));
+        polyFeatures.features = [];
         labels.features = [];
         legendData      = { 'packs' : [], 'noTerritory' : yearData.other, 'total' : yearData.total };
         activePacks     = [];
@@ -154,7 +155,7 @@ class Map extends Component {
                             "type": "geojson",
                             "data" : geojson 
                         },
-                        "paint": styles[pack.name + '-point'] 
+                        //"paint": styles[pack.name + '-point'] 
                     }, before);
                 }
             }
@@ -164,26 +165,18 @@ class Map extends Component {
         });
         // END LOOP
 
-        //console.log(polyFeatures, ' poly features');
-
 
         // Add no territory packs to legend data
-
         if (years[year].noTerritory) {
             legendData.noTerritory = years[year].noTerritory;
         }
+        this.setState({ legendData });
 
         // Remove the previous years packs that aren't in the current year
-
         lastYearPacks.map(id => {
             map.removeLayer(id);
             map.removeSource(id);
         });
-
-        if (this.state.zoomOnYearChange) {
-            var newBbox = bbox(polyFeatures)
-            map.fitBounds(newBbox, { duration: 700, padding: 20 });
-        }
 
         // Add label layer
         if (!map.getSource('pack-labels')) {
@@ -209,7 +202,12 @@ class Map extends Component {
         } else {
             map.getSource('pack-labels').setData(labels);
         }
-        this.setState({ legendData });
+
+        if (this.state.zoomOnYearChange) {
+            var newBbox = bbox(polyFeatures)
+            map.fitBounds(newBbox, { duration: 700, padding: 20 });
+        }
+
     }
 
     changeYear(year) {
@@ -247,15 +245,15 @@ class Map extends Component {
 
     render() {
         const { allYears, currentYear, legendData } = this.state;
-        console.log(legendData, ' legend data from state');
-
+        //console.log(legendData, ' legend data from state');
 
         return (
             <div id="map">
             <ul className="yearToggle">
                 { allYears.map(year => {
                     return (
-                        <li 
+                        <li  
+                            key={year}
                             className={currentYear === year ? 'active' : ''}
                             onClick={() => this.changeYear(year)}
                          >
@@ -269,7 +267,7 @@ class Map extends Component {
                 <tbody>
                     { legendData.packs && legendData.packs.map(pack => {
                         return (
-                            <tr onMouseOver={() => this.hoverPack(pack)}>
+                            <tr key={pack.id} onMouseOver={() => this.hoverPack(pack)}>
                                 <td className={"colourCode " + pack.id}></td>
                                 <td>{pack.name}:</td>
                                 <td>{pack.data.total}</td>
@@ -281,7 +279,7 @@ class Map extends Component {
 
                     { legendData.noTerritory && legendData.noTerritory.packs && legendData.noTerritory.packs.map(pack => {
                         return (
-                            <tr>
+                            <tr key={pack.id}>
                                 <td className={"colourCode " + pack.id}></td>
                                 <td>{pack.name}:</td>
                                 <td>{pack.data.total}</td>

@@ -278,6 +278,16 @@
           "fill-outline-color" : "#000",
           "fill-color" : "rgba(160, 24, 20, 1)",
           "fill-opacity" : 0.8
+    },
+    "1108M Group" : {
+          "fill-outline-color" : "#000",
+          "fill-color" : "rgba(255,255, 255, 1)",
+          "fill-opacity" : 0.6
+    },
+    "963F Group" : {
+          "fill-outline-color" : "#000",
+          "fill-color" : "rgba(255,255, 255, 1)",
+          "fill-opacity" : 0.6
     }
 }
 }
