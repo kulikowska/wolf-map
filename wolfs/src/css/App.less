@@ -91,7 +91,9 @@ a {
                 cursor:         pointer;
                 position:       relative;
                 &:hover {
-                    color:  lighten(@niceBlue, 20%);
+                    a {
+                        color:  lighten(@niceBlue, 20%);
+                    }
                 }
                 &.packs {
                     &:hover {
@@ -99,6 +101,11 @@ a {
                             left: 0px;
                         }
                     }
+                }
+                a {
+                    font-size       : 16px;
+                    color           : #222;
+                    text-decoration : none;
                 }
                 .sub-list {
                     //max-height: 0px;
