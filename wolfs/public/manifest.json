@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Yellowstone Wolf Map",
+  "name": "Yellowstone Wolf Map",
+  "description" : "Interactive map of wolf territories in Yellowstone National Park",
   "icons": [
     {
       "src": "favicon.ico",

@@ -6,6 +6,7 @@ class Header extends Component {
         <div id="header">
             <div className="overLay">
                 <div className="title" ng-click="nav='map'"> Yellowstone Wolf Map</div>
+                {/*
                 <nav>
                     <ul className="menu">
                         <li>About</li>
@@ -29,6 +30,7 @@ class Header extends Component {
                         <li>Years</li>
                     </ul>
                 </nav>
+                */}
             </div>
         </div>
       );

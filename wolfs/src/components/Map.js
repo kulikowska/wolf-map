@@ -3,24 +3,25 @@ import mapboxgl from 'mapbox-gl';
 import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
 import '../css/mapbox.css';
+import Select from 'react-select';
 
-const packs = require('../data/wolf-report-data.json')
+//const packs = require('../data/wolf-report-data.json')
+//const noTerritory = require('../data/no-territory.json')
+
 const years = require('../data/year-data.json')
-const noTerritory = require('../data/no-territory.json')
 const styles = require('../styles.json')
 
+//console.log('packs', packs);
+//console.log(noTerritory, ' no territory');
 
 let activePacks = [];
 let legendData;
 
-//console.log('packs', packs);
-//console.log(noTerritory, ' no territory');
 
 var allYears = ['95/96'];
 for (var i = 1997; i < 2018; i++) {
     allYears.push(i.toString());
 }
-
 
 //console.log('years', years);
 
@@ -45,7 +46,8 @@ class Map extends Component {
             popup: false,
             allYears : allYears.reverse(),
             legendData : [],
-            zoomOnYearChange : true
+            zoomOnYearChange : true,
+            packsLegendOpen : window.innerWidth > 900 ? true : false
         };
     }
 
@@ -131,7 +133,6 @@ class Map extends Component {
                .addTo(map);
             });
 
-
             // Add territory layer to map 
             var before = map.getSource('pack-labels') ? 'pack-labels' : '';
 
@@ -210,11 +211,24 @@ class Map extends Component {
 
     }
 
-    changeYear(year) {
-        const { popup } = this.state;
-        this.setState({ currentYear : year });
-        this.getYearData(year);
-        popup.remove();
+    changeYear = (year, fromButton) => {
+        let allYears = this.state.allYears;
+        let newYear = year.value ? year.value.toString() : year.toString();
+
+        if (fromButton === 'back' || fromButton === 'forwards') {
+            if ( fromButton === 'back') {
+                newYear = allYears[allYears.indexOf(year) + 1];
+            } else {
+                newYear = allYears[allYears.indexOf(year) - 1];
+            }
+        }
+
+        if (allYears.indexOf(newYear) !== -1) { 
+            const { popup } = this.state;
+            this.setState({ currentYear : newYear });
+            this.getYearData(newYear);
+            popup.remove();
+        }
     }
 
     hoverPack(pack) {
@@ -244,11 +258,33 @@ class Map extends Component {
     }
 
     render() {
-        const { allYears, currentYear, legendData } = this.state;
+        const { allYears, currentYear, legendData, packsLegendOpen } = this.state;
         //console.log(legendData, ' legend data from state');
+
+        let selectOpts = [];
+        allYears.map(year => {
+            selectOpts.push({ value : year, label : year });
+        });
+        let formattedCurrentYear = { value : currentYear, label : currentYear }
 
         return (
             <div id="map">
+            <div className="years-control-wrap">
+                <button className="year-toggle backwards" onClick={() => this.changeYear(currentYear, 'back')}> 
+                    <i className="fas fa-angle-left"></i>
+                </button>
+                <Select 
+                    value={formattedCurrentYear}
+                    options={selectOpts}
+                    className="years-select"
+                    onChange={this.changeYear}
+                    isSearchable={false}
+                />
+                <button className="year-toggle forwards" onClick={() => this.changeYear(currentYear, 'forwards')}> 
+                    <i className="fas fa-angle-right"></i>
+                </button>
+            </div>
+
             <ul className="yearToggle">
                 { allYears.map(year => {
                     return (
@@ -262,7 +298,13 @@ class Map extends Component {
                     )
                 })}
             </ul>
-            <table className="legend">
+
+            <button className="legend-toggle" onClick={() => this.setState({ packsLegendOpen : !packsLegendOpen})}>
+               <i className="fas fa-info-circle"></i>
+               Packs 
+            </button>
+
+            <table className={"legend " + (packsLegendOpen ? "visible" : "hidden")}>
                 <caption className="legendHead">Packs</caption>
                 <tbody>
                     { legendData.packs && legendData.packs.map(pack => {
@@ -275,7 +317,7 @@ class Map extends Component {
                         )
                     })}
 
-                    { legendData.noTerritory ? <tr><td> No Territory: </td></tr> : false }
+                    { legendData.noTerritory && legendData.noTerritory.packs ? <tr><td colSpan="3"> No Territory: </td></tr> : false }
 
                     { legendData.noTerritory && legendData.noTerritory.packs && legendData.noTerritory.packs.map(pack => {
                         return (
@@ -289,27 +331,31 @@ class Map extends Component {
 
                     { legendData.noTerritory && legendData.noTerritory.captive ? 
                         <tr>
-                            <td> Captives : </td>
-                            <td> { legendData.noTerritory.captive.numbers.total} </td>
+                            <td colSpan="3"> 
+                                Captives : { legendData.noTerritory.captive.numbers.total} 
+                            </td>
                         </tr>
                     : false }
 
                     { legendData.noTerritory && legendData.noTerritory.loners ? 
                         <tr>
-                            <td> Loners: </td>
-                            <td> { legendData.noTerritory.loners.numbers.total} </td>
+                            <td colSpan="3"> 
+                                Lone Wolves : { legendData.noTerritory.loners.numbers.total} 
+                            </td>
                         </tr>
                     : false }
 
                     { legendData.noTerritory && legendData.noTerritory.unknown ? 
                         <tr>
-                            <td> Unknown: </td>
-                            <td> { legendData.noTerritory.unknown.numbers.total } </td>
+                            <td colSpan="3">
+                                Unknown : { legendData.noTerritory.unknown.numbers.total } 
+                            </td>
                         </tr>
                     : false }
                     <tr> 
-                        <td> Total: </td>
-                        <td> {legendData.total} </td>
+                        <td colSpan="3" className="total"> 
+                             Total : {legendData.total}
+                        </td>
                     </tr>
                 </tbody>
             </table>
