@@ -65,6 +65,10 @@ class Map extends Component {
         map.on('load', () => {
             this.getYearData('2017');
         });
+
+        // Clear these every time component mounts
+        activePacks = [];
+        legendData = false;
     }
 
     getYearData(year) {
