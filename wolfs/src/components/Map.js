@@ -5,6 +5,8 @@ import centroid from '@turf/centroid';
 import '../css/mapbox.css';
 import Select from 'react-select';
 
+import YearSelect from './Utility/YearSelect.js';
+
 //const packs = require('../data/wolf-report-data.json')
 //const noTerritory = require('../data/no-territory.json')
 
@@ -40,6 +42,7 @@ class Map extends Component {
 
     constructor(props) {
         super(props);
+        this.changeYear = this.changeYear.bind(this);
         this.state = {
             currentYear : '2017',
             map : false,
@@ -215,17 +218,8 @@ class Map extends Component {
 
     }
 
-    changeYear = (year, fromButton) => {
+    changeYear = (newYear) => {
         let allYears = this.state.allYears;
-        let newYear = year.value ? year.value.toString() : year.toString();
-
-        if (fromButton === 'back' || fromButton === 'forwards') {
-            if ( fromButton === 'back') {
-                newYear = allYears[allYears.indexOf(year) + 1];
-            } else {
-                newYear = allYears[allYears.indexOf(year) - 1];
-            }
-        }
 
         if (allYears.indexOf(newYear) !== -1) { 
             const { popup } = this.state;
@@ -265,30 +259,13 @@ class Map extends Component {
         const { allYears, currentYear, legendData, packsLegendOpen } = this.state;
         //console.log(legendData, ' legend data from state');
 
-        let selectOpts = [];
-        allYears.map(year => {
-            selectOpts.push({ value : year, label : year });
-        });
-        let formattedCurrentYear = { value : currentYear, label : currentYear }
-
         return (
             <div id="map">
-            <div className="years-control-wrap">
-                <button className="year-toggle backwards" onClick={() => this.changeYear(currentYear, 'back')}> 
-                    <i className="fas fa-angle-left"></i>
-                </button>
-                <Select 
-                    value={formattedCurrentYear}
-                    options={selectOpts}
-                    className="years-select"
-                    onChange={this.changeYear}
-                    isSearchable={false}
-                />
-                <button className="year-toggle forwards" onClick={() => this.changeYear(currentYear, 'forwards')}> 
-                    <i className="fas fa-angle-right"></i>
-                </button>
-            </div>
-
+            <YearSelect 
+                currentYear={currentYear}
+                allYears={allYears}
+                changeYear={this.changeYear}
+            />
             <ul className="yearToggle">
                 { allYears.map(year => {
                     return (
