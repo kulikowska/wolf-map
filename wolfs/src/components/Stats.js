@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
+import Select from 'react-select';
+
 const years = require('../data/year-data.json')
 const packs = require('../data/wolf-report-data.json')
 
 class Stats extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentYear : '2017'
+        };
+    }
+
 
   componentDidMount() {
 
@@ -16,7 +26,7 @@ class Stats extends Component {
         data.push(year[1].total);
     });
 
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('totalChart');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -39,12 +49,46 @@ class Stats extends Component {
             }
         }
     });
+
+    console.log(years[this.state.currentYear]);
+    let yearLabels = [];
+    let yearData   = [];
+
+    years[this.state.currentYear].packs.map(pack => {
+        yearLabels.push(pack.name);
+        yearData.push(pack.numbers.total);
+    });
+
+    var ctxYear = document.getElementById('yearChart');
+    var yearChart = new Chart(ctxYear, {
+        type: 'bar',
+        data: {
+            labels: yearLabels,
+            datasets: [{
+                label: this.state.currentYear + ' Data',
+                data: yearData,
+                backgroundColor : 'rgba(54, 162, 235, 0.2)',
+                borderColor : 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
   }
 
   render() {
       return (
         <div id="stats">
-            <canvas id="myChart" max-width="400" max-height="400"></canvas>
+            <canvas id="totalChart" max-width="400" max-height="400"></canvas>
+            <canvas id="yearChart" max-width="400" max-height="400"></canvas>
         </div>
       );
   }
