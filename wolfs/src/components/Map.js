@@ -9,10 +9,6 @@ import YearSelect from './Utility/YearSelect.js';
 
 import { getAllYears, formatYearData } from '../functions.js';
 
-const packs = require('../data/wolf-report-data.json')
-const noTerritory = require('../data/no-territory.json')
-
-
 const years = require('../data/year-data.json')
 const styles = require('../styles.json')
 
@@ -23,9 +19,14 @@ let activePacks = [];
 let legendData;
 
 let allYears = getAllYears();
-const newShit = formatYearData(allYears, noTerritory, packs);
 
-//console.log('years', years);
+/*
+To update year data, run this code, then copy data in console and add to years data file
+const packs = require('../data/wolf-report-data.json')
+const noTerritory = require('../data/no-territory.json')
+const newShit = formatYearData(allYears, noTerritory, packs);
+*/
+
 
 var labels = {
    "type" : "FeatureCollection",

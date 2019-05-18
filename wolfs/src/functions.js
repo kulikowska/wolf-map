@@ -7,6 +7,7 @@ export const getAllYears = () => {
 }
 
 export const formatYearData = (allYears, noTerritory, packs) => {
+    // Bit of a disaster, but it works 
     var years = { };
 
     packs.packs.map(pack => {

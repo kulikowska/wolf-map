@@ -18,7 +18,6 @@ let allYears = getAllYears();
 
 let newYearData = JSON.parse(JSON.stringify(years));
 
-
 let yearsArr = Object.entries(newYearData);
  yearsArr.map((year, yearIdx) => {
     //console.log(year);
