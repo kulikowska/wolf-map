@@ -7,8 +7,11 @@ import Select from 'react-select';
 
 import YearSelect from './Utility/YearSelect.js';
 
-//const packs = require('../data/wolf-report-data.json')
-//const noTerritory = require('../data/no-territory.json')
+import { getAllYears, formatYearData } from '../functions.js';
+
+const packs = require('../data/wolf-report-data.json')
+const noTerritory = require('../data/no-territory.json')
+
 
 const years = require('../data/year-data.json')
 const styles = require('../styles.json')
@@ -19,14 +22,10 @@ const styles = require('../styles.json')
 let activePacks = [];
 let legendData;
 
-
-var allYears = ['95/96'];
-for (var i = 1997; i < 2018; i++) {
-    allYears.push(i.toString());
-}
+let allYears = getAllYears();
+const newShit = formatYearData(allYears, noTerritory, packs);
 
 //console.log('years', years);
-
 
 var labels = {
    "type" : "FeatureCollection",
@@ -47,7 +46,6 @@ class Map extends Component {
             currentYear : '2017',
             map : false,
             popup: false,
-            allYears : allYears.reverse(),
             legendData : [],
             zoomOnYearChange : true,
             packsLegendOpen : window.innerWidth > 900 ? true : false
@@ -219,7 +217,7 @@ class Map extends Component {
     }
 
     changeYear = (newYear) => {
-        let allYears = this.state.allYears;
+        //let allYears = this.state.allYears;
 
         if (allYears.indexOf(newYear) !== -1) { 
             const { popup } = this.state;
@@ -256,7 +254,7 @@ class Map extends Component {
     }
 
     render() {
-        const { allYears, currentYear, legendData, packsLegendOpen } = this.state;
+        const { currentYear, legendData, packsLegendOpen } = this.state;
         //console.log(legendData, ' legend data from state');
 
         return (

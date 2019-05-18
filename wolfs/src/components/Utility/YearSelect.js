@@ -4,7 +4,7 @@ import Select from 'react-select';
 class YearSelect extends Component {
 
   getNewYear = (year, fromButton) => {
-    console.log(year, fromButton, this.props.allYears);
+    //console.log(year, fromButton, this.props.allYears);
 
     let { allYears, changeYear} = this.props;
     let newYear = year.value ? year.value.toString() : year.toString();
@@ -22,7 +22,7 @@ class YearSelect extends Component {
 
   render() {
     const { allYears, currentYear } = this.props;
-    console.log(this.props);
+    //console.log(this.props);
 
     let selectOpts = [];
     allYears.map(year => {
