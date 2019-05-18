@@ -31,7 +31,7 @@ class YearSelect extends Component {
     let formattedCurrentYear = { value : currentYear, label : currentYear }
 
       return (
-        <div id="year-select">
+        <div className="year-select">
             <div className="years-control-wrap">
                 <button className="year-toggle backwards" onClick={() => this.getNewYear(currentYear, 'back')}> 
                     <i className="fas fa-angle-left"></i>

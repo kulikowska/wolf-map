@@ -3,11 +3,10 @@ import mapboxgl from 'mapbox-gl';
 import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
 import '../css/mapbox.css';
-import Select from 'react-select';
 
 import YearSelect from './Utility/YearSelect.js';
 
-import { getAllYears, formatYearData } from '../functions.js';
+import { getAllYears } from '../functions.js';
 
 const years = require('../data/year-data.json')
 const styles = require('../styles.json')

@@ -53,7 +53,6 @@ a {
     width:              100%;
     //min-height:         15%;
     height:             @headerHeight;
-    float:              left;
     background-size:    cover;
     //background-image:   url('../images/northern_lights_cropped.jpg');
     position:           relative;
@@ -549,10 +548,79 @@ edit {
 /* Stats */
 
 #stats {
-    .years-control-wrap {
-        position    : relative;
-        display     : grid;
-        top         : auto;
-        right       : auto;
+    section {
+        max-width   : 90%;
+        margin      : 30px auto;
+        background  : #eee;
+        border-radius : 2px;
+        display     : flex;
+        flex-direction : column;
+        h1 {
+            color       : #222;
+            font-size   : 24px;
+            padding-top : 20px;
+            .year-select {
+                width   : 200px;
+                margin  : 15px auto;
+                min-height  : 20px;
+                .years-control-wrap {
+                    position    : relative;
+                    display     : grid;
+                    top         : auto;
+                    right       : auto;
+                }
+            }
+        }
+        .pack-labels {
+            display         : flex;
+            justify-content : center;
+            margin-bottom    : 15px;
+            h2 {
+                color       : #222;
+                font-size   : 14px;
+                width       : 100%;
+                text-align  : center;
+                button {
+                    background  : transparent;
+                    border      : none;
+                    font-size   : 14px;
+                    font-family : @funFont;
+                    &:hover {
+                        color : @niceBlue;
+                    }
+                }
+            }
+            label {
+                font-size   : 14px;
+                border      : 1px solid;
+                margin      : 5px;
+                padding     : 12px;
+                border-radius   : 50px;
+            }
+            &.inactive {
+                flex-direction  : column; 
+                margin          : 0px 20px 20px 20px;
+                .inactive-packs {
+                    display         : flex;
+                    flex-wrap       : wrap;
+                    height          : 150px;
+                    overflow        : hidden;
+                    border          : 1px solid @niceBlue;
+                    height          : 0px;
+                    opacity         : 0;
+                    transition      : 500ms;
+                    &.open {
+                        height      : 150px;
+                        overflow    : auto;
+                        opacity     : 1;
+                        padding     : 15px;
+                        margin      : 10px;
+                    }
+                    label {
+                        flex-grow   : 1;
+                    }
+                }
+            }
+        }
     }
 }
