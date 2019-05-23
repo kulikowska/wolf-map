@@ -1,9 +1,40 @@
+import Chart from 'chart.js';
+
 export const getAllYears = () => {
     let allYears = ['95/96'];
     for (var i = 1997; i < 2018; i++) {
         allYears.push(i.toString());
     }
     return allYears.reverse();
+}
+
+export const drawChart = (domId, data, labels, type, ticks) => {
+    console.log(domId);
+    console.log(data);
+
+    let chartEl = document.getElementById(domId);
+    var ret = new Chart(chartEl, {
+        type: type,
+        data: {
+            labels: labels,
+            datasets : data,
+        },
+        options: {
+            legend : {
+                display : false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min : ticks ? ticks.min : 0,
+                        max : ticks ? ticks.max : 200,
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    return ret;
 }
 
 export const formatYearData = (allYears, noTerritory, packs) => {

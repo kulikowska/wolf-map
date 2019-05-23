@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import YearSelect from './Utility/YearSelect.js';
 
-import { getAllYears } from '../functions.js';
+import { getAllYears, drawChart } from '../functions.js';
 
 const years = require('../data/year-data.json')
 const packs = require('../data/wolf-report-data.json')
@@ -47,7 +47,13 @@ class Stats extends Component {
     }
 
   componentDidMount() {
+    this.drawTotalChart();
+    this.drawYearChart();
+    this.drawPackChart();
+  }
 
+  drawTotalChart() {
+    console.log(years);
     let yearsArr = Object.entries(years);
     let labels = [];
     let data   = [];
@@ -57,43 +63,21 @@ class Stats extends Component {
         data.push(year[1].total);
     });
 
-    var ctx = document.getElementById('totalChart');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: data,
-                borderColor : 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                lineTension: 0.2,
-                pointBorderWidth: 4,
-                pointHitRadius: 20,
-                pointHoverBackgroundColor : 'orange'
-            }]
-        },
-        options: {
-            legend : {
-                display : false
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+    let dataSet = [{
+        data: data,
+        borderColor : 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        lineTension: 0.2,
+        pointBorderWidth: 4,
+        pointHitRadius: 20,
+        pointHoverBackgroundColor : 'orange'
+    }]
 
-
-    this.drawYearChart();
-    this.drawPackChart();
-
+    //const totalChartLabels = JSON.parse(JSON.stringify(allYears)).reverse();
+    drawChart('totalChart', dataSet, labels, 'line');
   }
 
     drawYearChart() {
-
         let yearLabels = [];
         let yearData   = [];
         let colors     = [];
@@ -104,59 +88,32 @@ class Stats extends Component {
             colors.push(pack.color);
         });
 
-        var ctxYear = document.getElementById('yearChart');
-        var yearChart = new Chart(ctxYear, {
-            type: 'bar',
-            data: {
-                labels: yearLabels,
-                datasets: [{
-                    label: this.state.currentYear + ' Data',
-                    data: yearData,
-                    backgroundColor : colors,
-                    borderColor : 'rgba(0,0,0,0.8)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                legend : {
-                    display : false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            min: 0,
-                            max: 40,
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
+        const dataSets = [{
+            label: this.state.currentYear + ' Data',
+            data: yearData,
+            backgroundColor : colors,
+            borderColor : 'rgba(0,0,0,0.8)',
+            borderWidth: 1
+        }]
+
+        const yearChart = drawChart('yearChart', dataSets, yearLabels, 'bar', { min : 0, max : 40 });
         this.setState({ yearChart });
-     
     }
 
-    drawPackChart(newPacks) {
-        let selectedPacks = newPacks ? newPacks : this.state.selectedPacks;
+    drawPackChart() {
+        const { selectedPacks } = this.state;
 
         let packLabels = [];
         let packData   = [];
-        let colors     = [];
-
-        let activePacks = [];
 
         selectedPacks.map(pack => {
             let thisPack = packs.packs.find( byName => byName.name === pack );
-            //console.log(thisPack);
-
             let dataSet = {
                 data : [],
                 label : thisPack.name,
                 borderColor : thisPack.color,
                 fill : false
             }
-
-            activePacks.push({ name : thisPack.name, color : thisPack.color });
 
             JSON.parse(JSON.stringify(allYears)).reverse().map(year => {
                 if (thisPack.years[year]) {
@@ -168,73 +125,17 @@ class Stats extends Component {
             packData.push(dataSet);
         });
 
+        let activePacks = packs.packs.filter( pack => selectedPacks.indexOf(pack.name) !== -1);
         let inactivePacks = packs.packs.filter( pack => selectedPacks.indexOf(pack.name) === -1);
-
-        //console.log(packs);
-        //console.log(inactivePacks, ' inactive packs');
-
-
         this.setState({ activePacks, inactivePacks });
 
-        //console.log(packData, ' packData');
 
-        /*
-        let packData = [
-        {fillColor: "rgba(220,220,220,0.2)",
-           strokeColor: "rgba(220,220,220,1)",
-           data: [null, null, 65, 59, 80, 81, 56, 55, 40],
-           label : 'Wapati',
-           fill : false
-          },
-          {fillColor: "rgba(151,187,205,0.2)",
-           strokeColor: "rgba(151,187,205,1)",
-           data: [28, 48, 40, 19, 86, 27, 90],
-           label : 'Mollies',
-           fill : false
-          }
-        ]
-        */
-        /*
-        packs[this.state.currentYear].packs.map(pack => {
-            packLabels.push(pack.name);
-            packData.push(pack.numbers.total);
-            colors.push(pack.color);
-        });
-        */
-
-        var ctxYear = document.getElementById('packChart');
-        var packChart = new Chart(ctxYear, {
-            type: 'line',
-            data: {
-                labels: JSON.parse(JSON.stringify(allYears)).reverse(),
-                datasets : packData,
-                /*
-                datasets: [{
-                    data: packData,
-                    backgroundColor : colors,
-                    borderColor : 'rgba(0,0,0,0.8)',
-                    borderWidth: 1
-                }]
-                */
-            },
-            options: {
-                legend : {
-                    display : false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-        //this.setState({ packChart });
+        const packChartLabels = JSON.parse(JSON.stringify(allYears)).reverse();
+        const packChart = drawChart('packChart', packData, packChartLabels, 'line', { min : 0, max : 40 });
+        this.setState({ packChart });
     }
 
     changeYear = (newYear) => {
-        //console.log(newYear);
         if (newYear) {
             this.setState({ currentYear : newYear });
             this.updateYearChart(newYear);
@@ -243,8 +144,8 @@ class Stats extends Component {
     
     updateYearChart(newYear) {
         const { yearChart } = this.state;
-        //console.log(yearChart);
-
+        const chartData = yearChart.data.datasets[0];
+        const chartLabels = yearChart.data.labels;
 
         let currentYearPacks = [];
         let removeThesePacks = [];
@@ -253,77 +154,92 @@ class Stats extends Component {
             currentYearPacks.push(pack.name);
         });
 
-        /*
-        currentYearPacks.map(pack => {
-            if (yearChart.data.labels.indexOf(pack) === -1 ) {
-                removeThesePacks.push(pack);
-            }
-        });
-        */
-
-        yearChart.data.labels.map(pack => {
+        chartLabels.map(pack => {
             if (currentYearPacks.indexOf(pack) === -1 ) {
                 removeThesePacks.push(pack);
             }
         });
 
-        /*
-        console.log(removeThesePacks, ' remove this pack');
-        console.log(currentYearPacks, ' current year packs');
-        console.log(yearChart.data.labels, ' previous year packs');
-        */
-
-        //Remove old packs
-
-
         currentYearPacks.map(pack => {
-
-            let packIdx = yearChart.data.labels.indexOf(pack);
-            let dataIdx;
+            const thisPack = newYearData[newYear].packs[pack];  
+            let packIdx = chartLabels.indexOf(pack);
 
             if (packIdx !== -1) {
-                yearChart.data.datasets[0].data[packIdx] = 
-                newYearData[newYear].packs[pack].numbers.total;
+                chartData.data[packIdx] = thisPack.numbers.total;
             } else {
-                //console.log(pack);
-                yearChart.data.labels.push(pack);
-                yearChart.data.datasets[0].data.push(
-                    newYearData[newYear].packs[pack].numbers.total
-                );
-                yearChart.data.datasets[0].backgroundColor.push(
-                    newYearData[newYear].packs[pack].color
-                );
+                chartLabels.push(pack);
+                chartData.data.push(thisPack.numbers.total);
+                chartData.backgroundColor.push(thisPack.color);
             }
         });
 
+        //Remove old packs
         removeThesePacks.map(pack => {
            let packIdx = yearChart.data.labels.indexOf(pack); 
            //console.log(packIdx, ' pack idx');
-           yearChart.data.labels.splice(packIdx, 1);
-           yearChart.data.datasets[0].data.splice(packIdx, 1);
-           yearChart.data.datasets[0].backgroundColor.splice(packIdx, 1);
+           chartLabels.splice(packIdx, 1);
+           chartData.data.splice(packIdx, 1);
+           chartData.backgroundColor.splice(packIdx, 1);
         });
 
-
         yearChart.update();
-        //this.drawYearChart();
     }
 
     togglePack(pack) {
         let { selectedPacks } = this.state;
         let newPacks = JSON.parse(JSON.stringify(selectedPacks));
 
+        let addOrRemove;
+
         if (selectedPacks.indexOf(pack) === -1) {
             newPacks.push(pack);            
+            addOrRemove = 'add';
         } else {
             newPacks.splice(selectedPacks.indexOf(pack), 1);
+            addOrRemove = 'remove';
         }
         this.setState({ selectedPacks : newPacks });
-        this.drawPackChart(newPacks);
+        this.updatePackChart(newPacks, pack, addOrRemove);
+    }
+
+    updatePackChart(newPacks, pack, addOrRemove) {
+        let { packChart, selectedPacks, activePacks, inactivePacks } = this.state;
+
+        if (addOrRemove === 'add') {
+            let thisPack = packs.packs.find( byName => byName.name === pack );
+            let dataSet = {
+                data : [],
+                label : thisPack.name,
+                borderColor : thisPack.color,
+                fill : false
+            }
+
+            JSON.parse(JSON.stringify(allYears)).reverse().map(year => {
+                if (thisPack.years[year]) {
+                   dataSet.data.push(thisPack.years[year].numbers.adults);
+                } else {
+                    dataSet.data.push(null);
+                }
+            });
+            packChart.data.datasets.push(dataSet);
+        } else {
+            const arrEl = packChart.data.datasets.find( packData => packData.label === pack );
+            const elIdx = packChart.data.datasets.indexOf(arrEl);
+            
+            packChart.data.datasets.splice(elIdx, 1);
+            selectedPacks.splice( (selectedPacks.indexOf(pack)), 1);
+        }
+
+        inactivePacks = packs.packs.filter( pack => newPacks.indexOf(pack.name) === -1);
+        activePacks   = packs.packs.filter( pack => newPacks.indexOf(pack.name) !== -1);
+
+        this.setState({ inactivePacks, activePacks });
+        packChart.update();
     }
 
 
   render() {
+      const { inactivePacks, activePacks } = this.state;
       return (
         <div id="stats">
             <section>
