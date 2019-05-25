@@ -265,9 +265,9 @@ class Stats extends Component {
                    { this.state.activePacks.map(pack => {
                        return (
                            <label 
-                             style={{ color : pack.color, borderColor : pack.color }}
                              onClick={() => this.togglePack(pack.name)}
                            > 
+                             <span style={{ background : pack.color }}></span>
                              {pack.name} 
                            </label>
                        )
@@ -288,9 +288,9 @@ class Stats extends Component {
                        { this.state.inactivePacks.map(pack => {
                            return (
                                <label 
-                                 style={{ color : pack.color, borderColor : pack.color }}
                                  onClick={() => this.togglePack(pack.name)}
                                > 
+                                 <span style={{ background : pack.color }}></span>
                                  {pack.name} 
                                </label>
                            )

@@ -592,10 +592,22 @@ edit {
             }
             label {
                 font-size   : 14px;
-                border      : 1px solid;
+                border      : 1px solid #696060;
                 margin      : 5px;
-                padding     : 12px;
+                padding     : 8px 12px;
                 border-radius   : 50px;
+                color       : #000;
+                background  : #fff;
+                display     : flex;
+                align-items : center;
+                cursor      : pointer;
+                span {
+                    width           : 20px;
+                    height          : 20px;
+                    border          : 1px solid #000;
+                    float           : left;
+                    margin-right    : 10px;
+                }
             }
             &.inactive {
                 flex-direction  : column; 
@@ -605,7 +617,9 @@ edit {
                     flex-wrap       : wrap;
                     height          : 150px;
                     overflow        : hidden;
-                    border          : 1px solid @niceBlue;
+                    border          : 1px solid #ccc;
+                    border-radius   : 4px;
+                    box-shadow      : 1px 1px 3px #aaa;
                     height          : 0px;
                     opacity         : 0;
                     transition      : 500ms;
@@ -618,6 +632,8 @@ edit {
                     }
                     label {
                         flex-grow   : 1;
+                        width       : 150px;
+                        max-width   : 200px;
                     }
                 }
             }
