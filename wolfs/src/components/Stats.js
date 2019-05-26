@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import YearSelect from './Utility/YearSelect.js';
+import { Checkbox } from 'semantic-ui-react'
 
 import { getAllYears, drawChart } from '../functions.js';
 
 const years = require('../data/year-data.json')
-const packs = require('../data/wolf-report-data.json')
-
+//const packs = require('../data/wolf-report-data.json')
+const packs = require('../data/packs-data.json')
 
 let allYears = getAllYears();
 
@@ -29,8 +30,34 @@ let yearsArr = Object.entries(newYearData);
     //console.log(newPackFormat);
  });
 
-
 //console.log(newYearData, ' new format for years');
+
+console.log(packs);
+
+/*
+let newPacksFormat = JSON.parse(JSON.stringify(packs));
+//format packs 
+packs.packs.map((pack, i) => {
+    //console.log(pack);
+    let yearData = Object.entries(pack.years);
+
+    //console.log(yearData);
+    yearData.map(year => {
+        let totalForThisYear = 0;
+        //console.log(year);
+        if (!isNaN(year[1].numbers.adults)) {
+            totalForThisYear += year[1].numbers.adults;
+        }
+        if (!isNaN(year[1].numbers.pups)) {
+            totalForThisYear += year[1].numbers.pups;
+        }
+        newPacksFormat.packs[i].years[year[0]].numbers.total = totalForThisYear;
+        console.log(totalForThisYear, ' total for ', year[0], ' ', pack.name);
+    });
+});
+
+console.log(newPacksFormat, 'newPacksFormat');
+*/
 
 class Stats extends Component {
 
@@ -42,7 +69,12 @@ class Stats extends Component {
             selectedPacks : ['Mollies', 'Bechler',  'Druid', 'Lamar Canyon' ],
             activePacks : [],
             inactivePacks : [],
-            chooseMorePacks : false
+            chooseMorePacks : false,
+            chartSettingsOpen : true,
+            viewPopulations : true,
+            chartsMinMax :  {
+                packs : { min : '0', max : '40' }
+            }
         };
     }
 
@@ -117,7 +149,7 @@ class Stats extends Component {
 
             JSON.parse(JSON.stringify(allYears)).reverse().map(year => {
                 if (thisPack.years[year]) {
-                   dataSet.data.push(thisPack.years[year].numbers.adults);
+                   dataSet.data.push(thisPack.years[year].numbers.total);
                 } else {
                     dataSet.data.push(null);
                 }
@@ -216,7 +248,7 @@ class Stats extends Component {
 
             JSON.parse(JSON.stringify(allYears)).reverse().map(year => {
                 if (thisPack.years[year]) {
-                   dataSet.data.push(thisPack.years[year].numbers.adults);
+                   dataSet.data.push(thisPack.years[year].numbers.total);
                 } else {
                     dataSet.data.push(null);
                 }
@@ -237,9 +269,24 @@ class Stats extends Component {
         packChart.update();
     }
 
+  toggleViewPopulations() {
+    console.log('change chart now');
+    this.setState({ viewPopulations : !this.state.viewPopulations });
+  }
+
+  changeMinMax(chartType, minOrMax, update, e) {
+    let { chartsMinMax, packChart } = this.state;
+    chartsMinMax[chartType][minOrMax] = e.target.Value;
+    this.setState({ chartsMinMax });
+
+    if (update) {
+        packChart.options.scales.yAxes[0].ticks[minOrMax] = parseInt(e.target.value);
+        packChart.update();
+    }
+  }
 
   render() {
-      const { inactivePacks, activePacks } = this.state;
+      const { inactivePacks, activePacks, viewPopulations, chartSettingsOpen, chartsMinMax } = this.state;
       return (
         <div id="stats">
             <section>
@@ -259,14 +306,52 @@ class Stats extends Component {
             </section>
 
             <section>
-                <h1> Packs
+                <h1> 
+                    <i  
+                        className={"fas fa-cog " + ( chartSettingsOpen ? 'active' : '' )}
+                        onClick={() => this.setState({ chartSettingsOpen : ! chartSettingsOpen })}
+                    />
+                    { chartSettingsOpen ? 
+                        <div className="chart-settings-panel">
+                            <h2> Chart Options </h2>
+                            <div className="chart-settings">
+                                <div> 
+                                    <label> Min : </label> 
+                                    <input 
+                                        type="text"
+                                        value={chartsMinMax.packs.min}
+                                        onChange={this.changeMinMax.bind(this, 'packs', 'min', false)}
+                                        onChange={this.changeMinMax.bind(this, 'packs', 'min', true)}
+                                     />
+                                </div>
+                                <div> 
+                                    <label> Max : </label> 
+                                    <input 
+                                        type="text"
+                                        value={chartsMinMax.packs.max}
+                                        onChange={this.changeMinMax.bind(this, 'packs', 'max', false)}
+                                        onBlur={this.changeMinMax.bind(this, 'packs', 'max', true)}
+                                    />
+                                </div>
+                                <div onClick={this.toggleViewPopulations.bind(this)}> 
+                                    <label> View Populations: </label> 
+                                    <div className="ui fitted toggle checkbox">
+                                      <input
+                                        type="checkbox"
+                                        tabindex="0"
+                                        checked={viewPopulations}
+                                      /><label></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    : false }
+                    Packs
                 </h1>
                 <div className="pack-labels">
                    { this.state.activePacks.map(pack => {
                        return (
-                           <label 
-                             onClick={() => this.togglePack(pack.name)}
-                           > 
+                           <label key={pack.name} onClick={() => this.togglePack(pack.name)}>
                              <span style={{ background : pack.color }}></span>
                              {pack.name} 
                            </label>
@@ -287,9 +372,7 @@ class Stats extends Component {
                     <div className={"inactive-packs" + (this.state.chooseMorePacks ? " open" : "")}>
                        { this.state.inactivePacks.map(pack => {
                            return (
-                               <label 
-                                 onClick={() => this.togglePack(pack.name)}
-                               > 
+                               <label key={pack.name} onClick={() => this.togglePack(pack.name)}> 
                                  <span style={{ background : pack.color }}></span>
                                  {pack.name} 
                                </label>

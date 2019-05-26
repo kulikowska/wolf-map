@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css'
 import './css/App.css';
 
 import Header from './components/Header.js';
