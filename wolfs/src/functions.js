@@ -9,8 +9,10 @@ export const getAllYears = () => {
 }
 
 export const drawChart = (domId, data, labels, type, ticks) => {
+    /*
     console.log(domId);
     console.log(data);
+    */
 
     let chartEl = document.getElementById(domId);
     var ret = new Chart(chartEl, {

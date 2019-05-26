@@ -66,11 +66,11 @@ class Stats extends Component {
         this.changeYear = this.changeYear.bind(this);
         this.state = {
             currentYear : '2017',
-            selectedPacks : ['Mollies', 'Bechler',  'Druid', 'Lamar Canyon' ],
+            selectedPacks : ['Lamar Canyon', 'Cinnabar' ],
             activePacks : [],
             inactivePacks : [],
             chooseMorePacks : false,
-            chartSettingsOpen : true,
+            chartSettingsOpen : false,
             viewPopulations : true,
             chartsMinMax :  {
                 packs : { min : '0', max : '40' }
@@ -144,6 +144,9 @@ class Stats extends Component {
                 data : [],
                 label : thisPack.name,
                 borderColor : thisPack.color,
+                pointBackgroundColor: thisPack.color,
+                pointRadius : 10,
+                pointHoverRadius: 10,
                 fill : false
             }
 
@@ -160,7 +163,6 @@ class Stats extends Component {
         let activePacks = packs.packs.filter( pack => selectedPacks.indexOf(pack.name) !== -1);
         let inactivePacks = packs.packs.filter( pack => selectedPacks.indexOf(pack.name) === -1);
         this.setState({ activePacks, inactivePacks });
-
 
         const packChartLabels = JSON.parse(JSON.stringify(allYears)).reverse();
         const packChart = drawChart('packChart', packData, packChartLabels, 'line', { min : 0, max : 40 });
@@ -243,6 +245,9 @@ class Stats extends Component {
                 data : [],
                 label : thisPack.name,
                 borderColor : thisPack.color,
+                pointBackgroundColor: thisPack.color,
+                pointRadius : 10,
+                pointHoverRadius: 10,
                 fill : false
             }
 
