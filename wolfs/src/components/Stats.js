@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import YearSelect from './Utility/YearSelect.js';
-import { Checkbox } from 'semantic-ui-react';
 import ChartSettings from './Utility/ChartSettings.js';
 
 import { getAllYears, drawChart } from '../functions.js';

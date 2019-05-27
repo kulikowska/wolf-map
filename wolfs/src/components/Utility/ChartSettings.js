@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Checkbox } from 'semantic-ui-react';
 
 class ChartSettings extends Component {
     
@@ -7,7 +8,8 @@ class ChartSettings extends Component {
         this.state = {
             open : false,
             min : 0,
-            max : 40
+            max : 40,
+            autoTicks : false
         };
     }
 
@@ -26,8 +28,24 @@ class ChartSettings extends Component {
         }
     }
 
+    toggleAutoTicks() {
+        let { autoTicks, min, max } = this.state;
+        let { chart } = this.props;
+        let ticks = chart.options.scales.yAxes[0].ticks;
+
+        if (!autoTicks) {
+            delete ticks.min;
+            delete ticks.max;
+        } else {
+            ticks.min = parseInt(min);
+            ticks.max = parseInt(max);
+        }
+        chart.update();
+        this.setState({ autoTicks : !autoTicks });
+    }
+
   render() {
-      const { open, min, max } = this.state;
+      const { open, min, max, autoTicks } = this.state;
 
       return (
         <div className="chart-settings-wrap">
@@ -56,6 +74,16 @@ class ChartSettings extends Component {
                                 onChange={this.changeVal.bind(this, 'max', false)}
                                 onBlur={this.changeVal.bind(this, 'max', true)}
                             />
+                        </div>
+                        <div onClick={this.toggleAutoTicks.bind(this)}>
+                            <label> Adjust Ticks Based on Data: </label>
+                            <div className="ui fitted toggle checkbox">
+                              <input
+                                type="checkbox"
+                                defaultChecked={autoTicks}
+                              />
+                              <label></label>
+                            </div>
                         </div>
                     </div>
                 </div>
