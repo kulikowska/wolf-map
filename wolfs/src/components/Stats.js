@@ -281,7 +281,7 @@ class Stats extends Component {
 
   changeMinMax(chartType, minOrMax, update, e) {
     let { chartsMinMax, packChart } = this.state;
-    chartsMinMax[chartType][minOrMax] = e.target.Value;
+    chartsMinMax[chartType][minOrMax] = e.target.value;
     this.setState({ chartsMinMax });
 
     if (update) {
@@ -343,8 +343,7 @@ class Stats extends Component {
                                     <div className="ui fitted toggle checkbox">
                                       <input
                                         type="checkbox"
-                                        tabindex="0"
-                                        checked={viewPopulations}
+                                        defaultChecked={viewPopulations}
                                       /><label></label>
                                     </div>
                                 </div>
