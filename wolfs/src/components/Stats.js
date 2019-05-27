@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import YearSelect from './Utility/YearSelect.js';
-import { Checkbox } from 'semantic-ui-react'
+import { Checkbox } from 'semantic-ui-react';
+import ChartSettings from './Utility/ChartSettings.js';
 
 import { getAllYears, drawChart } from '../functions.js';
 
@@ -66,15 +67,12 @@ class Stats extends Component {
         this.changeYear = this.changeYear.bind(this);
         this.state = {
             currentYear : '2017',
-            selectedPacks : ['Lamar Canyon', 'Cinnabar' ],
+            selectedPacks : ['Lamar Canyon', 'Druid', 'Mollies' ],
             activePacks : [],
             inactivePacks : [],
             chooseMorePacks : false,
-            chartSettingsOpen : false,
-            viewPopulations : true,
-            chartsMinMax :  {
-                packs : { min : '0', max : '40' }
-            }
+            //chartSettingsOpen : false,
+            //viewPopulations : true
         };
     }
 
@@ -274,33 +272,31 @@ class Stats extends Component {
         packChart.update();
     }
 
+  /*
   toggleViewPopulations() {
     console.log('change chart now');
     this.setState({ viewPopulations : !this.state.viewPopulations });
   }
-
-  changeMinMax(chartType, minOrMax, update, e) {
-    let { chartsMinMax, packChart } = this.state;
-    chartsMinMax[chartType][minOrMax] = e.target.value;
-    this.setState({ chartsMinMax });
-
-    if (update) {
-        packChart.options.scales.yAxes[0].ticks[minOrMax] = parseInt(e.target.value);
-        packChart.update();
-    }
-  }
+  */
 
   render() {
       const { inactivePacks, activePacks, viewPopulations, chartSettingsOpen, chartsMinMax } = this.state;
       return (
         <div id="stats">
             <section>
-                <h1> Total Wolves Per Year </h1>
+                <h1> 
+                    Total Wolves Per Year 
+                </h1>
                 <canvas id="totalChart" max-width="400" max-height="400"></canvas>
             </section>
 
             <section>
-                <h1> Pack Populations 
+                <h1> 
+                    <ChartSettings 
+                        chart={this.state.yearChart}
+                        type="years"
+                    />
+                    Pack Populations By Year
                     <YearSelect 
                         currentYear={this.state.currentYear}
                         allYears={allYears}
@@ -312,44 +308,10 @@ class Stats extends Component {
 
             <section>
                 <h1> 
-                    <i  
-                        className={"fas fa-cog " + ( chartSettingsOpen ? 'active' : '' )}
-                        onClick={() => this.setState({ chartSettingsOpen : ! chartSettingsOpen })}
+                    <ChartSettings 
+                        chart={this.state.packChart}
+                        type="packs"
                     />
-                    { chartSettingsOpen ? 
-                        <div className="chart-settings-panel">
-                            <h2> Chart Options </h2>
-                            <div className="chart-settings">
-                                <div> 
-                                    <label> Min : </label> 
-                                    <input 
-                                        type="text"
-                                        value={chartsMinMax.packs.min}
-                                        onChange={this.changeMinMax.bind(this, 'packs', 'min', false)}
-                                        onChange={this.changeMinMax.bind(this, 'packs', 'min', true)}
-                                     />
-                                </div>
-                                <div> 
-                                    <label> Max : </label> 
-                                    <input 
-                                        type="text"
-                                        value={chartsMinMax.packs.max}
-                                        onChange={this.changeMinMax.bind(this, 'packs', 'max', false)}
-                                        onBlur={this.changeMinMax.bind(this, 'packs', 'max', true)}
-                                    />
-                                </div>
-                                <div onClick={this.toggleViewPopulations.bind(this)}> 
-                                    <label> View Populations: </label> 
-                                    <div className="ui fitted toggle checkbox">
-                                      <input
-                                        type="checkbox"
-                                        defaultChecked={viewPopulations}
-                                      /><label></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    : false }
                     Packs
                 </h1>
                 <div className="pack-labels">
