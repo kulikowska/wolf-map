@@ -75,11 +75,12 @@ class ChartSettings extends Component {
                                 onBlur={this.changeVal.bind(this, 'max', true)}
                             />
                         </div>
-                        <div onClick={this.toggleAutoTicks.bind(this)}>
+                        <div>
                             <label> Adjust Ticks Based on Data: </label>
                             <div className="ui fitted toggle checkbox">
                               <input
                                 type="checkbox"
+                                onChange={this.toggleAutoTicks.bind(this)}
                                 defaultChecked={autoTicks}
                               />
                               <label></label>
