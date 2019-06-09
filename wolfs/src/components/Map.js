@@ -6,10 +6,7 @@ import '../css/mapbox.css';
 
 import YearSelect from './Utility/YearSelect.js';
 
-//fjdklajfkdlajklfdjs
-//another test
-
-import { getAllYears } from '../functions.js';
+import { getAllYears, formatYearData } from '../functions.js';
 
 const years = require('../data/year-data.json')
 const styles = require('../styles.json')
@@ -23,7 +20,11 @@ let legendData;
 let allYears = getAllYears();
 
 /*
-To update year data, run this code, then copy data in console and add to years data file
+To update year data: 
+- Add 'formatYearData' to line 9
+- run this code
+- copy data in console and add to years data file
+
 const packs = require('../data/wolf-report-data.json')
 const noTerritory = require('../data/no-territory.json')
 const newShit = formatYearData(allYears, noTerritory, packs);

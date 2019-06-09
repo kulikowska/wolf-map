@@ -14,7 +14,7 @@ let allYears = getAllYears();
 
 
 //reformat year data 
-//console.log(years);
+console.log(years);
 
 let newYearData = JSON.parse(JSON.stringify(years));
 
@@ -82,11 +82,13 @@ class Stats extends Component {
   }
 
   drawTotalChart() {
-    console.log(years);
     let yearsArr = Object.entries(years);
     let labels = [];
     let data   = [];
 
+    yearsArr.unshift(yearsArr[yearsArr.length - 1]);
+    yearsArr.pop();
+    
     yearsArr.forEach(year => {
         labels.push(year[0]);
         data.push(year[1].total);
@@ -286,7 +288,7 @@ class Stats extends Component {
                 <h1> 
                     Total Wolves Per Year 
                 </h1>
-                <canvas id="totalChart" max-width="400" max-height="400"></canvas>
+                <canvas id="totalChart"></canvas>
             </section>
 
             <section>
@@ -302,7 +304,7 @@ class Stats extends Component {
                         changeYear={this.changeYear}
                     />
                 </h1>
-                <canvas id="yearChart" max-width="400" max-height="400"></canvas>
+                <canvas id="yearChart"></canvas>
             </section>
 
             <section>
@@ -311,7 +313,7 @@ class Stats extends Component {
                         chart={this.state.packChart}
                         type="packs"
                     />
-                    Packs
+                    Packs Over the Years
                 </h1>
                 <div className="pack-labels">
                    { this.state.activePacks.map(pack => {
@@ -330,7 +332,7 @@ class Stats extends Component {
                            { this.state.chooseMorePacks ? 
                              "Hide Packs"
                            :
-                             "Choose More Packs!"
+                             "Select Packs"
                            }
                         </button> 
                     </h2>
@@ -346,7 +348,7 @@ class Stats extends Component {
                    </div>
                 </div>
 
-                <canvas id="packChart" max-width="400" max-height="400"></canvas>
+                <canvas id="packChart"></canvas>
             </section>
         </div>
       );
