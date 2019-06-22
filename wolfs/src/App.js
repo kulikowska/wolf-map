@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css'
 import './css/App.css';
@@ -7,36 +7,62 @@ import Header from './components/Header.js';
 import Map from './components/Map.js';
 import Stats from './components/Stats.js';
 import About from './components/About.js';
+import Gallery from './components/Gallery.js';
 
-function App() {
-  return (
-    <div className="App">
-        <Router>
-            <div id="header">
-                <div className="overLay">
-                    <div className="title" ng-click="nav='map'"> Yellowstone Wolf Map</div>
-                    <nav>
-                        <ul className="menu">
-                            <li>
-                                <Link to="/"> Map</Link>
-                            </li>
-                            <li>
-                                <Link to="/statistics/"> Statistics </Link>
-                            </li>
-                            <li>
-                                <Link to="/about/"> About</Link>
-                            </li>
-                        </ul>
-                    </nav>
+class App extends Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+        menu : false
+    }
+}
+  render() {
+      return (
+        <div className="App">
+            <Router>
+                <div id="header">
+                    <div className="overLay">
+                        <div className="title" ng-click="nav='map'"><Link to="/"> Yellowstone Wolf Map </Link></div>
+                        <nav>
+                            <ul className={"menu" + (this.state.menu ? ' active' : '')}>
+                                <li>
+                                    <Link to="/about/"> About</Link>
+                                </li>
+                                <li>
+                                    <Link to="/"> Map</Link>
+                                </li>
+                                <li>
+                                    <Link to="/statistics/"> Statistics </Link>
+                                </li>
+                                <li>
+                                    <Link to="/gallery/"> Gallery </Link>
+                                </li>
+                                <li>
+                                    <Link to="/media/"> Media </Link>
+                                </li>
+                            </ul>
+
+                            <div    
+                                className={"burger" + (this.state.menu ? ' active' : '')}
+                                onClick={() => this.setState({ menu : !this.state.menu })}
+                            > 
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
-            </div>
 
-            <Route path="/" exact component={Map} />
-            <Route path="/statistics/" component={Stats} />
-            <Route path="/about/" component={About} />
-        </Router>
-    </div>
-  );
+                <Route path="/" exact component={Map} />
+                <Route path="/statistics/" component={Stats} />
+                <Route path="/about/" component={About} />
+                <Route path="/gallery/" component={Gallery} />
+            </Router>
+        </div>
+      );
+  }
 }
 
 export default App;
