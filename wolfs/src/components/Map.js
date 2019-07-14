@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter, Route, Link } from "react-router-dom";
 import mapboxgl from 'mapbox-gl';
 import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
@@ -292,7 +293,11 @@ class Map extends Component {
                 <tbody>
                     { legendData.packs && legendData.packs.map(pack => {
                         return (
-                            <tr key={pack.id} onMouseOver={() => this.hoverPack(pack)}>
+                            <tr 
+                                key={pack.id} 
+                                onMouseOver={() => this.hoverPack(pack)}
+                                onClick={() => this.props.history.push(`/map/${pack.id}`)}
+                            >
                                 <td className={"colourCode " + pack.id}></td>
                                 <td>{pack.name}:</td>
                                 <td>{pack.data.total}</td>
@@ -366,4 +371,4 @@ class Map extends Component {
    }
 }
 
-export default Map;
+export default withRouter(Map);

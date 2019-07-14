@@ -8,6 +8,7 @@ import Map from './components/Map.js';
 import Stats from './components/Stats.js';
 import About from './components/About.js';
 import Gallery from './components/Gallery.js';
+import Packs from './components/Packs.js';
 
 class App extends Component {
 
@@ -30,7 +31,7 @@ constructor(props) {
                                     <Link to="/about/"> About</Link>
                                 </li>
                                 <li>
-                                    <Link to="/"> Map</Link>
+                                    <Link to="/map"> Map</Link>
                                 </li>
                                 <li>
                                     <Link to="/statistics/"> Statistics </Link>
@@ -55,10 +56,12 @@ constructor(props) {
                     </div>
                 </div>
 
-                <Route path="/" exact component={Map} />
+                <Route path="/map" component={Map} />
+                <Route path="/" component={Map} />
                 <Route path="/statistics/" component={Stats} />
                 <Route path="/about/" component={About} />
                 <Route path="/gallery/" component={Gallery} />
+                <Route exact path="/map/:id" component={Packs} />
             </Router>
         </div>
       );
