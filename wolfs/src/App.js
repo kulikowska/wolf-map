@@ -56,8 +56,7 @@ constructor(props) {
                     </div>
                 </div>
 
-                <Route path="/map" component={Map} />
-                <Route path="/" component={Map} />
+                <Route path={["/", "/map", "/map/:id" ]} exact component={Map} />
                 <Route path="/statistics/" component={Stats} />
                 <Route path="/about/" component={About} />
                 <Route path="/gallery/" component={Gallery} />
