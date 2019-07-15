@@ -40,7 +40,7 @@ constructor(props) {
                                     <Link to="/gallery/"> Gallery </Link>
                                 </li>
                                 <li>
-                                    <Link to="/media/"> Media </Link>
+                                    <Link to="/resources/"> Resources</Link>
                                 </li>
                             </ul>
 

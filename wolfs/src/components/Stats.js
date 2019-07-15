@@ -144,7 +144,7 @@ class Stats extends Component {
                 label : thisPack.name,
                 borderColor : thisPack.color,
                 pointBackgroundColor: thisPack.color,
-                pointRadius : 10,
+                pointRadius : 5,
                 pointHoverRadius: 10,
                 fill : false
             }
@@ -245,7 +245,7 @@ class Stats extends Component {
                 label : thisPack.name,
                 borderColor : thisPack.color,
                 pointBackgroundColor: thisPack.color,
-                pointRadius : 10,
+                pointRadius : 5,
                 pointHoverRadius: 10,
                 fill : false
             }
